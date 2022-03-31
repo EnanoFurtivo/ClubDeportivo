@@ -1,29 +1,37 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace CapaNegocio
 {
-    internal class CuentaCorriente
+    public class CuentaCorriente
     {
+        private int id;
         private Socio socio;
+        private double monto;
 
-        public CuentaCorriente(Socio socio)
+        public CuentaCorriente(Socio unSocio)
         {
-            this.socio = socio;
+            this.socio = unSocio;
         }
 
-        internal double GetDeuda()
+        public double GetDeuda()
         {
-            throw new NotImplementedException();
+            return monto;
         }
 
-        internal double GenerarDeuda()
+        public double AgregarDeuda(string unaRazon, double unMonto)
         {
-            throw new NotImplementedException();
+            string razon = unaRazon;
+
+            return monto += unMonto;
         }
 
-        internal void RegistrarPago(string descripcion, double monto)
+        public void AgregarPago(double unMonto)
         {
-            throw new NotImplementedException();
+            monto -= unMonto;
         }
     }
 }
