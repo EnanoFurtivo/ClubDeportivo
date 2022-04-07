@@ -15,6 +15,9 @@ namespace CapaNegocio
         private List<Horario> horarios;
         private Profesor profesor;
 
-        public Actividad(int unId, string unaDescripcion, double unCosto, int unaCantMaxParticipantes, )
+        public Actividad(int unId, string unaDescripcion, double unCosto, int unaCantMaxParticipantes)
+        {
+
+        }
     }
 }
