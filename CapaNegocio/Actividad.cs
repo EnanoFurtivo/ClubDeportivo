@@ -10,8 +10,8 @@ namespace CapaNegocio
     {
         private int Id;
         private string Descripcion;
-        private double Costo { get; set; }
-        private int CantMaxParticipantes { get; set; }
+        public double Costo { get; set; }
+        public int CantMaxParticipantes { get; set; }
         private List<Horario> Horarios;
         private Profesor Profesor;
 

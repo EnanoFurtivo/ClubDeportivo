@@ -25,8 +25,8 @@ namespace CapaControl
 
         public void ModificarActividad(Actividad actividad, int cantMaxParticipantes, double costo)
         {
-            actividad.costo = costo;
-            actividad.cantMaxParticipantes = cantMaxParticipantes;
+            actividad.Costo = costo;
+            actividad.CantMaxParticipantes = cantMaxParticipantes;
         }
     }
 }
