@@ -8,10 +8,10 @@ namespace CapaNegocio
 {
     public class Actividad
     {
-        public int id;
-        public string descripcion;
-        public double costo;
-        public int cantMaxParticipantes;
+        private int id;
+        private string descripcion;
+        private double costo { get; set; }
+        private int cantMaxParticipantes { get; set; }
         private List<Horario> horarios;
         private Profesor profesor;
 
@@ -22,5 +22,7 @@ namespace CapaNegocio
             this.costo = unCosto;
             this.cantMaxParticipantes = unaCantMaxParticipantes;
         }
+
+        
     }
 }
