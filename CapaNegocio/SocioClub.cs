@@ -11,7 +11,7 @@ namespace CapaNegocio
         private static int MaxActividades = 5;
         private double Cuota;
 
-        public SocioClub(string nombre, string clave, double cuota) : base(nombre, clave)
+        public SocioClub(int dni, string nombre, string clave, double cuota) : base(dni, nombre, clave)
         {
             this.Cuota = cuota;
         }

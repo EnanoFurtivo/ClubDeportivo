@@ -8,7 +8,7 @@ namespace CapaNegocio
 {
     class SocioActividades : Socio
     {
-        public SocioActividades(string nombre, string clave) : base(nombre, clave) { ; }
+        public SocioActividades(int dni, string nombre, string clave) : base(dni, nombre, clave) { ; }
 
         public override double GenerarDeuda()
         {

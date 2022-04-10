@@ -12,7 +12,7 @@ namespace CapaNegocio
         private List<RegistroActividad> RegistroActividades;
         private CuentaCorriente CuentaCorriente;
 
-        public Socio(string nombre, string clave) : base(nombre, clave)
+        public Socio(int dni, string nombre, string clave) : base(dni, nombre, clave)
         {
             this.Estado = true;
             this.RegistroActividades = new List<RegistroActividad>();
