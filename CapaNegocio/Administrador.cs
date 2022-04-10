@@ -6,41 +6,9 @@ using System.Threading.Tasks;
 
 namespace CapaNegocio
 {
-    public class Administrador
+    public class Administrador : Usuario
     {
-        
-        public Administrador()
-        {
-        }
+        public Administrador(string nombre, string clave) : base(nombre, clave) { ; }
 
-        public void AbmSocios(Socio socio)
-        {
-            
-        }
-
-        public void AbmProfesores(Profesor profesor)
-        {
-
-        }
-
-        public void AbmActividades(Actividad actividad)
-        {
-
-        }
-
-        public void RegistrarPago(double pago)
-        {
-
-        }
-
-        public void AsignarActividad(Profesor profesor, Socio socio, Actividad actividad)
-        {
-
-        }
-
-        public void DesvincularActividad(Profesor profesor, Socio socio, Actividad actividad)
-        {
-
-        }
     }
 }
