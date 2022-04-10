@@ -8,7 +8,7 @@ namespace CapaNegocio
 {
     public class Administrador : Usuario
     {
-        public Administrador(string nombre, string clave) : base(nombre, clave) { ; }
+        public Administrador(int dni, string nombre, string clave) : base(dni, nombre, clave) { ; }
 
     }
 }
