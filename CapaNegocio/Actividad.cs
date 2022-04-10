@@ -8,16 +8,19 @@ namespace CapaNegocio
 {
     public class Actividad
     {
-        private int id;
-        private string descripcion;
-        private double costo;
-        private int cantMaxParticipantes;
+        public int id;
+        public string descripcion;
+        public double costo;
+        public int cantMaxParticipantes;
         private List<Horario> horarios;
         private Profesor profesor;
 
         public Actividad(int unId, string unaDescripcion, double unCosto, int unaCantMaxParticipantes)
         {
-
+            this.id = unId;
+            this.descripcion = unaDescripcion;
+            this.costo = unCosto;
+            this.cantMaxParticipantes = unaCantMaxParticipantes;
         }
     }
 }
