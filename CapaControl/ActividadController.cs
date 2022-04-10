@@ -11,24 +11,22 @@ namespace CapaControl
     {
         List<Actividad> ListActividad = new List<Actividad>();
 
-        public ActividadesController()
-        {
+        public ActividadesController(){ ; }
 
-        }
-
-        public bool AgregarActividad(Actividad actividad)
+        public void AgregarActividad(Actividad actividad)
         {
             this.ListActividad.Add(actividad);
         }
 
-        public bool EliminarActividad(Actividad actividad)
+        public void EliminarActividad(Actividad actividad)
         {
             this.ListActividad.Remove(actividad);
         }
 
-        public void ModificarActividad(Actividad actividad)
+        public void ModificarActividad(Actividad actividad, int cantMaxParticipantes, double costo)
         {
-            
+            actividad.costo = costo;
+            actividad.cantMaxParticipantes = cantMaxParticipantes;
         }
     }
 }
