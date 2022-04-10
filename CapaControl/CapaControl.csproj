@@ -41,8 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActividadController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SocioController.cs" />
+    <Compile Include="UsuarioController.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CapaNegocio\CapaNegocio.csproj">

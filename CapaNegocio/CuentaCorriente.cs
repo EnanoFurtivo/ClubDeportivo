@@ -8,30 +8,30 @@ namespace CapaNegocio
 {
     public class CuentaCorriente
     {
-        private int id;
-        private Socio socio;
-        private double monto;
+        private int Id;
+        private Socio Socio;
+        private double Saldo;
 
-        public CuentaCorriente(Socio unSocio)
+        public CuentaCorriente(Socio socio)
         {
-            this.socio = unSocio;
+            this.Socio = socio;
         }
 
-        public double GetDeuda()
+        public double GetSaldo()
         {
-            return monto;
+            return this.Saldo;
         }
 
         public double AgregarDeuda(string unaRazon, double unMonto)
         {
             string razon = unaRazon;
 
-            return monto += unMonto;
+            return this.Saldo += unMonto;
         }
 
-        public void AgregarPago(double unMonto)
+        internal void RegistrarPago(string descripcion, double monto)
         {
-            monto -= unMonto;
+            this.Saldo -= monto;
         }
     }
 }
