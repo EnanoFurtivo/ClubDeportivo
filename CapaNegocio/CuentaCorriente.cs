@@ -10,28 +10,27 @@ namespace CapaNegocio
     {
         private int id;
         private Socio socio;
-        private double monto;
+        private double saldo;
 
         public CuentaCorriente(Socio unSocio)
         {
             this.socio = unSocio;
         }
 
-        public double GetDeuda()
+        public double GetSaldo()
         {
-            return monto;
+            return this.saldo;
         }
 
         public double AgregarDeuda(string unaRazon, double unMonto)
         {
             string razon = unaRazon;
-
-            return monto += unMonto;
+            return this.saldo += unMonto;
         }
 
         public void AgregarPago(double unMonto)
         {
-            monto -= unMonto;
+            this.saldo -= unMonto;
         }
     }
 }
