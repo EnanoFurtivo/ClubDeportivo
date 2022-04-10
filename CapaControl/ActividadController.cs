@@ -7,11 +7,11 @@ using CapaNegocio;
 
 namespace CapaControl
 {
-    class ActividadesController
+    class ActividadController: UsuarioController
     {
         List<Actividad> ListActividad = new List<Actividad>();
 
-        public ActividadesController(){ ; }
+        public ActividadController(string nombre, String clave): base(nombre, clave){ ; }
 
         public void AgregarActividad(Actividad actividad)
         {
