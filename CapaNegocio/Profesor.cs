@@ -1,6 +1,8 @@
 ﻿namespace CapaNegocio
 {
-    internal class Profesor
+    public class Profesor : Usuario
     {
+        public Profesor(string nombre, string clave) : base(nombre, clave) {; }
+
     }
 }

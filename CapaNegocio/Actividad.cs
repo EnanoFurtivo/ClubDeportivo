@@ -8,12 +8,12 @@ namespace CapaNegocio
 {
     public class Actividad
     {
-        private int id;
-        private string descripcion;
-        private double costo;
-        private int cantMaxParticipantes;
-        private List<Horario> horarios;
-        private Profesor profesor;
+        private int Id;
+        private string Descripcion;
+        private double Costo;
+        private int CantMaxParticipantes;
+        private List<Horario> Horarios;
+        private Profesor Profesor;
 
         public Actividad(int unId, string unaDescripcion, double unCosto, int unaCantMaxParticipantes)
         {

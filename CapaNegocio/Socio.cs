@@ -12,18 +12,19 @@ namespace CapaNegocio
         private List<RegistroActividad> RegistroActividades;
         private CuentaCorriente CuentaCorriente;
 
-        public Socio()
+        public Socio(string nombre, string clave) : base(nombre, clave)
         {
             this.Estado = true;
             this.RegistroActividades = new List<RegistroActividad>();
             this.CuentaCorriente = new CuentaCorriente(this);
         }
 
+        /// <summary>
+        /// Devuelve las actividades del mes actual.
+        /// Si no hay registros de actividad devuelve null.
+        /// </summary>
         public List<Actividad> GetActividades()
         {
-            //Leer todos los registros y devolver las actividades del mes actual//
-            //Si no hay registros de actividad se devuelve null//
-
             if (this.RegistroActividades.Count < 1)
                 return null;
 
@@ -36,19 +37,46 @@ namespace CapaNegocio
             return resultList;
         }
 
+        /// <summary>
+        /// Registra un nuevo pago para el socio
+        /// </summary>
         public void RegistrarPago(string descripcion, double monto)
         {
             this.CuentaCorriente.RegistrarPago(descripcion, monto);
         }
 
-        public double GetDeuda()
+        /// <summary>
+        /// Obtiene el saldo del socio
+        /// </summary>
+        public double GetSaldo()
         {
-            //La cuenta corriente se encarga de administrar la deuda//
-            return this.CuentaCorriente.GetDeuda();
+            return this.CuentaCorriente.GetSaldo();
         }
 
         public abstract double GenerarDeuda();
-        //dependiendio del tipo de socio se genera dedua de manera distinta//
 
+        /// <summary>
+        /// Devuelve la cantidad de actividades en las que esta registrado el socio
+        /// </summary>
+        public double CountActividades()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Le asigna una actividad al socio
+        /// </summary>
+        public double AsignarActividad()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Desvincula una actividad del socio
+        /// </summary>
+        public double DesvincularActividad()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
