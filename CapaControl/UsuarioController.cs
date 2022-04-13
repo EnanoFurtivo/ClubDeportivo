@@ -10,8 +10,6 @@ namespace CapaControl
     public abstract class UsuarioController
     {
         private List<Usuario> ListaUsuario = new List<Usuario>();
-
-        public abstract void AgregarUsuario();
         
         public bool ValidarCredenciales(int dni, string clave)
         {
