@@ -7,13 +7,12 @@ using System.Threading.Tasks;
 
 namespace CapaControl
 {
-    public abstract class UsuarioController
+    public class UsuarioController
     {
         private List<Usuario> ListaUsuario = new List<Usuario>();
         
         public bool ValidarCredenciales(int dni, string clave)
         {
-            bool result = false;
             Usuario u = null;
 
             if ((u = this.GetUsuario(dni)) == null)
@@ -22,8 +21,9 @@ namespace CapaControl
             if (!u.ValidarClave(clave))
                 return false;
 
-            return result;
+            return true;
         }
+
 
         public Usuario GetUsuario(int dni)
         {

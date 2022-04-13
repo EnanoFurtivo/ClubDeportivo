@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActividadController.cs" />
+    <Compile Include="ProfesorController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SocioController.cs" />
     <Compile Include="UsuarioController.cs" />
