@@ -3,26 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CapaNegocio;
 
 namespace CapaControl
 {
     class SocioController : UsuarioController
     {
-        private List<Socio> ListaSocio = new <Socio> ();
+        private List<Socio> ListaSocio = new List<Socio>();
 
-        public void AgregarSocio()
+        public void AgregarSocio(Socio socio)
         {
-            ListaSocio.Add(Socio);
+            ListaSocio.Add(socio);
         }
 
-        public void EliminarSocio()
+        public void EliminarSocio(Socio socio)
         {
-            ListaSocio.Remove(Socio);
+            ListaSocio.Remove(socio);
         }
 
         public Socio GetSocio(int dni)
         {
-            return this.ListaSocio.Find(u => u.Dni == Dni);
+            return this.ListaSocio.Find(u => u.Dni == dni);
         }
     }
 }
