@@ -15,7 +15,7 @@ namespace ClubDeportivo
     {
         private int dni;
         private string clave;
-        private UsuarioController usuarioController =  new UsuarioController();
+        private UsuarioController usuarioController = new UsuarioController();
 
         public FormLogin()
         {

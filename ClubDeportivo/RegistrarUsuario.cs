@@ -61,10 +61,10 @@ namespace ClubDeportivo
         private bool ValidarTipoUsuario(EUsuario tipoUsuario)
         {
             //if (!OpcionesComboBox.Contains(tipoUsuario))
-            {
-                MessageBox.Show("Se esperaba un tipo de usuario valido", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
+            //{
+                //MessageBox.Show("Se esperaba un tipo de usuario valido", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //return false;
+            //}
 
             return true;
         }
