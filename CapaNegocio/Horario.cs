@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapaNegocio
 {
-    class Horario
+    public class Horario
     {
         private DateTime HorarioInicio;
         private DateTime HorarioFin;

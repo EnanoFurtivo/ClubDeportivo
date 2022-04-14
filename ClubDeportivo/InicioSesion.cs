@@ -39,8 +39,7 @@ namespace ClubDeportivo
 
         private void buttonRegistrar_Click(object sender, EventArgs e)
         {
-            RegistrarUsuario regUs = new RegistrarUsuario();
-            regUs.ShowDialog();
+
         }
     }
 }

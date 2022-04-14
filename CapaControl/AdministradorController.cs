@@ -1,24 +1,24 @@
+﻿using CapaNegocio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CapaNegocio;
 
 namespace CapaControl
 {
-    public class ProfesorController : UsuarioController
+    public class AdministradorController : UsuarioController
     {
-        private static List<Profesor> ListaProfesor = new List<Profesor>();
+        private static List<Administrador> ListaAdministrador = new List<Administrador>();
 
         public override void AddUsuario(int dni, string nombre, string clave)
         {
-            ListaProfesor.Add(new Profesor(dni, nombre, clave));
+            ListaAdministrador.Add(new Administrador(dni, nombre, clave));
         }
 
         public override Usuario GetUsuario(int dni)
         {
-            return ListaProfesor.Find(u => u.Dni == dni);
+            throw new NotImplementedException();
         }
 
         public override void RemoveUsuario(int dni)
