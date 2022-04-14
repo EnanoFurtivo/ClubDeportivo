@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CapaNegocio
 {
-    public class Usuario
+    public abstract class Usuario
     {
         public string Nombre { get; internal set; }
         public int Dni { get; internal set; }

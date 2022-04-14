@@ -7,13 +7,18 @@ using System.Threading.Tasks;
 
 namespace CapaControl
 {
+    public enum EUsuario
+    {
+        Administrador = 0,
+        Profesor = 1,
+        SocioClub = 2,
+        SocioActividades = 3
+    }
+
     public abstract class UsuarioController
     {
-        private List<Usuario> ListaUsuario = new List<Usuario>();
-        
         public bool ValidarCredenciales(int dni, string clave)
         {
-            bool result = false;
             Usuario u = null;
 
             if ((u = this.GetUsuario(dni)) == null)
@@ -22,12 +27,11 @@ namespace CapaControl
             if (!u.ValidarClave(clave))
                 return false;
 
-            return result;
+            return true;
         }
 
-        public Usuario GetUsuario(int dni)
-        {
-            return this.ListaUsuario.Find(u => u.Dni == dni);
-        }
+        public abstract Usuario GetUsuario(int dni);
+        public abstract void RemoveUsuario(int dni);
+        public abstract void AddUsuario(int dni, string nombre, string clave);
     }
 }

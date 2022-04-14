@@ -7,7 +7,7 @@ using CapaNegocio;
 
 namespace CapaControl
 {
-    class ActividadController
+    public class ActividadController
     {
         List<Actividad> ListActividad = new List<Actividad>();
 
