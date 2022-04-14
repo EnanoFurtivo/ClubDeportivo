@@ -1,9 +1,9 @@
-﻿using CapaNegocio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CapaNegocio;
 
 namespace CapaControl
 {
@@ -18,7 +18,7 @@ namespace CapaControl
 
         public override Usuario GetUsuario(int dni)
         {
-            throw new NotImplementedException();
+            return ListaProfesor.Find(u => u.Dni == dni);
         }
 
         public override void RemoveUsuario(int dni)

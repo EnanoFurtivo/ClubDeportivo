@@ -7,14 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using CapaControl;
 
 namespace ClubDeportivo
 {
     public partial class FormLogin : Form
     {
-        private string nombre;
+        private int dni;
         private string clave;
+        private UsuarioController usuarioController =  new UsuarioController();
 
         public FormLogin()
         {
@@ -23,10 +24,17 @@ namespace ClubDeportivo
 
         private void buttonEntrar_Click(object sender, EventArgs e)
         {
-            this.nombre = textBoxUsuario.Text;
+            this.dni = int.Parse(textBoxDni.Text);
             this.clave = textBoxClave.Text;
 
-
+            if (usuarioController.ValidarCredenciales(dni, clave)==true)
+            {
+                Club clb = new Club();
+                clb.ShowDialog();
+            }
+            else
+                 MessageBox.Show("El dni o clave ingresada es incorrecta");
+        
         }
 
         private void buttonRegistrar_Click(object sender, EventArgs e)

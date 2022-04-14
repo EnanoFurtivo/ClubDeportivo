@@ -29,9 +29,10 @@ namespace CapaControl
 
             return true;
         }
-
+      
         public abstract Usuario GetUsuario(int dni);
         public abstract void RemoveUsuario(int dni);
         public abstract void AddUsuario(int dni, string nombre, string clave);
+
     }
 }

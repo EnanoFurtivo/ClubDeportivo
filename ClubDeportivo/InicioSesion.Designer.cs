@@ -32,7 +32,7 @@ namespace ClubDeportivo
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             this.labelLoginTitulo = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.textBoxUsuario = new System.Windows.Forms.TextBox();
+            this.textBoxDni = new System.Windows.Forms.TextBox();
             this.textBoxClave = new System.Windows.Forms.TextBox();
             this.buttonEntrar = new System.Windows.Forms.Button();
             this.buttonRegistrar = new System.Windows.Forms.Button();
@@ -64,13 +64,13 @@ namespace ClubDeportivo
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // textBoxUsuario
+            // textBoxDni
             // 
-            this.textBoxUsuario.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.textBoxUsuario.Location = new System.Drawing.Point(107, 226);
-            this.textBoxUsuario.Name = "textBoxUsuario";
-            this.textBoxUsuario.Size = new System.Drawing.Size(223, 20);
-            this.textBoxUsuario.TabIndex = 2;
+            this.textBoxDni.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.textBoxDni.Location = new System.Drawing.Point(107, 226);
+            this.textBoxDni.Name = "textBoxDni";
+            this.textBoxDni.Size = new System.Drawing.Size(223, 20);
+            this.textBoxDni.TabIndex = 2;
             // 
             // textBoxClave
             // 
@@ -109,9 +109,9 @@ namespace ClubDeportivo
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label1.Location = new System.Drawing.Point(107, 210);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 13);
+            this.label1.Size = new System.Drawing.Size(24, 13);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Usuario";
+            this.label1.Text = "Dni";
             // 
             // label2
             // 
@@ -135,7 +135,7 @@ namespace ClubDeportivo
             this.Controls.Add(this.buttonRegistrar);
             this.Controls.Add(this.buttonEntrar);
             this.Controls.Add(this.textBoxClave);
-            this.Controls.Add(this.textBoxUsuario);
+            this.Controls.Add(this.textBoxDni);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelLoginTitulo);
             this.Name = "FormLogin";
@@ -150,7 +150,7 @@ namespace ClubDeportivo
 
         private System.Windows.Forms.Label labelLoginTitulo;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textBoxUsuario;
+        private System.Windows.Forms.TextBox textBoxDni;
         private System.Windows.Forms.TextBox textBoxClave;
         private System.Windows.Forms.Button buttonEntrar;
         private System.Windows.Forms.Button buttonRegistrar;
