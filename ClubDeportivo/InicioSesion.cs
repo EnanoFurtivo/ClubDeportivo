@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CapaNegocio;
+
 
 namespace ClubDeportivo
 {
@@ -15,7 +15,6 @@ namespace ClubDeportivo
     {
         private string nombre;
         private string clave;
-        private Usuario usuario;
 
         public FormLogin()
         {
@@ -27,21 +26,12 @@ namespace ClubDeportivo
             this.nombre = textBoxUsuario.Text;
             this.clave = textBoxClave.Text;
 
-            if (usuario == null)
-                MessageBox.Show("No hay ningun usuario en la lista");
-                else if (usuario.ValidarClave(clave) == false)
-                    MessageBox.Show("El usuario no existe");
-                else
-                {
-                    Club clb = new Club();
-                    clb.ShowDialog();
-                }
+
         }
 
         private void buttonRegistrar_Click(object sender, EventArgs e)
         {
-            RegistrarUsuario regUs = new RegistrarUsuario();
-            regUs.ShowDialog();
+
         }
     }
 }

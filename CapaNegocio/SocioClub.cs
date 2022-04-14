@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapaNegocio
 {
-    class SocioClub : Socio
+    public class SocioClub : Socio
     {
         private static int MaxActividades = 5;
         private double Cuota;
