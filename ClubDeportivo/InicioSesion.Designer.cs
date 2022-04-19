@@ -38,6 +38,7 @@ namespace ClubDeportivo
             this.buttonRegistrar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.comboBoxTipoUsuario = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,7 +68,7 @@ namespace ClubDeportivo
             // textBoxDni
             // 
             this.textBoxDni.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.textBoxDni.Location = new System.Drawing.Point(107, 226);
+            this.textBoxDni.Location = new System.Drawing.Point(107, 212);
             this.textBoxDni.Name = "textBoxDni";
             this.textBoxDni.Size = new System.Drawing.Size(223, 20);
             this.textBoxDni.TabIndex = 2;
@@ -77,13 +78,14 @@ namespace ClubDeportivo
             this.textBoxClave.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.textBoxClave.Location = new System.Drawing.Point(107, 300);
             this.textBoxClave.Name = "textBoxClave";
+            this.textBoxClave.PasswordChar = '*';
             this.textBoxClave.Size = new System.Drawing.Size(223, 20);
             this.textBoxClave.TabIndex = 3;
             // 
             // buttonEntrar
             // 
             this.buttonEntrar.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonEntrar.Location = new System.Drawing.Point(107, 348);
+            this.buttonEntrar.Location = new System.Drawing.Point(107, 374);
             this.buttonEntrar.Name = "buttonEntrar";
             this.buttonEntrar.Size = new System.Drawing.Size(223, 23);
             this.buttonEntrar.TabIndex = 4;
@@ -94,7 +96,7 @@ namespace ClubDeportivo
             // buttonRegistrar
             // 
             this.buttonRegistrar.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonRegistrar.Location = new System.Drawing.Point(107, 405);
+            this.buttonRegistrar.Location = new System.Drawing.Point(107, 415);
             this.buttonRegistrar.Name = "buttonRegistrar";
             this.buttonRegistrar.Size = new System.Drawing.Size(223, 23);
             this.buttonRegistrar.TabIndex = 5;
@@ -107,7 +109,7 @@ namespace ClubDeportivo
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Yu Gothic UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(107, 210);
+            this.label1.Location = new System.Drawing.Point(107, 196);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(24, 13);
             this.label1.TabIndex = 6;
@@ -118,11 +120,20 @@ namespace ClubDeportivo
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Yu Gothic UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Location = new System.Drawing.Point(107, 284);
+            this.label2.Location = new System.Drawing.Point(107, 272);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 7;
             this.label2.Text = "Clave";
+            // 
+            // comboBoxTipoUsuario
+            // 
+            this.comboBoxTipoUsuario.FormattingEnabled = true;
+            this.comboBoxTipoUsuario.Location = new System.Drawing.Point(107, 338);
+            this.comboBoxTipoUsuario.Name = "comboBoxTipoUsuario";
+            this.comboBoxTipoUsuario.Size = new System.Drawing.Size(159, 21);
+            this.comboBoxTipoUsuario.TabIndex = 8;
+            this.comboBoxTipoUsuario.Text = "Seleccione el tipo de usuario";
             // 
             // FormLogin
             // 
@@ -130,6 +141,7 @@ namespace ClubDeportivo
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(450, 450);
+            this.Controls.Add(this.comboBoxTipoUsuario);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonRegistrar);
@@ -156,6 +168,7 @@ namespace ClubDeportivo
         private System.Windows.Forms.Button buttonRegistrar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboBoxTipoUsuario;
     }
 }
 

@@ -20,10 +20,27 @@ namespace CapaControl
         {
             return ListaProfesor.Find(u => u.Dni == dni);
         }
+        public override bool ValidarCredenciales(int dni, string clave)
+        {
+            Usuario u = null;
+
+            if ((u = this.GetUsuario(dni)) == null)
+                return false;
+
+            if (!u.ValidarClave(clave))
+                return false;
+
+            return true;
+        }
 
         public override void RemoveUsuario(int dni)
         {
             throw new NotImplementedException();
+        }
+
+        public override List<Usuario> MostrarLista()
+        {
+            return ListaProfesor.Cast<Usuario>().ToList();
         }
     }
 }

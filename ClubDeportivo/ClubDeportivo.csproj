@@ -46,11 +46,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Club.cs">
+    <Compile Include="Administrador.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Club.Designer.cs">
-      <DependentUpon>Club.cs</DependentUpon>
+    <Compile Include="Administrador.Designer.cs">
+      <DependentUpon>Administrador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AgregarActividad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgregarActividad.Designer.cs">
+      <DependentUpon>AgregarActividad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Profesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Profesor.Designer.cs">
+      <DependentUpon>Profesor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SocioActividades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SocioActividades.Designer.cs">
+      <DependentUpon>SocioActividades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SocioClub.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SocioClub.Designer.cs">
+      <DependentUpon>SocioClub.cs</DependentUpon>
     </Compile>
     <Compile Include="RegistrarUsuario.cs">
       <SubType>Form</SubType>
@@ -66,6 +90,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Administrador.resx">
+      <DependentUpon>Administrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AgregarActividad.resx">
+      <DependentUpon>AgregarActividad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Profesor.resx">
+      <DependentUpon>Profesor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RegistrarUsuario.resx">
       <DependentUpon>RegistrarUsuario.cs</DependentUpon>
     </EmbeddedResource>
@@ -81,8 +114,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="RegistrarUsuario.resx">
-      <DependentUpon>RegistrarUsuario.cs</DependentUpon>
+    <EmbeddedResource Include="SocioActividades.resx">
+      <DependentUpon>SocioActividades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SocioClub.resx">
+      <DependentUpon>SocioClub.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -101,6 +137,10 @@
     <ProjectReference Include="..\CapaControl\CapaControl.csproj">
       <Project>{23d2ee3d-2912-464a-9b6c-07061c0af31f}</Project>
       <Name>CapaControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CapaNegocio\CapaNegocio.csproj">
+      <Project>{4fc787f1-8d96-412d-8d4f-863123c1c7cf}</Project>
+      <Name>CapaNegocio</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

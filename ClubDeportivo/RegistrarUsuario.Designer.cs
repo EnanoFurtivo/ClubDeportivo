@@ -81,6 +81,7 @@ namespace ClubDeportivo
             this.textBoxClave.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.textBoxClave.Location = new System.Drawing.Point(107, 263);
             this.textBoxClave.Name = "textBoxClave";
+            this.textBoxClave.PasswordChar = '*';
             this.textBoxClave.Size = new System.Drawing.Size(223, 20);
             this.textBoxClave.TabIndex = 3;
             // 
@@ -141,7 +142,7 @@ namespace ClubDeportivo
             this.buttonRegistro.Name = "buttonRegistro";
             this.buttonRegistro.Size = new System.Drawing.Size(223, 23);
             this.buttonRegistro.TabIndex = 11;
-            this.buttonRegistro.Text = "Regitrar";
+            this.buttonRegistro.Text = "Registrar";
             this.buttonRegistro.UseVisualStyleBackColor = true;
             this.buttonRegistro.Click += new System.EventHandler(this.buttonRegistro_Click);
             // 
@@ -188,6 +189,7 @@ namespace ClubDeportivo
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
