@@ -15,11 +15,11 @@ namespace ClubDeportivo
     {
         private int dni;
         private string clave;
-        private UsuarioController usuarioController = new UsuarioController();
 
         public FormLogin()
         {
             InitializeComponent();
+            this.comboBoxTipoUsuario.DataSource = Enum.GetValues(typeof(EUsuario));
         }
 
         private void buttonEntrar_Click(object sender, EventArgs e)
@@ -27,19 +27,73 @@ namespace ClubDeportivo
             this.dni = int.Parse(textBoxDni.Text);
             this.clave = textBoxClave.Text;
 
-            if (usuarioController.ValidarCredenciales(dni, clave)==true)
+            EUsuario tipoUsuario = (EUsuario)this.comboBoxTipoUsuario.SelectedItem;
+
+            UsuarioController controller;
+            switch (tipoUsuario)
             {
-                Club clb = new Club();
-                clb.ShowDialog();
+                case EUsuario.Administrador:
+                    controller = new AdministradorController();
+
+                    if (controller.ValidarCredenciales(dni, clave) == true)
+                    {
+                        FormAdministrador form = new FormAdministrador(controller, dni);
+                        form.ShowDialog();
+                    }
+                    else
+                        MessageBox.Show("El dni o clave ingresada es incorrecta");
+
+                    break;
+
+                case EUsuario.Profesor:
+                    controller = new ProfesorController();
+                    
+                    if (controller.ValidarCredenciales(dni, clave) == true)
+                    {
+                        FormProfesor form = new FormProfesor();
+                        form.ShowDialog();
+                    }
+                    else
+                        MessageBox.Show("El dni o clave ingresada es incorrecta");
+
+                    break;
+
+                case EUsuario.SocioClub:
+                    controller = new SocioClubController();
+
+                    if (controller.ValidarCredenciales(dni, clave) == true)
+                    {
+                        FormSocioClub form = new FormSocioClub();
+                        form.ShowDialog();
+                    }
+                    else
+                        MessageBox.Show("El dni o clave ingresada es incorrecta");
+
+                    break;
+
+                case EUsuario.SocioActividades:
+                    controller = new SocioActividadesController();
+
+                    if (controller.ValidarCredenciales(dni, clave) == true)
+                    {
+                        FormSocioActividades form = new FormSocioActividades();
+                        form.ShowDialog();
+                    }
+                    else
+                        MessageBox.Show("El dni o clave ingresada es incorrecta");
+
+                    break;
+
+                default:
+                    MessageBox.Show("Error interno del sistema", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
             }
-            else
-                 MessageBox.Show("El dni o clave ingresada es incorrecta");
-        
         }
 
         private void buttonRegistrar_Click(object sender, EventArgs e)
         {
-
+            FormRegistro registrar = new FormRegistro();
+            registrar.ShowDialog();
         }
     }
 }

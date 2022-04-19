@@ -125,6 +125,8 @@ namespace ClubDeportivo
             }
 
             controller.AddUsuario(dni, nombre, clave);
+
+            this.Close();
         }
     }
 }

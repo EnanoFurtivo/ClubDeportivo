@@ -15,14 +15,19 @@ namespace CapaNegocio
         private List<Horario> Horarios;
         private Profesor Profesor;
 
-        public Actividad(int unId, string unaDescripcion, double unCosto, int unaCantMaxParticipantes)
+        public Actividad(int unId, string unaDescripcion, double unCosto, int unaCantMaxParticipantes, Profesor profesor, List<Horario> horarios)
         {
             this.Id = unId;
             this.Descripcion = unaDescripcion;
             this.Costo = unCosto;
             this.CantMaxParticipantes = unaCantMaxParticipantes;
+            this.Profesor = profesor;
+            this.Horarios = horarios;
         }
 
-        
+        public override string ToString()
+        {
+            return this.Descripcion + " - $" + this.Costo;
+        }
     }
 }

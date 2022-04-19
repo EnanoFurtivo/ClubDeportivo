@@ -11,11 +11,9 @@ namespace CapaControl
     {
         List<Actividad> ListActividad = new List<Actividad>();
 
-        public ActividadController(){ ; }
-
-        public void AgregarActividad(Actividad actividad)
+        public void AgregarActividad(int id, string desc, double costo, int CantMax, Profesor profesor, List<Horario> listaHorarios)
         {
-            this.ListActividad.Add(actividad);
+            this.ListActividad.Add(new Actividad(id, desc, costo, CantMax, profesor, listaHorarios));
         }
 
         public void EliminarActividad(Actividad actividad)
@@ -27,6 +25,11 @@ namespace CapaControl
         {
             actividad.Costo = costo;
             actividad.CantMaxParticipantes = cantMaxParticipantes;
+        }
+
+        public List<Actividad> MostrarLista()
+        {
+            return this.ListActividad;
         }
     }
 }

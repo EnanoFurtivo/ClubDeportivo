@@ -17,22 +17,11 @@ namespace CapaControl
 
     public abstract class UsuarioController
     {
-        public bool ValidarCredenciales(int dni, string clave)
-        {
-            Usuario u = null;
-
-            if ((u = this.GetUsuario(dni)) == null)
-                return false;
-
-            if (!u.ValidarClave(clave))
-                return false;
-
-            return true;
-        }
-      
+        public abstract bool ValidarCredenciales(int dni, string clave);
         public abstract Usuario GetUsuario(int dni);
         public abstract void RemoveUsuario(int dni);
         public abstract void AddUsuario(int dni, string nombre, string clave);
 
+        public abstract List<Usuario> MostrarLista();
     }
 }
