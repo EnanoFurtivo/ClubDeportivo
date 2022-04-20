@@ -42,10 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatosActividad.cs" />
-    <Compile Include="DatosAdministrador.cs" />
-    <Compile Include="DatosProfesor.cs" />
-    <Compile Include="DatosSocioActividad.cs" />
-    <Compile Include="DatosSocioClub.cs" />
+    <Compile Include="DatosUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
