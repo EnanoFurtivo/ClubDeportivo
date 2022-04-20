@@ -15,12 +15,12 @@ namespace ClubDeportivo
     {
         private int dni;
         private string clave;
-        AdministradorController usuarios;
+        UsuarioController usuarios;
 
         public FormLogin()
         {
             InitializeComponent();
-            usuarios = (AdministradorController)AdministradorController.Recuperar(); 
+            usuarios = UsuarioController.Recuperar(); 
             this.comboBoxTipoUsuario.DataSource = Enum.GetValues(typeof(EUsuario));
             UsuarioController controller;
             int i = 0;
@@ -107,7 +107,7 @@ namespace ClubDeportivo
             switch (tipoUsuario)
             {
                 case EUsuario.Administrador:
-                    controller = new AdministradorController();
+                    //controller = new AdministradorController();
 
                     if (controller.ValidarCredenciales(dni, clave) == true)
                     {
@@ -122,7 +122,7 @@ namespace ClubDeportivo
 
 
                 case EUsuario.Profesor:
-                    controller = new ProfesorController();
+                    //controller = new ProfesorController();
                     
                     if (controller.ValidarCredenciales(dni, clave) == true)
                     {
@@ -137,7 +137,7 @@ namespace ClubDeportivo
                     break;
 
                 case EUsuario.SocioClub:
-                    controller = new SocioClubController();
+                   // controller = new SocioClubController();
 
                     if (controller.ValidarCredenciales(dni, clave) == true)
                     {
@@ -151,7 +151,7 @@ namespace ClubDeportivo
                     break;
 
                 case EUsuario.SocioActividades:
-                    controller = new SocioActividadesController();
+                    //controller = new SocioActividadesController();
 
                     if (controller.ValidarCredenciales(dni, clave) == true)
                     {

@@ -9,7 +9,7 @@ using System.IO;
 
 namespace CapaDatos
 {
-    public class DatosProfesor
+    public class DatosUsuarios
     {
             public static bool Guardar(object o)
             {
@@ -17,7 +17,7 @@ namespace CapaDatos
                 try
                 {
                     BinaryFormatter bf = new BinaryFormatter();
-                    FileStream miArchivo = new FileStream("Profesores.dat", FileMode.Create);
+                    FileStream miArchivo = new FileStream("Usuarios.dat", FileMode.Create);
                     bf.Serialize(miArchivo, o);
                     miArchivo.Close();
                     ok = true;
@@ -33,7 +33,7 @@ namespace CapaDatos
                 try
                 {
                     BinaryFormatter bf = new BinaryFormatter();
-                    FileStream miArchivo = new FileStream("Profesores.dat", FileMode.Open);
+                    FileStream miArchivo = new FileStream("Usarios.dat", FileMode.Open);
                     object o = bf.Deserialize(miArchivo);
                     miArchivo.Close();
                     return o;

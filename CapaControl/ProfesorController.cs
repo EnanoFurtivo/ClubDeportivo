@@ -46,12 +46,12 @@ namespace CapaControl
         }
         public bool Guardar()
         {
-            return DatosProfesor.Guardar(this);
+            return DatosUsuarios.Guardar(this);
         }
 
         public static UsuarioController Recuperar()
         {
-            ProfesorController dat = (ProfesorController)DatosProfesor.Recuperar();
+            ProfesorController dat = (ProfesorController)DatosUsuarios.Recuperar();
 
             if (dat == null)
                 dat = new ProfesorController();

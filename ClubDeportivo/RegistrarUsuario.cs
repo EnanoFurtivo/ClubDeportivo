@@ -104,28 +104,25 @@ namespace ClubDeportivo
             switch (tipoUsuario)
             {
                 case EUsuario.Administrador:
-                    controller = new AdministradorController();
+                    controller.AddAdministrador(dni, nombre, clave);
                     break;
 
                 case EUsuario.Profesor:
-                    controller = new ProfesorController();
+                    controller.AddProfesor(dni, nombre, clave);
                     break;
 
                 case EUsuario.SocioClub:
-                    controller = new SocioClubController();
+                    controller.AddSocioClub(dni, nombre, clave);
                     break;
 
                 case EUsuario.SocioActividades:
-                    controller = new SocioActividadesController();
+                    controller.AddSocioActividades(dni, nombre, clave);
                     break;
 
                 default:
                     MessageBox.Show("Error interno del sistema", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
             }
-
-            controller.AddUsuario(dni, nombre, clave);
-
             this.Close();
         }
     }
