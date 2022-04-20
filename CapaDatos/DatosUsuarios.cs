@@ -17,7 +17,7 @@ namespace CapaDatos
             //try
             //{
                 BinaryFormatter bf = new BinaryFormatter();
-                FileStream miArchivo = new FileStream("Administradores.dat", FileMode.Create);
+                FileStream miArchivo = new FileStream("Usuarios.dat", FileMode.Create);
                 bf.Serialize(miArchivo, o);
                 miArchivo.Close();
                 ok = true;
@@ -30,19 +30,18 @@ namespace CapaDatos
         }
         public static object Recuperar()
         {
-            //try
-            //{
+            try
+            {
                 BinaryFormatter bf = new BinaryFormatter();
-                FileStream miArchivo = new FileStream("Administradores.dat", FileMode.Open);
+                FileStream miArchivo = new FileStream("Usuarios.dat", FileMode.Open);
                 object o = bf.Deserialize(miArchivo);
                 miArchivo.Close();
                 return o;
-
-            /*}
-            catch (Exception ex)
+            }
+            catch (FileNotFoundException e)
             {
                 return null;
-            }*/
+            }
         }
     }
 }

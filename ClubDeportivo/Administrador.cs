@@ -22,6 +22,9 @@ namespace ClubDeportivo
         object lista = null;
         string typeStr = "";
         string Tipo = "";
+        bool[] BotonesActivos = null;
+        bool RegistrarPagoButtons;
+        bool AsignarActividadButtons;
 
         public FormAdministrador(int dni)
         {
@@ -56,6 +59,14 @@ namespace ClubDeportivo
                 case "Modificar socios de actividades":
                     lista = Usuarios.MostrarLista(typeof(SocioActividades));
                     break;
+
+                case "Registrar pago":
+                    lista = Usuarios.MostrarLista(typeof(SocioActividades)).Concat(Usuarios.MostrarLista(typeof(SocioClub))).Cast<Usuario>().ToList();
+                    break;
+
+                case "Asignar actividad":
+                    lista = Usuarios.MostrarLista(typeof(SocioActividades)).Concat(Usuarios.MostrarLista(typeof(SocioClub))).Cast<Usuario>().ToList();
+                    break;
             }
 
             listBox.DataSource = lista;
@@ -71,6 +82,10 @@ namespace ClubDeportivo
         {
             Tipo = tipo;
 
+            BotonesActivos = new bool[] { true, true, true };
+            RegistrarPagoButtons = false;
+            AsignarActividadButtons = false;
+
             switch (tipo)
             {
                 case "Modificar actividades":
@@ -82,30 +97,59 @@ namespace ClubDeportivo
                 case "Modificar profesores":
                     label = "profesores";
                     labelSingular = "profesor";
+                    BotonesActivos[1] = false;
                     typeStr = "Profesor";
                     break;
 
                 case "Modificar socios del club":
                     label = "socios";
                     labelSingular = "socio";
+                    BotonesActivos[1] = false;
                     typeStr = "SocioClub";
                     break;
 
                 case "Modificar socios de actividades":
                     label = "socios";
                     labelSingular = "socio";
+                    BotonesActivos[1] = false;
                     typeStr = "SocioActividades";
                     break;
 
                 case "Registrar pago":
+                    label = "socios";
+                    labelSingular = "socio";
+                    BotonesActivos[0] = false;
+                    BotonesActivos[1] = false;
+                    BotonesActivos[2] = false;
+                    RegistrarPagoButtons = true;
+                    typeStr = "Socio";
+                    break;
 
+                case "Asignar actividad":
+                    label = "socios";
+                    labelSingular = "socio";
+                    BotonesActivos[0] = false;
+                    BotonesActivos[1] = false;
+                    BotonesActivos[2] = false;
+                    comboBoxAsignarActividad.DataSource = Actividades.MostrarLista();
+                    AsignarActividadButtons = true;
+                    typeStr = "Socio";
                     break;
             }
 
             labelLista.Text = label;
+
             buttonAgregar.Text = "Agregar "+labelSingular;
             buttonModificar.Text = "Modificar "+labelSingular;
             buttonEliminar.Text = "Eliminar "+labelSingular;
+
+            buttonAgregar.Visible = BotonesActivos[0];
+            buttonModificar.Visible = BotonesActivos[1];
+            buttonEliminar.Visible = BotonesActivos[2];
+
+            groupBoxRegistrarPago.Visible = RegistrarPagoButtons;
+            groupBoxAsignarActividad.Visible = AsignarActividadButtons;
+            
             RefrescarLista();
         }
 
@@ -132,5 +176,20 @@ namespace ClubDeportivo
             RefrescarLista();
         }
 
+        private void buttonRegistrarPago_Click(object sender, EventArgs e)
+        {
+            double monto;
+            if (double.TryParse(textBoxMonto.ToString(), out monto))
+            {
+                Socio s = (Socio)listBox.SelectedItem;
+                s.RegistrarPago("una desc", monto);
+            }
+        }
+
+        private void buttonAsignarActividad_Click(object sender, EventArgs e)
+        {
+            Socio s = (Socio)listBox.SelectedItem;
+            s.AsignarActividad((Actividad)comboBoxAsignarActividad.SelectedItem);
+        }
     }
 }

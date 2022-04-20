@@ -11,16 +11,16 @@ namespace CapaControl
     [Serializable]
     public sealed class ActividadController
     {
-        List<Actividad> ListActividad = new List<Actividad>();
+        private static List<Actividad> ListActividad = new List<Actividad>();
 
         public void AgregarActividad(int id, string desc, double costo, int CantMax, Profesor profesor, List<Horario> listaHorarios)
         {
-            this.ListActividad.Add(new Actividad(id, desc, costo, CantMax, profesor, listaHorarios));
+            ListActividad.Add(new Actividad(id, desc, costo, CantMax, profesor, listaHorarios));
         }
 
         public void EliminarActividad(Actividad actividad)
         {
-            this.ListActividad.Remove(actividad);
+            ListActividad.Remove(actividad);
         }
 
         public Actividad GetActividad(int idActividad)
@@ -40,7 +40,7 @@ namespace CapaControl
 
         public List<Actividad> MostrarLista()
         {
-            return this.ListActividad;
+            return ListActividad;
         }
         public bool guardar()
         {
