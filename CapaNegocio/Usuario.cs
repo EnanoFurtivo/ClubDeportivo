@@ -21,5 +21,10 @@ namespace CapaNegocio
         {
             return (this.Clave == clave);
         }
+
+        public override string ToString()
+        {
+            return this.Dni+" - "+this.Nombre;
+        }
     }
 }

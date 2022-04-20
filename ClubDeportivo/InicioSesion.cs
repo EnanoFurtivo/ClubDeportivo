@@ -20,6 +20,78 @@ namespace ClubDeportivo
         {
             InitializeComponent();
             this.comboBoxTipoUsuario.DataSource = Enum.GetValues(typeof(EUsuario));
+            UsuarioController controller;
+            int i = 0;
+
+            controller = new AdministradorController();
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+
+            controller = new SocioClubController();
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+
+
+            controller = new SocioActividadesController();
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+
+
+            controller = new ProfesorController();
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "lol" + i, "dea"); i++;
         }
 
         private void buttonEntrar_Click(object sender, EventArgs e)
@@ -38,6 +110,7 @@ namespace ClubDeportivo
                     if (controller.ValidarCredenciales(dni, clave) == true)
                     {
                         FormAdministrador form = new FormAdministrador(controller, dni);
+                        this.Hide();
                         form.ShowDialog();
                     }
                     else
@@ -45,13 +118,16 @@ namespace ClubDeportivo
 
                     break;
 
+
                 case EUsuario.Profesor:
                     controller = new ProfesorController();
                     
                     if (controller.ValidarCredenciales(dni, clave) == true)
                     {
-                        FormProfesor form = new FormProfesor();
-                        form.ShowDialog();
+                        //COMENTADO EL PROFESOR NO ACCEDE AL SISTEMA SEGUN DIAGRAMA CU//
+                        //FormProfesor form = new FormProfesor();
+                        //this.Hide();
+                        //form.ShowDialog();
                     }
                     else
                         MessageBox.Show("El dni o clave ingresada es incorrecta");
@@ -64,6 +140,7 @@ namespace ClubDeportivo
                     if (controller.ValidarCredenciales(dni, clave) == true)
                     {
                         FormSocioClub form = new FormSocioClub();
+                        this.Hide();
                         form.ShowDialog();
                     }
                     else
@@ -77,6 +154,7 @@ namespace ClubDeportivo
                     if (controller.ValidarCredenciales(dni, clave) == true)
                     {
                         FormSocioActividades form = new FormSocioActividades();
+                        this.Hide();
                         form.ShowDialog();
                     }
                     else
@@ -93,6 +171,7 @@ namespace ClubDeportivo
         private void buttonRegistrar_Click(object sender, EventArgs e)
         {
             FormRegistro registrar = new FormRegistro();
+            this.Hide();
             registrar.ShowDialog();
         }
     }

@@ -7,7 +7,7 @@ using CapaNegocio;
 
 namespace CapaControl
 {
-    public class ActividadController
+    public sealed class ActividadController
     {
         List<Actividad> ListActividad = new List<Actividad>();
 
@@ -21,8 +21,17 @@ namespace CapaControl
             this.ListActividad.Remove(actividad);
         }
 
-        public void ModificarActividad(Actividad actividad, int cantMaxParticipantes, double costo)
+        public Actividad GetActividad(int idActividad)
         {
+            return ListActividad.Find(u => u.Id == idActividad);
+        }
+
+        public void ModificarActividad(int idActividad, int cantMaxParticipantes, string descripcion, double costo, Profesor profesor, List<Horario> horarios)
+        {
+            Actividad actividad = this.GetActividad(idActividad);
+            actividad.Descripcion = descripcion;    
+            actividad.Profesor = profesor;
+            actividad.Horarios = horarios;
             actividad.Costo = costo;
             actividad.CantMaxParticipantes = cantMaxParticipantes;
         }

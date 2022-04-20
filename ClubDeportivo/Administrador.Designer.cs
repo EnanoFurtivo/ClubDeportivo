@@ -29,12 +29,17 @@
         private void InitializeComponent()
         {
             this.labelBienvenida = new System.Windows.Forms.Label();
-            this.labelListaActividades = new System.Windows.Forms.Label();
-            this.buttonAgregarActividad = new System.Windows.Forms.Button();
-            this.buttonModificarActividad = new System.Windows.Forms.Button();
-            this.buttonEliminarActividad = new System.Windows.Forms.Button();
-            this.listBoxActividades = new System.Windows.Forms.ListBox();
-            this.buttonRefrescarLista = new System.Windows.Forms.Button();
+            this.labelLista = new System.Windows.Forms.Label();
+            this.buttonAgregar = new System.Windows.Forms.Button();
+            this.buttonModificar = new System.Windows.Forms.Button();
+            this.buttonEliminar = new System.Windows.Forms.Button();
+            this.listBox = new System.Windows.Forms.ListBox();
+            this.groupBoxActividades = new System.Windows.Forms.GroupBox();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
+            this.groupBoxActividades.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelBienvenida
@@ -42,67 +47,102 @@
             this.labelBienvenida.AutoSize = true;
             this.labelBienvenida.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelBienvenida.ForeColor = System.Drawing.Color.Transparent;
-            this.labelBienvenida.Location = new System.Drawing.Point(254, 25);
+            this.labelBienvenida.Location = new System.Drawing.Point(12, 21);
             this.labelBienvenida.Name = "labelBienvenida";
             this.labelBienvenida.Size = new System.Drawing.Size(195, 24);
             this.labelBienvenida.TabIndex = 0;
             this.labelBienvenida.Text = "Bienvenido de nuevo,";
             // 
-            // labelListaActividades
+            // labelLista
             // 
-            this.labelListaActividades.AutoSize = true;
-            this.labelListaActividades.ForeColor = System.Drawing.Color.Transparent;
-            this.labelListaActividades.Location = new System.Drawing.Point(61, 86);
-            this.labelListaActividades.Name = "labelListaActividades";
-            this.labelListaActividades.Size = new System.Drawing.Size(102, 13);
-            this.labelListaActividades.TabIndex = 2;
-            this.labelListaActividades.Text = "Lista de Actividades";
+            this.labelLista.AutoSize = true;
+            this.labelLista.ForeColor = System.Drawing.Color.Transparent;
+            this.labelLista.Location = new System.Drawing.Point(6, 17);
+            this.labelLista.Name = "labelLista";
+            this.labelLista.Size = new System.Drawing.Size(47, 13);
+            this.labelLista.TabIndex = 2;
+            this.labelLista.Text = "Lista de ";
             // 
-            // buttonAgregarActividad
+            // buttonAgregar
             // 
-            this.buttonAgregarActividad.Location = new System.Drawing.Point(343, 211);
-            this.buttonAgregarActividad.Name = "buttonAgregarActividad";
-            this.buttonAgregarActividad.Size = new System.Drawing.Size(106, 23);
-            this.buttonAgregarActividad.TabIndex = 3;
-            this.buttonAgregarActividad.Text = "Agregar Actividad";
-            this.buttonAgregarActividad.UseVisualStyleBackColor = true;
-            this.buttonAgregarActividad.Click += new System.EventHandler(this.buttonAgregarActividad_Click);
+            this.buttonAgregar.Location = new System.Drawing.Point(188, 33);
+            this.buttonAgregar.Name = "buttonAgregar";
+            this.buttonAgregar.Size = new System.Drawing.Size(106, 23);
+            this.buttonAgregar.TabIndex = 3;
+            this.buttonAgregar.Text = "Agregar x";
+            this.buttonAgregar.UseVisualStyleBackColor = true;
+            this.buttonAgregar.Click += new System.EventHandler(this.buttonAgregar_Click);
             // 
-            // buttonModificarActividad
+            // buttonModificar
             // 
-            this.buttonModificarActividad.Location = new System.Drawing.Point(343, 281);
-            this.buttonModificarActividad.Name = "buttonModificarActividad";
-            this.buttonModificarActividad.Size = new System.Drawing.Size(106, 23);
-            this.buttonModificarActividad.TabIndex = 4;
-            this.buttonModificarActividad.Text = "Modificar Actividad";
-            this.buttonModificarActividad.UseVisualStyleBackColor = true;
+            this.buttonModificar.Location = new System.Drawing.Point(188, 62);
+            this.buttonModificar.Name = "buttonModificar";
+            this.buttonModificar.Size = new System.Drawing.Size(106, 23);
+            this.buttonModificar.TabIndex = 4;
+            this.buttonModificar.Text = "Modificar x";
+            this.buttonModificar.UseVisualStyleBackColor = true;
+            this.buttonModificar.Click += new System.EventHandler(this.buttonModificar_Click);
             // 
-            // buttonEliminarActividad
+            // buttonEliminar
             // 
-            this.buttonEliminarActividad.Location = new System.Drawing.Point(343, 356);
-            this.buttonEliminarActividad.Name = "buttonEliminarActividad";
-            this.buttonEliminarActividad.Size = new System.Drawing.Size(106, 23);
-            this.buttonEliminarActividad.TabIndex = 5;
-            this.buttonEliminarActividad.Text = "Eliminar Actividad";
-            this.buttonEliminarActividad.UseVisualStyleBackColor = true;
+            this.buttonEliminar.Location = new System.Drawing.Point(188, 91);
+            this.buttonEliminar.Name = "buttonEliminar";
+            this.buttonEliminar.Size = new System.Drawing.Size(106, 23);
+            this.buttonEliminar.TabIndex = 5;
+            this.buttonEliminar.Text = "Eliminar x";
+            this.buttonEliminar.UseVisualStyleBackColor = true;
+            this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
             // 
-            // listBoxActividades
+            // listBox
             // 
-            this.listBoxActividades.FormattingEnabled = true;
-            this.listBoxActividades.Location = new System.Drawing.Point(64, 115);
-            this.listBoxActividades.Name = "listBoxActividades";
-            this.listBoxActividades.Size = new System.Drawing.Size(176, 264);
-            this.listBoxActividades.TabIndex = 6;
+            this.listBox.FormattingEnabled = true;
+            this.listBox.Location = new System.Drawing.Point(6, 33);
+            this.listBox.Name = "listBox";
+            this.listBox.Size = new System.Drawing.Size(176, 264);
+            this.listBox.TabIndex = 6;
             // 
-            // buttonRefrescarLista
+            // groupBoxActividades
             // 
-            this.buttonRefrescarLista.Location = new System.Drawing.Point(64, 397);
-            this.buttonRefrescarLista.Name = "buttonRefrescarLista";
-            this.buttonRefrescarLista.Size = new System.Drawing.Size(99, 23);
-            this.buttonRefrescarLista.TabIndex = 7;
-            this.buttonRefrescarLista.Text = "Refrescar lista";
-            this.buttonRefrescarLista.UseVisualStyleBackColor = true;
-            this.buttonRefrescarLista.Click += new System.EventHandler(this.buttonRefrescarLista_Click);
+            this.groupBoxActividades.Controls.Add(this.listBox);
+            this.groupBoxActividades.Controls.Add(this.labelLista);
+            this.groupBoxActividades.Controls.Add(this.buttonEliminar);
+            this.groupBoxActividades.Controls.Add(this.buttonAgregar);
+            this.groupBoxActividades.Controls.Add(this.buttonModificar);
+            this.groupBoxActividades.Location = new System.Drawing.Point(16, 62);
+            this.groupBoxActividades.Name = "groupBoxActividades";
+            this.groupBoxActividades.Size = new System.Drawing.Size(302, 305);
+            this.groupBoxActividades.TabIndex = 8;
+            this.groupBoxActividades.TabStop = false;
+            this.groupBoxActividades.Text = "groupBoxLista";
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel1,
+            this.toolStripComboBox1});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(800, 25);
+            this.toolStrip1.TabIndex = 9;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(50, 22);
+            this.toolStripLabel1.Text = "Accion: ";
+            // 
+            // toolStripComboBox1
+            // 
+            this.toolStripComboBox1.Items.AddRange(new object[] {
+            "Modificar actividades",
+            "Modificar profesores",
+            "Modificar socios del club",
+            "Modificar socios de actividades",
+            "Registrar pago"});
+            this.toolStripComboBox1.Name = "toolStripComboBox1";
+            this.toolStripComboBox1.Size = new System.Drawing.Size(121, 25);
+            this.toolStripComboBox1.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBox1_SelectedIndexChanged);
             // 
             // FormAdministrador
             // 
@@ -110,15 +150,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.buttonRefrescarLista);
-            this.Controls.Add(this.listBoxActividades);
-            this.Controls.Add(this.buttonEliminarActividad);
-            this.Controls.Add(this.buttonModificarActividad);
-            this.Controls.Add(this.buttonAgregarActividad);
-            this.Controls.Add(this.labelListaActividades);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.labelBienvenida);
+            this.Controls.Add(this.groupBoxActividades);
             this.Name = "FormAdministrador";
             this.Text = "Administrador";
+            this.groupBoxActividades.ResumeLayout(false);
+            this.groupBoxActividades.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,11 +167,14 @@
         #endregion
 
         private System.Windows.Forms.Label labelBienvenida;
-        private System.Windows.Forms.Label labelListaActividades;
-        private System.Windows.Forms.Button buttonAgregarActividad;
-        private System.Windows.Forms.Button buttonModificarActividad;
-        private System.Windows.Forms.Button buttonEliminarActividad;
-        private System.Windows.Forms.ListBox listBoxActividades;
-        private System.Windows.Forms.Button buttonRefrescarLista;
+        private System.Windows.Forms.Label labelLista;
+        private System.Windows.Forms.Button buttonAgregar;
+        private System.Windows.Forms.Button buttonModificar;
+        private System.Windows.Forms.Button buttonEliminar;
+        private System.Windows.Forms.ListBox listBox;
+        private System.Windows.Forms.GroupBox groupBoxActividades;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
     }
 }
