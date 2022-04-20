@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapaNegocio
 {
+    [Serializable]
     public abstract class Socio : Usuario
     {
         private bool Estado;

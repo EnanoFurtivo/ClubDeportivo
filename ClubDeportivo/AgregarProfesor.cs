@@ -16,11 +16,12 @@ namespace ClubDeportivo
     {
         public List<Horario> listHorarios = new List<Horario>();
         ActividadController actividad = new ActividadController();
+        UsuarioController Usuarios;
 
         public FormAgregarProfesor()
         {
             InitializeComponent();
-           // this.comboBoxProfesor.DataSource = profesores.MostrarLista();
+            this.comboBoxProfesor.DataSource = Usuarios.MostrarLista(typeof(Profesor));
         }
 
         private void buttonAgregarHorario_Click(object sender, EventArgs e)

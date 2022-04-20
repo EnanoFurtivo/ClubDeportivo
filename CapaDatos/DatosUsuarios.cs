@@ -6,26 +6,27 @@ using System.Threading.Tasks;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using System.Xml.Serialization;
 
 namespace CapaDatos
 {
     public class DatosUsuarios
     {
-        public static bool Guardar(object o)
+       public static bool Guardar(object o)
         {
             bool ok = false;
-            //try
-            //{
+            try
+            {
                 BinaryFormatter bf = new BinaryFormatter();
                 FileStream miArchivo = new FileStream("Usuarios.dat", FileMode.Create);
                 bf.Serialize(miArchivo, o);
                 miArchivo.Close();
                 ok = true;
-            //}
-            /*catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 ok = false;
-            }*/
+            }
             return ok;
         }
         public static object Recuperar()
@@ -38,7 +39,7 @@ namespace CapaDatos
                 miArchivo.Close();
                 return o;
             }
-            catch (FileNotFoundException e)
+            catch (Exception ex)
             {
                 return null;
             }
