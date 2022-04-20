@@ -8,7 +8,7 @@ using CapaDatos;
 
 namespace CapaControl
 {
-    [Serializable]
+
     public enum EUsuario
     {
         Administrador = 0,
@@ -17,6 +17,7 @@ namespace CapaControl
         SocioActividades = 3
     }
 
+    [Serializable]
     public abstract class UsuarioController
     {
         public abstract bool ValidarCredenciales(int dni, string clave);

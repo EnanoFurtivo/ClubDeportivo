@@ -20,80 +20,82 @@ namespace ClubDeportivo
         public FormLogin()
         {
             InitializeComponent();
-            usuarios = (AdministradorController)AdministradorController.Recuperar(); 
+            usuarios = AdministradorController.Recuperar(); 
             this.comboBoxTipoUsuario.DataSource = Enum.GetValues(typeof(EUsuario));
-            UsuarioController controller;
-            int i = 0;
+            //UsuarioController controller;
+            //int i = 0;
 
-            controller = new AdministradorController();
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            /*controller = new AdministradorController();
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
 
             controller = new SocioClubController();
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
 
 
             controller = new SocioActividadesController();
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
 
 
             controller = new ProfesorController();
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
-            controller.AddUsuario(i, "lol" + i, "dea"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;*/
+
+            usuarios.Guardar();
         }
 
         private void buttonEntrar_Click(object sender, EventArgs e)

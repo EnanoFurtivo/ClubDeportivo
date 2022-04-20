@@ -30,19 +30,19 @@ namespace CapaDatos
         }
         public static object Recuperar()
         {
-            try
-            {
+            //try
+            //{
                 BinaryFormatter bf = new BinaryFormatter();
                 FileStream miArchivo = new FileStream("Administradores.dat", FileMode.Open);
                 object o = bf.Deserialize(miArchivo);
                 miArchivo.Close();
                 return o;
 
-            }
+            /*}
             catch (Exception ex)
             {
                 return null;
-            }
+            }*/
         }
     }
 }

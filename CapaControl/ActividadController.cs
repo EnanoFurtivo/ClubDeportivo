@@ -10,7 +10,6 @@ namespace CapaControl
 {
     [Serializable]
     public sealed class ActividadController
-
     {
         List<Actividad> ListActividad = new List<Actividad>();
 
