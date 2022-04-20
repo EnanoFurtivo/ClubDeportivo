@@ -14,9 +14,9 @@ namespace ClubDeportivo
 {
     public partial class FormModificarActividad : Form
     {
-        ProfesorController profesores = new ProfesorController();
-        public List<Horario> listHorarios = new List<Horario>();
-        ActividadController actividades = new ActividadController();
+        public List<Horario> ListaHorarios = new List<Horario>();
+        ActividadController Actividades = new ActividadController();
+        UsuarioController Usuarios = new UsuarioController();
         Actividad Actividad;
 
         public FormModificarActividad(Actividad actividad)
@@ -36,11 +36,11 @@ namespace ClubDeportivo
             
             //setear profesor//
             this.comboBoxProfesor.DataSource = null;
-            this.comboBoxProfesor.DataSource = profesores.MostrarLista();
-            this.comboBoxProfesor.SelectedItem = profesores.GetUsuario(Actividad.Profesor.Dni);
+            this.comboBoxProfesor.DataSource = Usuarios.MostrarLista(typeof(Profesor));
+            this.comboBoxProfesor.SelectedItem = (Profesor)Usuarios.GetUsuario(Actividad.Profesor.Dni);
 
             //horarios
-            this.listHorarios = Actividad.Horarios;
+            this.ListaHorarios = Actividad.Horarios;
         }
 
         private void buttonAgregarHorario_Click(object sender, EventArgs e)
@@ -49,7 +49,7 @@ namespace ClubDeportivo
             DateTime horarioFin = this.dateTimePickerHorarioFin.Value;
 
             Horario horarioActividad = new Horario(horarioInicio, horarioFin);
-            listHorarios.Add(horarioActividad);
+            ListaHorarios.Add(horarioActividad);
         }
 
         private void buttonModificarActividad_Click(object sender, EventArgs e)
@@ -59,7 +59,7 @@ namespace ClubDeportivo
             double costo = double.Parse(this.textBoxCosto.Text);
             int CantMax = int.Parse(this.textBoxCantMax.Text);
             Profesor profesor = (Profesor)this.comboBoxProfesor.SelectedItem;
-            this.actividades.ModificarActividad(id, CantMax, desc, costo, profesor, this.listHorarios);
+            Actividades.ModificarActividad(id, CantMax, desc, costo, profesor, ListaHorarios);
             this.Close();
         }
     }

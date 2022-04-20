@@ -86,7 +86,6 @@ namespace CapaControl
         {
             return DatosUsuarios.Guardar(this);
         }
-
         public static UsuarioController Recuperar()
         {
             UsuarioController dat = (UsuarioController)DatosUsuarios.Recuperar();
