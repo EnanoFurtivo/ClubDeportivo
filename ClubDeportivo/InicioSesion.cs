@@ -15,12 +15,13 @@ namespace ClubDeportivo
     {
         private int dni;
         private string clave;
-        AdministradorController usuarios;
+        UsuarioController Usuarios;
+
 
         public FormLogin()
         {
             InitializeComponent();
-            usuarios = AdministradorController.Recuperar(); 
+            Usuarios = UsuarioController.Recuperar(); 
             this.comboBoxTipoUsuario.DataSource = Enum.GetValues(typeof(EUsuario));
             //UsuarioController controller;
             //int i = 0;
@@ -95,7 +96,7 @@ namespace ClubDeportivo
             controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
             controller.AddUsuario(i, "unusuario" + i, "pass"); i++;*/
 
-            usuarios.Guardar();
+            Usuarios.Guardar();
         }
 
         private void buttonEntrar_Click(object sender, EventArgs e)
@@ -105,15 +106,14 @@ namespace ClubDeportivo
 
             EUsuario tipoUsuario = (EUsuario)this.comboBoxTipoUsuario.SelectedItem;
 
-            UsuarioController controller;
             switch (tipoUsuario)
             {
                 case EUsuario.Administrador:
-                    controller = new AdministradorController();
+                    //controller = new AdministradorController();
 
-                    if (controller.ValidarCredenciales(dni, clave) == true)
+                    if (Usuarios.ValidarCredenciales(dni, clave) == true)
                     {
-                        FormAdministrador form = new FormAdministrador(controller, dni);
+                        FormAdministrador form = new FormAdministrador(Usuarios, dni);
                         this.Hide();
                         form.ShowDialog();
                     }
@@ -124,9 +124,9 @@ namespace ClubDeportivo
 
 
                 case EUsuario.Profesor:
-                    controller = new ProfesorController();
+                    //controller = new ProfesorController();
                     
-                    if (controller.ValidarCredenciales(dni, clave) == true)
+                    if (Usuarios.ValidarCredenciales(dni, clave) == true)
                     {
                         //COMENTADO EL PROFESOR NO ACCEDE AL SISTEMA SEGUN DIAGRAMA CU//
                         //FormProfesor form = new FormProfesor();
@@ -139,9 +139,9 @@ namespace ClubDeportivo
                     break;
 
                 case EUsuario.SocioClub:
-                    controller = new SocioClubController();
+                   // controller = new SocioClubController();
 
-                    if (controller.ValidarCredenciales(dni, clave) == true)
+                    if (Usuarios.ValidarCredenciales(dni, clave) == true)
                     {
                         FormSocioClub form = new FormSocioClub();
                         this.Hide();
@@ -153,9 +153,9 @@ namespace ClubDeportivo
                     break;
 
                 case EUsuario.SocioActividades:
-                    controller = new SocioActividadesController();
+                    //controller = new SocioActividadesController();
 
-                    if (controller.ValidarCredenciales(dni, clave) == true)
+                    if (Usuarios.ValidarCredenciales(dni, clave) == true)
                     {
                         FormSocioActividades form = new FormSocioActividades();
                         this.Hide();
@@ -182,7 +182,7 @@ namespace ClubDeportivo
         private void FormLogin_FormClosed(object sender, FormClosedEventArgs e)
         {
             {
-                if (usuarios.Guardar())
+                if (Usuarios.Guardar())
                     MessageBox.Show("GUARDADO OK");
                 else
                     MessageBox.Show("ERROR AL GUARDAR");
