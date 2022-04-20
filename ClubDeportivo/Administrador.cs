@@ -14,10 +14,8 @@ namespace ClubDeportivo
 {
     public partial class FormAdministrador : Form
     {
-        ActividadController actividades = new ActividadController();
-        SocioClubController sociosClub = new SocioClubController();
-        SocioActividadesController sociosActividades = new SocioActividadesController();
-        ProfesorController profesores = new ProfesorController();
+        ActividadController Actividades = new ActividadController();
+        UsuarioController Usuarios = new UsuarioController();
 
         string label = "";
         string labelSingular = "";
@@ -25,10 +23,13 @@ namespace ClubDeportivo
         string typeStr = "";
         string Tipo = "";
 
-        public FormAdministrador(UsuarioController admin, int dni)
+        public FormAdministrador(int dni)
         {
             InitializeComponent();
-            Usuario usuario = admin.GetUsuario(dni);
+
+            Administrador usuario = (Administrador)Usuarios.GetUsuario(dni);
+
+            //Completar datos del formulario//
             labelBienvenida.Text = "Bienvenido/a de nuevo, " + usuario.Nombre;
             toolStripComboBox1.SelectedIndex = 0;
             CambiarFormulario("Modificar actividades");
@@ -41,19 +42,19 @@ namespace ClubDeportivo
             switch (Tipo)
             {
                 case "Modificar actividades":
-                    lista = actividades.MostrarLista();
+                    lista = Actividades.MostrarLista();
                     break;
 
                 case "Modificar profesores":
-                    lista = profesores.MostrarLista();
+                    lista = Usuarios.MostrarLista(typeof(Profesor));
                     break;
 
                 case "Modificar socios del club":
-                    lista = sociosClub.MostrarLista();
+                    lista = Usuarios.MostrarLista(typeof(SocioClub));
                     break;
 
                 case "Modificar socios de actividades":
-                    lista = sociosActividades.MostrarLista();
+                    lista = Usuarios.MostrarLista(typeof(SocioActividades));
                     break;
             }
 
@@ -118,10 +119,8 @@ namespace ClubDeportivo
 
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
-            Type type = Type.GetType("CapaControl." + typeStr + "Controller, CapaControl");
-            UsuarioController controller = (UsuarioController)Activator.CreateInstance(type);
             Usuario usuario = (Usuario)listBox.SelectedItem;
-            controller.RemoveUsuario(usuario.Dni);
+            Usuarios.RemoveUsuario(usuario.Dni);
             RefrescarLista();
         }
 
