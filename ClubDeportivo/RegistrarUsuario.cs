@@ -13,6 +13,8 @@ namespace ClubDeportivo
 {
     public partial class FormRegistro : Form
     {
+        UsuarioController Usuarios;
+
         public FormRegistro()
         {
             InitializeComponent();
@@ -100,31 +102,28 @@ namespace ClubDeportivo
             if (!ValidarTipoUsuario(tipoUsuario))
                 return;
 
-            UsuarioController controller;
             switch (tipoUsuario)
             {
                 case EUsuario.Administrador:
-                    controller = new AdministradorController();
+                    Usuarios.AddAdministrador(dni, nombre, clave);
                     break;
 
                 case EUsuario.Profesor:
-                    controller = new ProfesorController();
+                    Usuarios.AddProfesor(dni, nombre, clave);
                     break;
 
                 case EUsuario.SocioClub:
-                    controller = new SocioClubController();
+                    Usuarios.AddProfesor(dni, nombre, clave);
                     break;
 
                 case EUsuario.SocioActividades:
-                    controller = new SocioActividadesController();
+                    Usuarios.AddSocioActividades(dni, nombre, clave);
                     break;
 
                 default:
                     MessageBox.Show("Error interno del sistema", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
             }
-
-            controller.AddUsuario(dni, nombre, clave);
 
             this.Close();
         }
