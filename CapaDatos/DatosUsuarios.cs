@@ -38,7 +38,6 @@ namespace CapaDatos
                 object o = bf.Deserialize(miArchivo);
                 miArchivo.Close();
                 return o;
-
             }
             catch (Exception ex)
             {

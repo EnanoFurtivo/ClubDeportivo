@@ -16,11 +16,12 @@ namespace ClubDeportivo
         private int dni;
         private string clave;
         UsuarioController Usuarios = new UsuarioController();
+        ActividadController Actividades = new ActividadController();
 
         public FormLogin()
         {
             InitializeComponent();
-            Usuarios = UsuarioController.Recuperar(); 
+            //Usuarios = UsuarioController.Recuperar(); 
             this.comboBoxTipoUsuario.DataSource = Enum.GetValues(typeof(EUsuario));
             //int i = 0;
 
@@ -95,6 +96,8 @@ namespace ClubDeportivo
             controller.AddProfesor(i, "unusuario" + i, "pass"); i++;
 
             controller.Guardar();*/
+
+            //Usuarios.Guardar();
         }
 
         private void buttonEntrar_Click(object sender, EventArgs e)
@@ -107,12 +110,12 @@ namespace ClubDeportivo
             switch (tipoUsuario)
             {
                 case EUsuario.Administrador:
-                    //controller = new AdministradorController();
+                    //Usuarios = new AdministradorController();
 
                     if (Usuarios.ValidarCredenciales(dni, clave) == true)
                     {
                         FormAdministrador form = new FormAdministrador(dni);
-                        //this.Hide();
+                        this.Hide();
                         form.ShowDialog();
                     }
                     else
@@ -122,7 +125,7 @@ namespace ClubDeportivo
 
 
                 case EUsuario.Profesor:
-                    //controller = new ProfesorController();
+                    //Usuarios = new ProfesorController();
                     
                     if (Usuarios.ValidarCredenciales(dni, clave) == true)
                     {
@@ -137,7 +140,7 @@ namespace ClubDeportivo
                     break;
 
                 case EUsuario.SocioClub:
-                   // controller = new SocioClubController();
+                   // Usuarios = new SocioClubController();
 
                     if (Usuarios.ValidarCredenciales(dni, clave) == true)
                     {
@@ -151,7 +154,7 @@ namespace ClubDeportivo
                     break;
 
                 case EUsuario.SocioActividades:
-                    //controller = new SocioActividadesController();
+                    //Usuarios = new SocioActividadesController();
 
                     if (Usuarios.ValidarCredenciales(dni, clave) == true)
                     {

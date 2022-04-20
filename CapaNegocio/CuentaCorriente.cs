@@ -26,12 +26,12 @@ namespace CapaNegocio
         {
             string razon = unaRazon;
 
-            return this.Saldo += unMonto;
+            return this.Saldo -= unMonto;
         }
 
         internal void RegistrarPago(string descripcion, double monto)
         {
-            this.Saldo -= monto;
+            this.Saldo += monto;
         }
     }
 }

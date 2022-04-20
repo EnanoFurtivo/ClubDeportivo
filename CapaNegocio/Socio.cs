@@ -67,9 +67,10 @@ namespace CapaNegocio
         /// <summary>
         /// Le asigna una actividad al socio
         /// </summary>
-        public double AsignarActividad()
+        public void AsignarActividad(Actividad actividad)
         {
-            throw new NotImplementedException();
+            RegistroActividad ra = new RegistroActividad(DateTime.Now, actividad);
+            this.RegistroActividades.Add(ra);
         }
 
         /// <summary>
