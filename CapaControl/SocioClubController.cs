@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CapaNegocio;
+using CapaDatos;
 
 namespace CapaControl
 {
@@ -44,6 +45,21 @@ namespace CapaControl
         public override List<Usuario> MostrarLista()
         {
             return ListaSocioClub.Cast<Usuario>().ToList();
+        }
+
+
+        public bool Guardar()
+        {
+            return DatosSocioClub.Guardar(this);
+        }
+
+        public static UsuarioController Recuperar()
+        {
+            SocioClubController dat = (SocioClubController)DatosSocioClub.Recuperar();
+
+            if (dat == null)
+                dat = new SocioClubController();
+            return dat;
         }
 
     }

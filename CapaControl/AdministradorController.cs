@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CapaDatos;
 
 namespace CapaControl
 {
+    [Serializable]
     public sealed class AdministradorController : UsuarioController
     {
         private static List<Administrador> ListaAdministrador = new List<Administrador>();
@@ -42,6 +44,19 @@ namespace CapaControl
         public override List<Usuario> MostrarLista()
         {
              return ListaAdministrador.Cast<Usuario>().ToList();
+        }
+        public bool Guardar()
+        {
+            return DatosAdministrador.Guardar(this);
+        }
+
+        public static AdministradorController Recuperar()
+        {
+            AdministradorController dat = (AdministradorController)DatosAdministrador.Recuperar();
+
+            if (dat == null)
+                dat = new AdministradorController();
+            return dat;
         }
     }
 }
