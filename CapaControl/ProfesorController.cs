@@ -9,7 +9,7 @@ using CapaDatos;
 namespace CapaControl
 {
     [Serializable]
-    public class ProfesorController : UsuarioController
+    public sealed class ProfesorController : UsuarioController
     {
         private static List<Profesor> ListaProfesor = new List<Profesor>();
 

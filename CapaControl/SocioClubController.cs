@@ -8,13 +8,14 @@ using CapaDatos;
 
 namespace CapaControl
 {
-    public class SocioClubController : SocioController
+    public sealed class SocioClubController : SocioController
     {
         private static List<SocioClub> ListaSocioClub = new List<SocioClub>();
 
         public override void AddUsuario(int dni, string nombre, string clave)
         {
-            ListaSocioClub.Add(new SocioClub(dni, nombre, clave, 10));
+            Usuario usuario = new SocioClub(dni, nombre, clave, 10);
+            ListaSocioClub.Add((SocioClub)usuario);
         }
 
         public override Usuario GetUsuario(int dni)
@@ -37,7 +38,8 @@ namespace CapaControl
 
         public override void RemoveUsuario(int dni)
         {
-            throw new NotImplementedException();
+            Usuario usuario = GetUsuario(dni);
+            ListaSocioClub.Remove((SocioClub)usuario);
         }
 
         public override List<Usuario> MostrarLista()

@@ -52,17 +52,29 @@
     <Compile Include="Administrador.Designer.cs">
       <DependentUpon>Administrador.cs</DependentUpon>
     </Compile>
+    <Compile Include="AgregarProfesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgregarProfesor.Designer.cs">
+      <DependentUpon>AgregarProfesor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarProfesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModificarProfesor.Designer.cs">
+      <DependentUpon>ModificarProfesor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarActividad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModificarActividad.Designer.cs">
+      <DependentUpon>ModificarActividad.cs</DependentUpon>
+    </Compile>
     <Compile Include="AgregarActividad.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AgregarActividad.Designer.cs">
       <DependentUpon>AgregarActividad.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Profesor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Profesor.Designer.cs">
-      <DependentUpon>Profesor.cs</DependentUpon>
     </Compile>
     <Compile Include="SocioActividades.cs">
       <SubType>Form</SubType>
@@ -93,11 +105,17 @@
     <EmbeddedResource Include="Administrador.resx">
       <DependentUpon>Administrador.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AgregarProfesor.resx">
+      <DependentUpon>AgregarProfesor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModificarProfesor.resx">
+      <DependentUpon>ModificarProfesor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModificarActividad.resx">
+      <DependentUpon>ModificarActividad.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AgregarActividad.resx">
       <DependentUpon>AgregarActividad.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Profesor.resx">
-      <DependentUpon>Profesor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RegistrarUsuario.resx">
       <DependentUpon>RegistrarUsuario.cs</DependentUpon>

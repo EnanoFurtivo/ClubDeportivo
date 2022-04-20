@@ -9,6 +9,6 @@ namespace CapaControl
 {
     public abstract class SocioController : UsuarioController
     {
-        
+
     }
 }

@@ -12,14 +12,13 @@ using CapaNegocio;
 
 namespace ClubDeportivo
 {
-    public partial class FormAgregarActividad : Form
+    public partial class FormAgregarProfesor : Form
     {
         ProfesorController profesores = new ProfesorController();
         public List<Horario> listHorarios = new List<Horario>();
         ActividadController actividad = new ActividadController();
-        public int ResultId = -1;
 
-        public FormAgregarActividad()
+        public FormAgregarProfesor()
         {
             InitializeComponent();
             this.comboBoxProfesor.DataSource = profesores.MostrarLista();
@@ -42,7 +41,6 @@ namespace ClubDeportivo
             int CantMax = int.Parse(this.textBoxCantMax.Text);
             Profesor profesor = (Profesor)this.comboBoxProfesor.SelectedItem;
             this.actividad.AgregarActividad(id, desc, costo, CantMax, profesor, this.listHorarios);
-            ResultId = id;
             this.Close();
         }
     }
