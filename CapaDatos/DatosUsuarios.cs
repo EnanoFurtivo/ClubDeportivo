@@ -9,40 +9,40 @@ using System.IO;
 
 namespace CapaDatos
 {
-    public class DatosSocioClub
+    public class DatosUsuarios
     {
         public static bool Guardar(object o)
         {
             bool ok = false;
-            try
-            {
+            //try
+            //{
                 BinaryFormatter bf = new BinaryFormatter();
-                FileStream miArchivo = new FileStream("SociosClub.dat", FileMode.Create);
+                FileStream miArchivo = new FileStream("Administradores.dat", FileMode.Create);
                 bf.Serialize(miArchivo, o);
                 miArchivo.Close();
                 ok = true;
-            }
-            catch (Exception ex)
+            //}
+            /*catch (Exception ex)
             {
                 ok = false;
-            }
+            }*/
             return ok;
         }
         public static object Recuperar()
         {
-            try
-            {
+            //try
+            //{
                 BinaryFormatter bf = new BinaryFormatter();
-                FileStream miArchivo = new FileStream("SociosClub.dat", FileMode.Open);
+                FileStream miArchivo = new FileStream("Administradores.dat", FileMode.Open);
                 object o = bf.Deserialize(miArchivo);
                 miArchivo.Close();
                 return o;
 
-            }
+            /*}
             catch (Exception ex)
             {
                 return null;
-            }
+            }*/
         }
     }
 }
