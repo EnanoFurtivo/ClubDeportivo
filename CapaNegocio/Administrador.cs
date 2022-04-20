@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapaNegocio
 {
+    [Serializable]
     public class Administrador : Usuario
     {
         public Administrador(int dni, string nombre, string clave) : base(dni, nombre, clave) { ; }

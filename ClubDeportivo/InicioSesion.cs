@@ -15,10 +15,12 @@ namespace ClubDeportivo
     {
         private int dni;
         private string clave;
+        AdministradorController usuarios;
 
         public FormLogin()
         {
             InitializeComponent();
+            usuarios = (AdministradorController)AdministradorController.Recuperar(); 
             this.comboBoxTipoUsuario.DataSource = Enum.GetValues(typeof(EUsuario));
         }
 
@@ -94,6 +96,16 @@ namespace ClubDeportivo
         {
             FormRegistro registrar = new FormRegistro();
             registrar.ShowDialog();
+        }
+
+        private void FormLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            {
+                if (usuarios.Guardar())
+                    MessageBox.Show("GUARDADO OK");
+                else
+                    MessageBox.Show("ERROR AL GUARDAR");
+            }
         }
     }
 }

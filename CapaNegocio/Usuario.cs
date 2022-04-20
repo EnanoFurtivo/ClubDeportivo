@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace CapaNegocio
 {
+    [Serializable]
     public abstract class Usuario
     {
         public string Nombre { get; internal set; }

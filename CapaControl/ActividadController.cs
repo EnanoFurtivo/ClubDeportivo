@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CapaNegocio;
+using CapaDatos;
 
 namespace CapaControl
 {
+    [Serializable]
     public class ActividadController
     {
         List<Actividad> ListActividad = new List<Actividad>();
@@ -30,6 +32,18 @@ namespace CapaControl
         public List<Actividad> MostrarLista()
         {
             return this.ListActividad;
+        }
+        public bool guardar()
+        {
+            return DatosActividad.Guardar(this);
+        }
+
+        public static ActividadController Recuperar()
+        {
+            ActividadController dat = (ActividadController)DatosActividad.Recuperar();
+            if (dat == null)
+                dat = new ActividadController();
+            return dat;
         }
     }
 }

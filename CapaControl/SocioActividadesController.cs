@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CapaNegocio;
+using CapaDatos;
 
 namespace CapaControl
 {
+    [Serializable]
     public class SocioActividadesController : SocioController
     {
         private static List<SocioActividades> ListaSocioActividades = new List<SocioActividades>();
@@ -40,6 +42,19 @@ namespace CapaControl
         public override List<Usuario> MostrarLista()
         {
             return ListaSocioActividades.Cast<Usuario>().ToList();
+        }
+        public bool Guardar()
+        {
+            return DatosSocioActividad.Guardar(this);
+        }
+
+        public static UsuarioController Recuperar()
+        {
+            SocioActividadesController dat = (SocioActividadesController)DatosSocioActividad.Recuperar();
+
+            if (dat == null)
+                dat = new SocioActividadesController();
+            return dat;
         }
     }
 }

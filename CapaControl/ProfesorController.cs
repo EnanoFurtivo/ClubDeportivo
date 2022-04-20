@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CapaNegocio;
+using CapaDatos;
 
 namespace CapaControl
 {
+    [Serializable]
     public class ProfesorController : UsuarioController
     {
         private static List<Profesor> ListaProfesor = new List<Profesor>();
@@ -41,6 +43,19 @@ namespace CapaControl
         public override List<Usuario> MostrarLista()
         {
             return ListaProfesor.Cast<Usuario>().ToList();
+        }
+        public bool Guardar()
+        {
+            return DatosProfesor.Guardar(this);
+        }
+
+        public static UsuarioController Recuperar()
+        {
+            ProfesorController dat = (ProfesorController)DatosProfesor.Recuperar();
+
+            if (dat == null)
+                dat = new ProfesorController();
+            return dat;
         }
     }
 }
