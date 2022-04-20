@@ -15,88 +15,86 @@ namespace ClubDeportivo
     {
         private int dni;
         private string clave;
-        UsuarioController Usuarios;
-
+        UsuarioController Usuarios = new UsuarioController();
 
         public FormLogin()
         {
             InitializeComponent();
             Usuarios = UsuarioController.Recuperar(); 
             this.comboBoxTipoUsuario.DataSource = Enum.GetValues(typeof(EUsuario));
-            //UsuarioController controller;
             //int i = 0;
 
-            /*controller = new AdministradorController();
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+           /* //controller = new AdministradorController();
+            controller.AddAdministrador(i, "unusuario" + i, "pass"); i++;
+            controller.AddAdministrador(i, "unusuario" + i, "pass"); i++;
+            controller.AddAdministrador(i, "unusuario" + i, "pass"); i++;
+            controller.AddAdministrador(i, "unusuario" + i, "pass"); i++;
+            controller.AddAdministrador(i, "unusuario" + i, "pass"); i++;
+            controller.AddAdministrador(i, "unusuario" + i, "pass"); i++;
+            controller.AddAdministrador(i, "unusuario" + i, "pass"); i++;
+            controller.AddAdministrador(i, "unusuario" + i, "pass"); i++;
+            controller.AddAdministrador(i, "unusuario" + i, "pass"); i++;
+            controller.AddAdministrador(i, "unusuario" + i, "pass"); i++;
+            controller.AddAdministrador(i, "unusuario" + i, "pass"); i++;
+            controller.AddAdministrador(i, "unusuario" + i, "pass"); i++;
+            controller.AddAdministrador(i, "unusuario" + i, "pass"); i++;
+            controller.AddAdministrador(i, "unusuario" + i, "pass"); i++;
+            controller.AddAdministrador(i, "unusuario" + i, "pass"); i++;
 
-            controller = new SocioClubController();
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-
-
-            controller = new SocioActividadesController();
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
+           // controller = new SocioClubController();
+            controller.AddSocioClub(i, "unusuario" + i, "pass", 10); i++;
+            controller.AddSocioClub(i, "unusuario" + i, "pass", 10); i++;
+            controller.AddSocioClub(i, "unusuario" + i, "pass", 10); i++;
+            controller.AddSocioClub(i, "unusuario" + i, "pass", 10); i++;
+            controller.AddSocioClub(i, "unusuario" + i, "pass", 10); i++;
+            controller.AddSocioClub(i, "unusuario" + i, "pass", 10); i++;
+            controller.AddSocioClub(i, "unusuario" + i, "pass", 10); i++;
+            controller.AddSocioClub(i, "unusuario" + i, "pass", 10); i++;
+            controller.AddSocioClub(i, "unusuario" + i, "pass", 10); i++;
+            controller.AddSocioClub(i, "unusuario" + i, "pass", 10); i++;
+            controller.AddSocioClub(i, "unusuario" + i, "pass", 10); i++;
+            controller.AddSocioClub(i, "unusuario" + i, "pass", 10); i++;
+            controller.AddSocioClub(i, "unusuario" + i, "pass", 10); i++;
+            controller.AddSocioClub(i, "unusuario" + i, "pass", 10); i++;
+            controller.AddSocioClub(i, "unusuario" + i, "pass", 10); i++;
 
 
-            controller = new ProfesorController();
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;
-            controller.AddUsuario(i, "unusuario" + i, "pass"); i++;*/
+            //controller = new SocioActividadesController();
+            controller.AddSocioActividades(i, "unusuario" + i, "pass"); i++;
+            controller.AddSocioActividades(i, "unusuario" + i, "pass"); i++;
+            controller.AddSocioActividades(i, "unusuario" + i, "pass"); i++;
+            controller.AddSocioActividades(i, "unusuario" + i, "pass"); i++;
+            controller.AddSocioActividades(i, "unusuario" + i, "pass"); i++;
+            controller.AddSocioActividades(i, "unusuario" + i, "pass"); i++;
+            controller.AddSocioActividades(i, "unusuario" + i, "pass"); i++;
+            controller.AddSocioActividades(i, "unusuario" + i, "pass"); i++;
+            controller.AddSocioActividades(i, "unusuario" + i, "pass"); i++;
+            controller.AddSocioActividades(i, "unusuario" + i, "pass"); i++;
+            controller.AddSocioActividades(i, "unusuario" + i, "pass"); i++;
+            controller.AddSocioActividades(i, "unusuario" + i, "pass"); i++;
+            controller.AddSocioActividades(i, "unusuario" + i, "pass"); i++;
+            controller.AddSocioActividades(i, "unusuario" + i, "pass"); i++;
+            controller.AddSocioActividades(i, "unusuario" + i, "pass"); i++;
 
-            Usuarios.Guardar();
+
+            //controller = new ProfesorController();
+            controller.AddProfesor(i, "unusuario" + i, "pass"); i++;
+            controller.AddProfesor(i, "unusuario" + i, "pass"); i++;
+            controller.AddProfesor(i, "unusuario" + i, "pass"); i++;
+            controller.AddProfesor(i, "unusuario" + i, "pass"); i++;
+            controller.AddProfesor(i, "unusuario" + i, "pass"); i++;
+            controller.AddProfesor(i, "unusuario" + i, "pass"); i++;
+            controller.AddProfesor(i, "unusuario" + i, "pass"); i++;
+            controller.AddProfesor(i, "unusuario" + i, "pass"); i++;
+            controller.AddProfesor(i, "unusuario" + i, "pass"); i++;
+            controller.AddProfesor(i, "unusuario" + i, "pass"); i++;
+            controller.AddProfesor(i, "unusuario" + i, "pass"); i++;
+            controller.AddProfesor(i, "unusuario" + i, "pass"); i++;
+            controller.AddProfesor(i, "unusuario" + i, "pass"); i++;
+            controller.AddProfesor(i, "unusuario" + i, "pass"); i++;
+            controller.AddProfesor(i, "unusuario" + i, "pass"); i++;
+
+            controller.Guardar();*/
         }
 
         private void buttonEntrar_Click(object sender, EventArgs e)
@@ -113,8 +111,8 @@ namespace ClubDeportivo
 
                     if (Usuarios.ValidarCredenciales(dni, clave) == true)
                     {
-                        FormAdministrador form = new FormAdministrador(Usuarios, dni);
-                        this.Hide();
+                        FormAdministrador form = new FormAdministrador(dni);
+                        //this.Hide();
                         form.ShowDialog();
                     }
                     else
@@ -175,11 +173,11 @@ namespace ClubDeportivo
         private void buttonRegistrar_Click(object sender, EventArgs e)
         {
             FormRegistro registrar = new FormRegistro();
-            this.Hide();
+            //this.Hide();
             registrar.ShowDialog();
         }
 
-        private void FormLogin_FormClosed(object sender, FormClosedEventArgs e)
+       private void FormLogin_FormClosed(object sender, FormClosedEventArgs e)
         {
             {
                 if (Usuarios.Guardar())

@@ -13,7 +13,7 @@ namespace ClubDeportivo
 {
     public partial class FormRegistro : Form
     {
-        UsuarioController Usuarios;
+        UsuarioController Usuarios = new UsuarioController();
 
         public FormRegistro()
         {
