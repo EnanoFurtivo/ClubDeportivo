@@ -21,7 +21,6 @@ namespace CapaControl
         public abstract Usuario GetUsuario(int dni);
         public abstract void RemoveUsuario(int dni);
         public abstract void AddUsuario(int dni, string nombre, string clave);
-
         public abstract List<Usuario> MostrarLista();
     }
 }

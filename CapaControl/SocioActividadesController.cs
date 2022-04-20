@@ -7,19 +7,21 @@ using CapaNegocio;
 
 namespace CapaControl
 {
-    public class SocioActividadesController : SocioController
+    public sealed class SocioActividadesController : SocioController
     {
         private static List<SocioActividades> ListaSocioActividades = new List<SocioActividades>();
 
         public override void AddUsuario(int dni, string nombre, string clave)
         {
-            ListaSocioActividades.Add(new SocioActividades(dni, nombre, clave));
+            Socio socio = new SocioActividades(dni, nombre, clave);
+            ListaSocioActividades.Add((SocioActividades)socio);
         }
 
         public override Usuario GetUsuario(int dni)
         {
             return ListaSocioActividades.Find(u => u.Dni == dni);
         }
+
         public override bool ValidarCredenciales(int dni, string clave)
         {
             Usuario u = null;
@@ -35,7 +37,8 @@ namespace CapaControl
 
         public override void RemoveUsuario(int dni)
         {
-            throw new NotImplementedException();
+            Socio socio = (Socio)GetUsuario(dni);
+            ListaSocioActividades.Remove((SocioActividades)socio);
         }
         public override List<Usuario> MostrarLista()
         {

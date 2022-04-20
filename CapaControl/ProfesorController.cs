@@ -7,7 +7,7 @@ using CapaNegocio;
 
 namespace CapaControl
 {
-    public class ProfesorController : UsuarioController
+    public sealed class ProfesorController : UsuarioController
     {
         private static List<Profesor> ListaProfesor = new List<Profesor>();
 
