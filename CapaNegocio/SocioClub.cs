@@ -10,7 +10,7 @@ namespace CapaNegocio
     public class SocioClub : Socio
     {
         private static int DescuentoExcedente = 50;
-        private static int MaxActividades = 5;
+        private static int MaxActividades = 5;aasd==
         private double Cuota;
 
         public SocioClub(int dni, string nombre, string clave, double cuota) : base(dni, nombre, clave)
