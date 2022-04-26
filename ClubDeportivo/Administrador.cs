@@ -279,5 +279,10 @@ namespace ClubDeportivo
             else
                 buttonEliminarActividad.Enabled = false;
         }
+
+        private void toolStripButtonGenerarDeuda_Click(object sender, EventArgs e)
+        {
+            Usuarios.GenerarDeuda();
+        }
     }
 }

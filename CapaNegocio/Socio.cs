@@ -9,9 +9,9 @@ namespace CapaNegocio
     [Serializable]
     public abstract class Socio : Usuario
     {
-        private bool Estado;
-        private List<RegistroActividad> RegistroActividades;
-        private CuentaCorriente CuentaCorriente;
+        protected bool Estado;
+        protected List<RegistroActividad> RegistroActividades;
+        protected CuentaCorriente CuentaCorriente;
 
         public Socio(int dni, string nombre, string clave) : base(dni, nombre, clave)
         {
@@ -31,8 +31,11 @@ namespace CapaNegocio
 
             List<RegistroActividad> resultList = new List<RegistroActividad>();
 
+            int mes = DateTime.Now.Month - 1;
+            if (mes < 1) mes = 12;
+
             foreach (RegistroActividad rActividad in this.RegistroActividades)
-                if (rActividad.Fecha.Month == DateTime.Now.Month-1) //tradd
+                if (rActividad.Fecha.Month == mes) //traer actividades del mes anterior
                     resultList.Add(rActividad);
 
             return resultList;
@@ -54,15 +57,7 @@ namespace CapaNegocio
             return this.CuentaCorriente.GetSaldo();
         }
 
-        public abstract double GenerarDeuda();
-
-        /// <summary>
-        /// Devuelve la cantidad de actividades en las que esta registrado el socio
-        /// </summary>
-        public double CountActividades()
-        {
-            throw new NotImplementedException();
-        }
+        public abstract void GenerarDeuda();
 
         /// <summary>
         /// Le asigna una actividad al socio
