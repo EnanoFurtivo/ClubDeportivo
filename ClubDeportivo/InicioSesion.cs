@@ -99,10 +99,45 @@ namespace ClubDeportivo
             //Usuarios.Guardar();*/
         }
 
+        private bool ValidarDni(string dniStr, out int dni)
+        {
+            if (dniStr == "")
+            {
+                MessageBox.Show("Se esperaba un dni", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dni = -1;
+                return false;
+            }
+
+            if (!int.TryParse(dniStr, out dni))
+            {
+                MessageBox.Show("El dni debe ser numerico", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dni = -1;
+                return false;
+            }
+
+            return true;
+        }
+        private bool ValidarClave(string clave)
+        {
+            if (clave == "")
+            {
+                MessageBox.Show("Se esperaba una clave", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return true;
+        }
+
         private void buttonEntrar_Click(object sender, EventArgs e)
         {
-            this.dni = int.Parse(textBoxDni.Text);
+            string dniStr = this.textBoxDni.Text;
+            int dni;
+            if (!ValidarDni(dniStr, out dni))
+                return;
+
             this.clave = textBoxClave.Text;
+            if (!ValidarClave(clave))
+                return;
 
             if (Usuarios.ValidarCredenciales(dni, clave) == true)
             {
@@ -111,10 +146,10 @@ namespace ClubDeportivo
                 form.ShowDialog();
             }
             else
-                MessageBox.Show("El dni o clave ingresada es incorrecta");
+                MessageBox.Show("El dni o clave ingresada es incorrecta", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
-       private void FormLogin_FormClosed(object sender, FormClosedEventArgs e)
+        private void FormLogin_FormClosed(object sender, FormClosedEventArgs e)
         {           
             if (Usuarios.Guardar()&& Actividades.guardar())
                 MessageBox.Show("GUARDADO OK");
