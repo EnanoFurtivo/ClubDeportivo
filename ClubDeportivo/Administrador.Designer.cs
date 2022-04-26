@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAdministrador));
             this.labelBienvenida = new System.Windows.Forms.Label();
             this.labelLista = new System.Windows.Forms.Label();
             this.buttonModificar = new System.Windows.Forms.Button();
@@ -52,6 +53,7 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripButtonGenerarDeuda = new System.Windows.Forms.ToolStripButton();
             this.groupBoxActividades.SuspendLayout();
             this.groupBoxModificarUsuario.SuspendLayout();
             this.groupBoxModificarActividad.SuspendLayout();
@@ -273,7 +275,8 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabel1,
-            this.toolStripComboBox1});
+            this.toolStripComboBox1,
+            this.toolStripButtonGenerarDeuda});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(657, 25);
@@ -298,6 +301,16 @@
             this.toolStripComboBox1.Name = "toolStripComboBox1";
             this.toolStripComboBox1.Size = new System.Drawing.Size(121, 25);
             this.toolStripComboBox1.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBox1_SelectedIndexChanged);
+            // 
+            // toolStripButtonGenerarDeuda
+            // 
+            this.toolStripButtonGenerarDeuda.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButtonGenerarDeuda.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonGenerarDeuda.Image")));
+            this.toolStripButtonGenerarDeuda.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonGenerarDeuda.Name = "toolStripButtonGenerarDeuda";
+            this.toolStripButtonGenerarDeuda.Size = new System.Drawing.Size(86, 22);
+            this.toolStripButtonGenerarDeuda.Text = "GenerarDeuda";
+            this.toolStripButtonGenerarDeuda.Click += new System.EventHandler(this.toolStripButtonGenerarDeuda_Click);
             // 
             // FormAdministrador
             // 
@@ -354,5 +367,6 @@
         private System.Windows.Forms.Button buttonEliminarActividadLista;
         private System.Windows.Forms.GroupBox groupBoxModificarUsuario;
         private System.Windows.Forms.GroupBox groupBoxModificarActividad;
+        private System.Windows.Forms.ToolStripButton toolStripButtonGenerarDeuda;
     }
 }
