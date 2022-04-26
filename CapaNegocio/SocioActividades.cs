@@ -11,9 +11,10 @@ namespace CapaNegocio
     {
         public SocioActividades(int dni, string nombre, string clave) : base(dni, nombre, clave) { ; }
 
-        public override double GenerarDeuda()
+        public override void GenerarDeuda()
         {
-            throw new NotImplementedException();
+            foreach (var rActividad in this.GetActividades())
+                this.CuentaCorriente.AgregarDeuda("Deuda actividad " + rActividad.Actividad.Descripcion + " " + DateTime.Now.Month + "-" + DateTime.Now.Year, rActividad.Actividad.Costo);
         }
     }
 }

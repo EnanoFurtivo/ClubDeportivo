@@ -81,12 +81,18 @@ namespace CapaControl
             return result;
         }
 
+        public void GenerarDeuda()
+        {
+            foreach (Socio socio in this.MostrarLista(typeof(Socio)))
+                socio.GenerarDeuda();
+        }
+
         //SERIALIZAR
         public bool Guardar()
         {
             return DatosUsuarios.Guardar(this);
         }
-        
+
         public static UsuarioController Recuperar()
         {
             UsuarioController dat = (UsuarioController)DatosUsuarios.Recuperar();

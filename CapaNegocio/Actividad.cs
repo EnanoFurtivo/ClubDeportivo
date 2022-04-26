@@ -13,17 +13,18 @@ namespace CapaNegocio
         public string Descripcion;
         public double Costo { get; set; }
         public int CantMaxParticipantes { get; set; }
+        public DateTime Horario;
         public List<Horario> Horarios;
         public Profesor Profesor;
 
-        public Actividad(int unId, string unaDescripcion, double unCosto, int unaCantMaxParticipantes, Profesor profesor, List<Horario> horarios)
+        public Actividad(int unId, string unaDescripcion, double unCosto, int unaCantMaxParticipantes, Profesor profesor, List<Horario> horario)
         {
             this.Id = unId;
             this.Descripcion = unaDescripcion;
             this.Costo = unCosto;
             this.CantMaxParticipantes = unaCantMaxParticipantes;
             this.Profesor = profesor;
-            this.Horarios = horarios;
+            //this.Horario = horario;
         }
 
         public override string ToString()
