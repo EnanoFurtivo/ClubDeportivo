@@ -32,7 +32,7 @@ namespace CapaNegocio
             List<RegistroActividad> resultList = new List<RegistroActividad>();
 
             foreach (RegistroActividad rActividad in this.RegistroActividades)
-                if (rActividad.Fecha.Month == DateTime.Now.Month)
+                if (rActividad.Fecha.Month == DateTime.Now.Month-1) //tradd
                     resultList.Add(rActividad);
 
             return resultList;
