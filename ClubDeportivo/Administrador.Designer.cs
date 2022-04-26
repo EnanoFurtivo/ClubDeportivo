@@ -85,9 +85,9 @@
             // 
             // buttonModificar
             // 
-            this.buttonModificar.Location = new System.Drawing.Point(24, 38);
+            this.buttonModificar.Location = new System.Drawing.Point(6, 48);
             this.buttonModificar.Name = "buttonModificar";
-            this.buttonModificar.Size = new System.Drawing.Size(108, 23);
+            this.buttonModificar.Size = new System.Drawing.Size(145, 23);
             this.buttonModificar.TabIndex = 4;
             this.buttonModificar.Text = "Modificar x";
             this.buttonModificar.UseVisualStyleBackColor = true;
@@ -95,9 +95,9 @@
             // 
             // buttonEliminar
             // 
-            this.buttonEliminar.Location = new System.Drawing.Point(24, 67);
+            this.buttonEliminar.Location = new System.Drawing.Point(6, 77);
             this.buttonEliminar.Name = "buttonEliminar";
-            this.buttonEliminar.Size = new System.Drawing.Size(108, 23);
+            this.buttonEliminar.Size = new System.Drawing.Size(145, 23);
             this.buttonEliminar.TabIndex = 5;
             this.buttonEliminar.Text = "Eliminar x";
             this.buttonEliminar.UseVisualStyleBackColor = true;
@@ -108,7 +108,7 @@
             this.listBox.FormattingEnabled = true;
             this.listBox.Location = new System.Drawing.Point(6, 33);
             this.listBox.Name = "listBox";
-            this.listBox.Size = new System.Drawing.Size(176, 264);
+            this.listBox.Size = new System.Drawing.Size(176, 277);
             this.listBox.TabIndex = 6;
             this.listBox.SelectedIndexChanged += new System.EventHandler(this.listBox_SelectedIndexChanged);
             // 
@@ -116,19 +116,20 @@
             // 
             this.groupBoxActividades.Controls.Add(this.listBoxActividadesSocio);
             this.groupBoxActividades.Controls.Add(this.listBox);
+            this.groupBoxActividades.Controls.Add(this.groupBoxModificarActividad);
             this.groupBoxActividades.Controls.Add(this.labelLista);
             this.groupBoxActividades.Location = new System.Drawing.Point(16, 62);
             this.groupBoxActividades.Name = "groupBoxActividades";
-            this.groupBoxActividades.Size = new System.Drawing.Size(350, 305);
+            this.groupBoxActividades.Size = new System.Drawing.Size(368, 323);
             this.groupBoxActividades.TabIndex = 8;
             this.groupBoxActividades.TabStop = false;
             // 
             // listBoxActividadesSocio
             // 
             this.listBoxActividadesSocio.FormattingEnabled = true;
-            this.listBoxActividadesSocio.Location = new System.Drawing.Point(196, 124);
+            this.listBoxActividadesSocio.Location = new System.Drawing.Point(197, 163);
             this.listBoxActividadesSocio.Name = "listBoxActividadesSocio";
-            this.listBoxActividadesSocio.Size = new System.Drawing.Size(139, 173);
+            this.listBoxActividadesSocio.Size = new System.Drawing.Size(157, 147);
             this.listBoxActividadesSocio.TabIndex = 13;
             this.listBoxActividadesSocio.SelectedIndexChanged += new System.EventHandler(this.listBoxActividadesSocio_SelectedIndexChanged);
             // 
@@ -137,17 +138,17 @@
             this.groupBoxModificarUsuario.Controls.Add(this.buttonAgregar);
             this.groupBoxModificarUsuario.Controls.Add(this.buttonModificar);
             this.groupBoxModificarUsuario.Controls.Add(this.buttonEliminar);
-            this.groupBoxModificarUsuario.Location = new System.Drawing.Point(372, 41);
+            this.groupBoxModificarUsuario.Location = new System.Drawing.Point(213, 95);
             this.groupBoxModificarUsuario.Name = "groupBoxModificarUsuario";
-            this.groupBoxModificarUsuario.Size = new System.Drawing.Size(148, 96);
+            this.groupBoxModificarUsuario.Size = new System.Drawing.Size(157, 108);
             this.groupBoxModificarUsuario.TabIndex = 11;
             this.groupBoxModificarUsuario.TabStop = false;
             // 
             // buttonAgregar
             // 
-            this.buttonAgregar.Location = new System.Drawing.Point(24, 9);
+            this.buttonAgregar.Location = new System.Drawing.Point(6, 19);
             this.buttonAgregar.Name = "buttonAgregar";
-            this.buttonAgregar.Size = new System.Drawing.Size(108, 23);
+            this.buttonAgregar.Size = new System.Drawing.Size(145, 23);
             this.buttonAgregar.TabIndex = 3;
             this.buttonAgregar.Text = "Agregar x";
             this.buttonAgregar.UseVisualStyleBackColor = true;
@@ -158,17 +159,17 @@
             this.groupBoxModificarActividad.Controls.Add(this.buttonEliminarActividadLista);
             this.groupBoxModificarActividad.Controls.Add(this.buttonAgregarActividad);
             this.groupBoxModificarActividad.Controls.Add(this.buttonModificarActividad);
-            this.groupBoxModificarActividad.Location = new System.Drawing.Point(372, 143);
+            this.groupBoxModificarActividad.Location = new System.Drawing.Point(197, 33);
             this.groupBoxModificarActividad.Name = "groupBoxModificarActividad";
-            this.groupBoxModificarActividad.Size = new System.Drawing.Size(148, 91);
+            this.groupBoxModificarActividad.Size = new System.Drawing.Size(157, 108);
             this.groupBoxModificarActividad.TabIndex = 10;
             this.groupBoxModificarActividad.TabStop = false;
             // 
             // buttonEliminarActividadLista
             // 
-            this.buttonEliminarActividadLista.Location = new System.Drawing.Point(24, 65);
+            this.buttonEliminarActividadLista.Location = new System.Drawing.Point(6, 77);
             this.buttonEliminarActividadLista.Name = "buttonEliminarActividadLista";
-            this.buttonEliminarActividadLista.Size = new System.Drawing.Size(108, 23);
+            this.buttonEliminarActividadLista.Size = new System.Drawing.Size(145, 23);
             this.buttonEliminarActividadLista.TabIndex = 14;
             this.buttonEliminarActividadLista.Text = "Eliminar Actividad";
             this.buttonEliminarActividadLista.UseVisualStyleBackColor = true;
@@ -176,9 +177,9 @@
             // 
             // buttonAgregarActividad
             // 
-            this.buttonAgregarActividad.Location = new System.Drawing.Point(24, 7);
+            this.buttonAgregarActividad.Location = new System.Drawing.Point(6, 19);
             this.buttonAgregarActividad.Name = "buttonAgregarActividad";
-            this.buttonAgregarActividad.Size = new System.Drawing.Size(108, 23);
+            this.buttonAgregarActividad.Size = new System.Drawing.Size(145, 23);
             this.buttonAgregarActividad.TabIndex = 10;
             this.buttonAgregarActividad.Text = "Agregar Actividad";
             this.buttonAgregarActividad.UseVisualStyleBackColor = true;
@@ -186,9 +187,9 @@
             // 
             // buttonModificarActividad
             // 
-            this.buttonModificarActividad.Location = new System.Drawing.Point(24, 36);
+            this.buttonModificarActividad.Location = new System.Drawing.Point(6, 48);
             this.buttonModificarActividad.Name = "buttonModificarActividad";
-            this.buttonModificarActividad.Size = new System.Drawing.Size(108, 23);
+            this.buttonModificarActividad.Size = new System.Drawing.Size(145, 23);
             this.buttonModificarActividad.TabIndex = 12;
             this.buttonModificarActividad.Text = "Modificar Actividad";
             this.buttonModificarActividad.UseVisualStyleBackColor = true;
@@ -199,7 +200,7 @@
             this.groupBoxAsignarActividad.Controls.Add(this.buttonEliminarActividad);
             this.groupBoxAsignarActividad.Controls.Add(this.comboBoxAsignarActividad);
             this.groupBoxAsignarActividad.Controls.Add(this.buttonAsignarActividad);
-            this.groupBoxAsignarActividad.Location = new System.Drawing.Point(369, 342);
+            this.groupBoxAsignarActividad.Location = new System.Drawing.Point(213, 95);
             this.groupBoxAsignarActividad.Name = "groupBoxAsignarActividad";
             this.groupBoxAsignarActividad.Size = new System.Drawing.Size(157, 78);
             this.groupBoxAsignarActividad.TabIndex = 11;
@@ -209,7 +210,7 @@
             // 
             this.buttonEliminarActividad.Location = new System.Drawing.Point(84, 46);
             this.buttonEliminarActividad.Name = "buttonEliminarActividad";
-            this.buttonEliminarActividad.Size = new System.Drawing.Size(64, 23);
+            this.buttonEliminarActividad.Size = new System.Drawing.Size(67, 23);
             this.buttonEliminarActividad.TabIndex = 10;
             this.buttonEliminarActividad.Text = "Eliminar";
             this.buttonEliminarActividad.UseVisualStyleBackColor = true;
@@ -220,7 +221,7 @@
             this.comboBoxAsignarActividad.FormattingEnabled = true;
             this.comboBoxAsignarActividad.Location = new System.Drawing.Point(9, 18);
             this.comboBoxAsignarActividad.Name = "comboBoxAsignarActividad";
-            this.comboBoxAsignarActividad.Size = new System.Drawing.Size(140, 21);
+            this.comboBoxAsignarActividad.Size = new System.Drawing.Size(142, 21);
             this.comboBoxAsignarActividad.TabIndex = 8;
             // 
             // buttonAsignarActividad
@@ -238,9 +239,9 @@
             this.groupBoxRegistrarPago.Controls.Add(this.buttonRegistrarPago);
             this.groupBoxRegistrarPago.Controls.Add(this.label2);
             this.groupBoxRegistrarPago.Controls.Add(this.textBoxMonto);
-            this.groupBoxRegistrarPago.Location = new System.Drawing.Point(372, 249);
+            this.groupBoxRegistrarPago.Location = new System.Drawing.Point(213, 95);
             this.groupBoxRegistrarPago.Name = "groupBoxRegistrarPago";
-            this.groupBoxRegistrarPago.Size = new System.Drawing.Size(154, 78);
+            this.groupBoxRegistrarPago.Size = new System.Drawing.Size(157, 78);
             this.groupBoxRegistrarPago.TabIndex = 10;
             this.groupBoxRegistrarPago.TabStop = false;
             // 
@@ -248,7 +249,7 @@
             // 
             this.buttonRegistrarPago.Location = new System.Drawing.Point(9, 45);
             this.buttonRegistrarPago.Name = "buttonRegistrarPago";
-            this.buttonRegistrarPago.Size = new System.Drawing.Size(140, 23);
+            this.buttonRegistrarPago.Size = new System.Drawing.Size(142, 23);
             this.buttonRegistrarPago.TabIndex = 7;
             this.buttonRegistrarPago.Text = "Registrar pago";
             this.buttonRegistrarPago.UseVisualStyleBackColor = true;
@@ -268,7 +269,7 @@
             // 
             this.textBoxMonto.Location = new System.Drawing.Point(49, 19);
             this.textBoxMonto.Name = "textBoxMonto";
-            this.textBoxMonto.Size = new System.Drawing.Size(99, 20);
+            this.textBoxMonto.Size = new System.Drawing.Size(102, 20);
             this.textBoxMonto.TabIndex = 0;
             // 
             // toolStrip1
@@ -279,7 +280,7 @@
             this.toolStripButtonGenerarDeuda});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(657, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(398, 25);
             this.toolStrip1.TabIndex = 9;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -317,10 +318,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.ClientSize = new System.Drawing.Size(657, 520);
+            this.ClientSize = new System.Drawing.Size(398, 396);
             this.Controls.Add(this.groupBoxModificarUsuario);
             this.Controls.Add(this.groupBoxAsignarActividad);
-            this.Controls.Add(this.groupBoxModificarActividad);
             this.Controls.Add(this.groupBoxRegistrarPago);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.labelBienvenida);
