@@ -17,16 +17,14 @@ namespace ClubDeportivo
         string label = "";
         string labelSingular = "";
         object lista = null;
+        private bool GroupBoxAsignarActividades;
         string typeStr = "";
         string Tipo = "";
         bool[] BotonesActivos = null;
-        bool RegistrarPagoButtons;
-        bool AsignarActividadButtons;
-        bool AgregarActividadButton;
-        bool ModificarActividadButton;
-        bool ListaActividades;
-        bool EliminarActividad;
-
+        private bool GroupBoxPagos;
+        private bool ListaActividades;
+        private bool GroupBoxUsuarios;
+        private bool GroupBoxActividades;
         UsuarioController Usuarios;
         ActividadController Actividades;
 
@@ -44,7 +42,7 @@ namespace ClubDeportivo
             CambiarFormulario("Modificar actividades");
         }
 
-        private void RefrescarLista()
+        private void RefrescarLista(bool clear = false, bool clearActividades = false)
         {
             listBox.DataSource = null;
 
@@ -82,13 +80,16 @@ namespace ClubDeportivo
                         this.listBoxActividadesSocio.DataSource = listaTmp;
 
 
-                        listBoxActividadesSocio.ClearSelected();
+                        if (clearActividades)
+                            listBoxActividadesSocio.ClearSelected();
                     }
                     break;
             }
 
             listBox.DataSource = lista;
-            listBox.ClearSelected();
+
+            if(clear)
+                listBox.ClearSelected();
         }
 
         private void toolStripComboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -101,26 +102,23 @@ namespace ClubDeportivo
             Tipo = tipo;
 
             BotonesActivos = new bool[] { true, true, true };
-            RegistrarPagoButtons = false;
-            AsignarActividadButtons = false;
-            AgregarActividadButton = false;
-            ModificarActividadButton = false;
+            GroupBoxPagos = false;
+            GroupBoxAsignarActividades = false;
             ListaActividades = false;
-            EliminarActividad = false;
+            GroupBoxUsuarios = false;
+            GroupBoxActividades = false;
 
             switch (tipo)
             {
                 case "Modificar actividades":
-                    AgregarActividadButton = true;
-                    ModificarActividadButton = true;
-                    BotonesActivos[0] = false;
-                    BotonesActivos[1] = false;
+                    GroupBoxActividades = true;
                     label = "actividades";
                     labelSingular = "Actividad";
                     typeStr = "Actividad";
                     break;
 
                 case "Modificar profesores":
+                    GroupBoxUsuarios = true;
                     label = "profesores";
                     labelSingular = "Profesor";
                     BotonesActivos[1] = false;
@@ -128,6 +126,7 @@ namespace ClubDeportivo
                     break;
 
                 case "Modificar socios del club":
+                    GroupBoxUsuarios = true;
                     label = "socios";
                     labelSingular = "Socio Club";
                     BotonesActivos[1] = false;
@@ -135,6 +134,7 @@ namespace ClubDeportivo
                     break;
 
                 case "Modificar socios de actividades":
+                    GroupBoxUsuarios = true;
                     label = "socios";
                     labelSingular = "Socio Actividad";
                     BotonesActivos[1] = false;
@@ -142,35 +142,30 @@ namespace ClubDeportivo
                     break;
 
                 case "Registrar pago":
+                    GroupBoxPagos = true;
                     label = "socios";
                     labelSingular = "socio";
-                    BotonesActivos[0] = false;
-                    BotonesActivos[1] = false;
-                    BotonesActivos[2] = false;
-                    RegistrarPagoButtons = true;
                     typeStr = "Socio";
                     break;
 
                 case "Asignar actividad":
+                    GroupBoxAsignarActividades = true;
                     label = "socios";
                     labelSingular = "socio";
-                    BotonesActivos[0] = false;
-                    BotonesActivos[1] = false;
-                    BotonesActivos[2] = false;
                     ListaActividades = true;
                     comboBoxAsignarActividad.DataSource = Actividades.MostrarLista();
-                    AsignarActividadButtons = true;
-                    EliminarActividad = true;
                     typeStr = "Socio";
                     break;
             }
 
             labelLista.Text = label;
 
-            buttonAgregarActividad.Visible = AgregarActividadButton;
-            buttonModificarActividad.Visible = ModificarActividadButton;
+            groupBoxModificarActividad.Visible = GroupBoxActividades;
+            groupBoxModificarUsuario.Visible = GroupBoxUsuarios;
+            groupBoxRegistrarPago.Visible = GroupBoxPagos;
+            groupBoxAsignarActividad.Visible = GroupBoxAsignarActividades;
+
             listBoxActividadesSocio.Visible = ListaActividades;
-            buttonEliminarActividad.Visible = EliminarActividad;
 
             buttonAgregar.Text = "Agregar "+labelSingular;
             buttonModificar.Text = "Modificar "+labelSingular;
@@ -179,11 +174,8 @@ namespace ClubDeportivo
             buttonAgregar.Visible = BotonesActivos[0];
             buttonModificar.Visible = BotonesActivos[1];
             buttonEliminar.Visible = BotonesActivos[2];
-
-            groupBoxRegistrarPago.Visible = RegistrarPagoButtons;
-            groupBoxAsignarActividad.Visible = AsignarActividadButtons;
             
-            RefrescarLista();
+            RefrescarLista(true);
         }
 
         private void buttonAgregar_Click(object sender, EventArgs e)
@@ -197,7 +189,8 @@ namespace ClubDeportivo
         {
             Usuario usuario = (Usuario)listBox.SelectedItem;
             Usuarios.RemoveUsuario(usuario.Dni);
-            RefrescarLista();
+
+            RefrescarLista(true);
         }
 
         private void buttonModificar_Click(object sender, EventArgs e)
@@ -221,6 +214,10 @@ namespace ClubDeportivo
         private void buttonAsignarActividad_Click(object sender, EventArgs e)
         {
             Socio s = (Socio)listBox.SelectedItem;
+            
+            if(s==null)
+                return;
+
             s.AsignarActividad((Actividad)comboBoxAsignarActividad.SelectedItem);
             RefrescarLista();
         }
@@ -235,6 +232,10 @@ namespace ClubDeportivo
         private void buttonModificarActividad_Click(object sender, EventArgs e)
         {
             Actividad actividad = (Actividad)listBox.SelectedItem;
+
+            if (actividad == null)
+                return;
+
             Form form = new FormModificarActividad(actividad, Usuarios, Actividades);
             form.ShowDialog();
             RefrescarLista();
@@ -264,12 +265,12 @@ namespace ClubDeportivo
         {
             Socio s = (Socio)listBox.SelectedItem;
 
-            if (s != null)
-            {
-                RegistroActividad ra = (RegistroActividad)listBoxActividadesSocio.SelectedItem;
-                s.DesvincularActividad(ra);
-                RefrescarLista();
-            }
+            if (s == null)
+                return;
+
+            RegistroActividad ra = (RegistroActividad)listBoxActividadesSocio.SelectedItem;
+            s.DesvincularActividad(ra);
+            RefrescarLista(false, true);
         }
 
         private void listBoxActividadesSocio_SelectedIndexChanged(object sender, EventArgs e)
@@ -280,9 +281,16 @@ namespace ClubDeportivo
                 buttonEliminarActividad.Enabled = false;
         }
 
-        private void toolStripButtonGenerarDeuda_Click(object sender, EventArgs e)
+        private void buttonEliminarActividadLista_Click(object sender, EventArgs e)
         {
-            Usuarios.GenerarDeuda();
+            Actividad actividad = (Actividad)listBox.SelectedItem;
+
+            if (actividad == null)
+                return;
+
+            Actividades.EliminarActividad(actividad);
+
+            RefrescarLista(true);
         }
     }
 }
