@@ -11,7 +11,7 @@ namespace CapaControl
     [Serializable]
     public sealed class ActividadController
     {
-        private static List<Actividad> ListActividad = new List<Actividad>();
+        private List<Actividad> ListActividad = new List<Actividad>();
 
         public void AgregarActividad(int id, string desc, double costo, int CantMax, Profesor profesor, List<Horario> listaHorarios)
         {

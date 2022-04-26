@@ -21,7 +21,7 @@ namespace CapaControl
     [Serializable]
     public class UsuarioController
     {
-        private static List<Usuario> ListaUsuarios = new List<Usuario>();
+        private List<Usuario> ListaUsuarios = new List<Usuario>();
 
         //ADD//
         public void AddSocioClub(int dni, string nombre, string clave, double cuota)
@@ -86,6 +86,7 @@ namespace CapaControl
         {
             return DatosUsuarios.Guardar(this);
         }
+        
         public static UsuarioController Recuperar()
         {
             UsuarioController dat = (UsuarioController)DatosUsuarios.Recuperar();

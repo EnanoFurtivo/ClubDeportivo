@@ -15,13 +15,15 @@ namespace ClubDeportivo
     public partial class FormModificarActividad : Form
     {
         public List<Horario> ListaHorarios = new List<Horario>();
-        ActividadController Actividades = new ActividadController();
-        UsuarioController Usuarios = new UsuarioController();
+        ActividadController Actividades;
+        UsuarioController Usuarios;
         Actividad Actividad;
 
-        public FormModificarActividad(Actividad actividad)
+        public FormModificarActividad(Actividad actividad, UsuarioController UsuariosC, ActividadController ActividadC)
         {
             InitializeComponent();
+            Actividades = ActividadC;
+            Usuarios = UsuariosC;
             Actividad = actividad;
             CompletarDatos();
         }

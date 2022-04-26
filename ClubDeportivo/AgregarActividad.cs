@@ -15,13 +15,15 @@ namespace ClubDeportivo
     public partial class FormAgregarActividad : Form
     {
         List<Horario> ListaHorarios = new List<Horario>();
-        ActividadController Actividades = new ActividadController();
-        UsuarioController Usuarios = new UsuarioController();
+        ActividadController Actividades;
+        UsuarioController Usuarios;
         public int ResultId = -1;
 
-        public FormAgregarActividad()
+        public FormAgregarActividad(UsuarioController UsuarioC, ActividadController ActividadesC)
         {
             InitializeComponent();
+            Actividades = ActividadesC;
+            Usuarios = UsuarioC;
             this.comboBoxProfesor.DataSource = Usuarios.MostrarLista(typeof(Profesor));
         }
 

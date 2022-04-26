@@ -24,16 +24,16 @@ namespace CapaNegocio
         /// Devuelve las actividades del mes actual.
         /// Si no hay registros de actividad devuelve null.
         /// </summary>
-        public List<Actividad> GetActividades()
+        public List<RegistroActividad> GetActividades()
         {
             if (this.RegistroActividades.Count < 1)
                 return null;
 
-            List<Actividad> resultList = new List<Actividad>();
+            List<RegistroActividad> resultList = new List<RegistroActividad>();
 
             foreach (RegistroActividad rActividad in this.RegistroActividades)
                 if (rActividad.Fecha.Month == DateTime.Now.Month)
-                    resultList.Add(rActividad.Actividad);
+                    resultList.Add(rActividad);
 
             return resultList;
         }
@@ -76,9 +76,9 @@ namespace CapaNegocio
         /// <summary>
         /// Desvincula una actividad del socio
         /// </summary>
-        public double DesvincularActividad()
+        public void DesvincularActividad(RegistroActividad registroActividad)
         {
-            throw new NotImplementedException();
+            this.RegistroActividades.Remove(registroActividad);
         }
     }
 }
