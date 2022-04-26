@@ -10,7 +10,7 @@ namespace CapaNegocio
     public class SocioClub : Socio
     {
         private static int DescuentoExcedente = 50;
-        private static int MaxActividades = 5;aasd==
+        private static int MaxActividades = 5;
         private double Cuota;
 
         public SocioClub(int dni, string nombre, string clave, double cuota) : base(dni, nombre, clave)
@@ -23,12 +23,12 @@ namespace CapaNegocio
             this.CuentaCorriente.AgregarDeuda("Cuota mes "+DateTime.Now.Month+"-"+DateTime.Now.Year, this.Cuota); //agregar cuota
             List<RegistroActividad> rActividades = this.GetActividades();
             
-            if (rActividades.Count > 5)
+            if (rActividades.Count > MaxActividades)
             {
                 int i = 1;
                 foreach (var rActividad in rActividades)
                 {
-                    if (i > 5)
+                    if (i > MaxActividades)
                     {
                         this.CuentaCorriente.AgregarDeuda("Deuda actividad " + rActividad.Actividad.Descripcion + " " + DateTime.Now.Month + "-" + DateTime.Now.Year, rActividad.Actividad.Costo*DescuentoExcedente/100);
                     }
