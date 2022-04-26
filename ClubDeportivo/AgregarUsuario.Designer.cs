@@ -1,7 +1,7 @@
 ﻿
 namespace ClubDeportivo
 {
-    partial class FormRegistro
+    partial class FormAgregarUsuario
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace ClubDeportivo
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegistro));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAgregarUsuario));
             this.labelLoginTitulo = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBoxUsuario = new System.Windows.Forms.TextBox();
@@ -58,7 +58,7 @@ namespace ClubDeportivo
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox1.Location = new System.Drawing.Point(146, 12);
@@ -166,7 +166,7 @@ namespace ClubDeportivo
             this.labelCuota.Text = "Cuota";
             this.labelCuota.Visible = false;
             // 
-            // FormRegistro
+            // FormAgregarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -184,7 +184,7 @@ namespace ClubDeportivo
             this.Controls.Add(this.textBoxUsuario);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelLoginTitulo);
-            this.Name = "FormRegistro";
+            this.Name = "FormAgregarUsuario";
             this.Text = "Login";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

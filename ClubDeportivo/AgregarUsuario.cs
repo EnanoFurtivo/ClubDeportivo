@@ -11,13 +11,15 @@ using CapaControl;
 
 namespace ClubDeportivo
 {
-    public partial class FormRegistro : Form
+    public partial class FormAgregarUsuario : Form
     {
-        UsuarioController Usuarios = new UsuarioController();
-
-        public FormRegistro()
+        ActividadController Actividades;
+        UsuarioController Usuarios;
+        public FormAgregarUsuario(ActividadController ActividadesC, UsuarioController UsuariosC)
         {
             InitializeComponent();
+            Usuarios = UsuariosC;
+            Actividades = ActividadesC;
             this.comboBoxTipoUsuario.DataSource = Enum.GetValues(typeof(EUsuario));
         }
 
@@ -113,7 +115,9 @@ namespace ClubDeportivo
                     break;
 
                 case EUsuario.SocioClub:
-                    Usuarios.AddProfesor(dni, nombre, clave);
+                    double monto;
+                    if(double.TryParse(this.textBoxCuota.Text, out monto))
+                    Usuarios.AddSocioClub(dni, nombre, clave, monto);
                     break;
 
                 case EUsuario.SocioActividades:

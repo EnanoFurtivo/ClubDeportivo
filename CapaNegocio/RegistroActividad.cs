@@ -2,7 +2,8 @@
 
 namespace CapaNegocio
 {
-    internal class RegistroActividad
+    [Serializable]
+    public class RegistroActividad
     {
         public DateTime Fecha { get; internal set; }
         public Actividad Actividad { get; internal set; }
@@ -11,6 +12,10 @@ namespace CapaNegocio
         {
             this.Fecha = fecha;
             this.Actividad = actividad;
+        }
+        public override string ToString()
+        {
+            return this.Actividad.Descripcion + " - " + this.Fecha.ToString();
         }
     }
 }

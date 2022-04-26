@@ -15,12 +15,14 @@ namespace ClubDeportivo
     public partial class FormAgregarProfesor : Form
     {
         public List<Horario> listHorarios = new List<Horario>();
-        ActividadController actividad = new ActividadController();
+        ActividadController Actividades;
         UsuarioController Usuarios;
 
-        public FormAgregarProfesor()
+        public FormAgregarProfesor(UsuarioController UsuariosC, ActividadController ActividadesC)
         {
             InitializeComponent();
+            Actividades = ActividadesC;
+            Usuarios = UsuariosC;
             this.comboBoxProfesor.DataSource = Usuarios.MostrarLista(typeof(Profesor));
         }
 
@@ -40,7 +42,7 @@ namespace ClubDeportivo
             double costo = double.Parse(this.textBoxCosto.Text);
             int CantMax = int.Parse(this.textBoxCantMax.Text);
             Profesor profesor = (Profesor)this.comboBoxProfesor.SelectedItem;
-            this.actividad.AgregarActividad(id, desc, costo, CantMax, profesor, this.listHorarios);
+            this.Actividades.AgregarActividad(id, desc, costo, CantMax, profesor, this.listHorarios);
             this.Close();
         }
     }

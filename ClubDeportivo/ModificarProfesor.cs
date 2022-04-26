@@ -16,13 +16,15 @@ namespace ClubDeportivo
     {
         //ProfesorController profesores = new ProfesorController();
         public List<Horario> listHorarios = new List<Horario>();
-        ActividadController actividades = new ActividadController();
+        ActividadController Actividades;
         Actividad Actividad;
         UsuarioController Usuarios;
 
-        public FormModificarProfesor(Actividad actividad)
+        public FormModificarProfesor(Actividad actividad, UsuarioController UsuariosC, ActividadController ActividadesC)
         {
             InitializeComponent();
+            Usuarios = UsuariosC;
+            Actividades = ActividadesC;
             Actividad = actividad;
             CompletarDatos();
         }
@@ -60,7 +62,7 @@ namespace ClubDeportivo
             double costo = double.Parse(this.textBoxCosto.Text);
             int CantMax = int.Parse(this.textBoxCantMax.Text);
             Profesor profesor = (Profesor)this.comboBoxProfesor.SelectedItem;
-            this.actividades.ModificarActividad(id, CantMax, desc, costo, profesor, this.listHorarios);
+            this.Actividades.ModificarActividad(id, CantMax, desc, costo, profesor, this.listHorarios);
             this.Close();
         }
     }

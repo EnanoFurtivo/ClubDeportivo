@@ -88,11 +88,11 @@
     <Compile Include="SocioClub.Designer.cs">
       <DependentUpon>SocioClub.cs</DependentUpon>
     </Compile>
-    <Compile Include="RegistrarUsuario.cs">
+    <Compile Include="AgregarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RegistrarUsuario.Designer.cs">
-      <DependentUpon>RegistrarUsuario.cs</DependentUpon>
+    <Compile Include="AgregarUsuario.Designer.cs">
+      <DependentUpon>AgregarUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="InicioSesion.cs">
       <SubType>Form</SubType>
@@ -117,8 +117,8 @@
     <EmbeddedResource Include="AgregarActividad.resx">
       <DependentUpon>AgregarActividad.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RegistrarUsuario.resx">
-      <DependentUpon>RegistrarUsuario.cs</DependentUpon>
+    <EmbeddedResource Include="AgregarUsuario.resx">
+      <DependentUpon>AgregarUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InicioSesion.resx">
       <DependentUpon>InicioSesion.cs</DependentUpon>

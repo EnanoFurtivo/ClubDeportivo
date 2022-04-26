@@ -7,14 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaControl;
 
 namespace ClubDeportivo
 {
     public partial class FormSocioClub : Form
     {
-        public FormSocioClub()
+        UsuarioController Usuarios;
+        ActividadController Actividades;
+        public FormSocioClub(UsuarioController UsuariosC, ActividadController ActividadesC)
         {
             InitializeComponent();
+            Usuarios = UsuariosC;
+            Actividades = ActividadesC;
         }
     }
 }
