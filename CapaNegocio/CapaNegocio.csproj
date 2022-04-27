@@ -40,7 +40,6 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Compile Include="Actividad.cs" />
-    <Compile Include="Horario.cs" />
     <Compile Include="Profesor.cs" />
     <Compile Include="Administrador.cs" />
     <Compile Include="CuentaCorriente.cs" />

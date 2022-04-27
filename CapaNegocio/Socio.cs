@@ -41,6 +41,11 @@ namespace CapaNegocio
             return resultList;
         }
 
+        public List<RegistroActividad> ActividadesSocio()
+        {
+            return this.RegistroActividades;
+        }
+
         /// <summary>
         /// Registra un nuevo pago para el socio
         /// </summary>

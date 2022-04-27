@@ -13,9 +13,9 @@ namespace CapaControl
     {
         private List<Actividad> ListActividad = new List<Actividad>();
 
-        public void AgregarActividad(int id, string desc, double costo, int CantMax, Profesor profesor, List<Horario> listaHorarios)
+        public void AgregarActividad(int id, string desc, double costo, int CantMax, Profesor profesor, string horario)
         {
-            ListActividad.Add(new Actividad(id, desc, costo, CantMax, profesor, listaHorarios));
+            ListActividad.Add(new Actividad(id, desc, costo, CantMax, profesor, horario));
         }
 
         public void EliminarActividad(Actividad actividad)
@@ -28,12 +28,12 @@ namespace CapaControl
             return ListActividad.Find(u => u.Id == idActividad);
         }
 
-        public void ModificarActividad(int idActividad, int cantMaxParticipantes, string descripcion, double costo, Profesor profesor, List<Horario> horarios)
+        public void ModificarActividad(int idActividad, int cantMaxParticipantes, string descripcion, double costo, Profesor profesor, string horario)
         {
             Actividad actividad = this.GetActividad(idActividad);
             actividad.Descripcion = descripcion;    
             actividad.Profesor = profesor;
-            actividad.Horarios = horarios;
+            actividad.Horario = horario;
             actividad.Costo = costo;
             actividad.CantMaxParticipantes = cantMaxParticipantes;
         }

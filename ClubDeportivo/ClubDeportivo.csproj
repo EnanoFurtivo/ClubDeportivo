@@ -52,18 +52,6 @@
     <Compile Include="Administrador.Designer.cs">
       <DependentUpon>Administrador.cs</DependentUpon>
     </Compile>
-    <Compile Include="AgregarProfesor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AgregarProfesor.Designer.cs">
-      <DependentUpon>AgregarProfesor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ModificarProfesor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ModificarProfesor.Designer.cs">
-      <DependentUpon>ModificarProfesor.cs</DependentUpon>
-    </Compile>
     <Compile Include="ModificarActividad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,18 +63,6 @@
     </Compile>
     <Compile Include="AgregarActividad.Designer.cs">
       <DependentUpon>AgregarActividad.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SocioActividades.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SocioActividades.Designer.cs">
-      <DependentUpon>SocioActividades.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SocioClub.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SocioClub.Designer.cs">
-      <DependentUpon>SocioClub.cs</DependentUpon>
     </Compile>
     <Compile Include="AgregarUsuario.cs">
       <SubType>Form</SubType>
@@ -104,12 +80,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Administrador.resx">
       <DependentUpon>Administrador.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AgregarProfesor.resx">
-      <DependentUpon>AgregarProfesor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ModificarProfesor.resx">
-      <DependentUpon>ModificarProfesor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModificarActividad.resx">
       <DependentUpon>ModificarActividad.cs</DependentUpon>
@@ -132,12 +102,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="SocioActividades.resx">
-      <DependentUpon>SocioActividades.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SocioClub.resx">
-      <DependentUpon>SocioClub.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
