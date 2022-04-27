@@ -10,26 +10,25 @@ namespace CapaNegocio
     public class Actividad
     {
         public int Id;
-        public string Descripcion;
+        public string Descripcion { get; set; }
         public double Costo { get; set; }
         public int CantMaxParticipantes { get; set; }
-        public DateTime Horario;
-        public List<Horario> Horarios;
+        public string Horario;
         public Profesor Profesor;
 
-        public Actividad(int unId, string unaDescripcion, double unCosto, int unaCantMaxParticipantes, Profesor profesor, List<Horario> horario)
+        public Actividad(int unId, string unaDescripcion, double unCosto, int unaCantMaxParticipantes, Profesor profesor, string horario)
         {
             this.Id = unId;
             this.Descripcion = unaDescripcion;
             this.Costo = unCosto;
             this.CantMaxParticipantes = unaCantMaxParticipantes;
             this.Profesor = profesor;
-            //this.Horario = horario;
+            this.Horario = horario;
         }
 
         public override string ToString()
         {
-            return this.Descripcion + " - $" + this.Costo;
+            return this.Descripcion + " - $" + this.Costo + " - " + this.Horario;
         }
     }
 }

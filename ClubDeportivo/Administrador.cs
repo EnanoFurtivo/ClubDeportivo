@@ -76,7 +76,7 @@ namespace ClubDeportivo
                     {
                         listBoxActividadesSocio.DataSource = null;
 
-                        List<RegistroActividad> listaTmp = s.GetActividades();
+                        List<RegistroActividad> listaTmp = s.ActividadesSocio();
                         this.listBoxActividadesSocio.DataSource = listaTmp;
 
 

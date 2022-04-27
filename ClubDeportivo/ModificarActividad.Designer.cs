@@ -35,16 +35,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxCosto = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.comboBoxProfesor = new System.Windows.Forms.ComboBox();
-            this.dateTimePickerHorarioInicio = new System.Windows.Forms.DateTimePicker();
-            this.buttonAgregarHorario = new System.Windows.Forms.Button();
             this.buttonModificarActividad = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.dateTimePickerHorarioFin = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxCantMax = new System.Windows.Forms.TextBox();
+            this.textBoxHorario = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -58,6 +54,7 @@
             // 
             // textBoxId
             // 
+            this.textBoxId.Enabled = false;
             this.textBoxId.Location = new System.Drawing.Point(206, 100);
             this.textBoxId.Name = "textBoxId";
             this.textBoxId.Size = new System.Drawing.Size(135, 20);
@@ -104,16 +101,6 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Profesor";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(578, 167);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(54, 15);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Horarios";
-            // 
             // comboBoxProfesor
             // 
             this.comboBoxProfesor.FormattingEnabled = true;
@@ -121,24 +108,6 @@
             this.comboBoxProfesor.Name = "comboBoxProfesor";
             this.comboBoxProfesor.Size = new System.Drawing.Size(121, 21);
             this.comboBoxProfesor.TabIndex = 8;
-            // 
-            // dateTimePickerHorarioInicio
-            // 
-            this.dateTimePickerHorarioInicio.Location = new System.Drawing.Point(493, 230);
-            this.dateTimePickerHorarioInicio.Name = "dateTimePickerHorarioInicio";
-            this.dateTimePickerHorarioInicio.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePickerHorarioInicio.TabIndex = 9;
-            // 
-            // buttonAgregarHorario
-            // 
-            this.buttonAgregarHorario.ForeColor = System.Drawing.Color.Black;
-            this.buttonAgregarHorario.Location = new System.Drawing.Point(581, 347);
-            this.buttonAgregarHorario.Name = "buttonAgregarHorario";
-            this.buttonAgregarHorario.Size = new System.Drawing.Size(112, 23);
-            this.buttonAgregarHorario.TabIndex = 10;
-            this.buttonAgregarHorario.Text = "Agregar Horario";
-            this.buttonAgregarHorario.UseVisualStyleBackColor = true;
-            this.buttonAgregarHorario.Click += new System.EventHandler(this.buttonAgregarHorario_Click);
             // 
             // buttonModificarActividad
             // 
@@ -157,25 +126,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(493, 198);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(69, 13);
+            this.label6.Size = new System.Drawing.Size(68, 13);
             this.label6.TabIndex = 12;
-            this.label6.Text = "Horario Inicio";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(493, 269);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(58, 13);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "Horario Fin";
-            // 
-            // dateTimePickerHorarioFin
-            // 
-            this.dateTimePickerHorarioFin.Location = new System.Drawing.Point(493, 301);
-            this.dateTimePickerHorarioFin.Name = "dateTimePickerHorarioFin";
-            this.dateTimePickerHorarioFin.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePickerHorarioFin.TabIndex = 14;
+            this.label6.Text = "Dia y Horario";
             // 
             // label8
             // 
@@ -193,22 +146,25 @@
             this.textBoxCantMax.Size = new System.Drawing.Size(132, 20);
             this.textBoxCantMax.TabIndex = 16;
             // 
+            // textBoxHorario
+            // 
+            this.textBoxHorario.Location = new System.Drawing.Point(496, 222);
+            this.textBoxHorario.Name = "textBoxHorario";
+            this.textBoxHorario.Size = new System.Drawing.Size(153, 20);
+            this.textBoxHorario.TabIndex = 17;
+            // 
             // FormModificarActividad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.textBoxHorario);
             this.Controls.Add(this.textBoxCantMax);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.dateTimePickerHorarioFin);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.buttonModificarActividad);
-            this.Controls.Add(this.buttonAgregarHorario);
-            this.Controls.Add(this.dateTimePickerHorarioInicio);
             this.Controls.Add(this.comboBoxProfesor);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBoxCosto);
             this.Controls.Add(this.label3);
@@ -233,15 +189,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxCosto;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBoxProfesor;
-        private System.Windows.Forms.DateTimePicker dateTimePickerHorarioInicio;
-        private System.Windows.Forms.Button buttonAgregarHorario;
         private System.Windows.Forms.Button buttonModificarActividad;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DateTimePicker dateTimePickerHorarioFin;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBoxCantMax;
+        private System.Windows.Forms.TextBox textBoxHorario;
     }
 }

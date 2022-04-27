@@ -25,7 +25,6 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
                 ok = false;
             }
             return ok;
@@ -43,7 +42,6 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
                 return null;
             }
         }
