@@ -31,6 +31,26 @@ namespace CapaNegocio
 
             List<RegistroActividad> resultList = new List<RegistroActividad>();
 
+            int mes = DateTime.Now.Month;
+
+            foreach (RegistroActividad rActividad in this.RegistroActividades)
+                if (rActividad.Fecha.Month == mes) //traer actividades del mes anterior
+                    resultList.Add(rActividad);
+
+            return resultList;
+        }
+
+        /// <summary>
+        /// Devuelve las actividades del mes anterior.
+        /// Si no hay registros de actividad devuelve null.
+        /// </summary>
+        public List<RegistroActividad> GetActividadesMesAnterior()
+        {
+            if (this.RegistroActividades.Count < 1)
+                return null;
+
+            List<RegistroActividad> resultList = new List<RegistroActividad>();
+
             int mes = DateTime.Now.Month - 1;
             if (mes < 1) mes = 12;
 

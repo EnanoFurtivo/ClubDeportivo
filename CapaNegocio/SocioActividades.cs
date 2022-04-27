@@ -13,7 +13,7 @@ namespace CapaNegocio
 
         public override void GenerarDeuda()
         {
-            foreach (var rActividad in this.GetActividades())
+            foreach (var rActividad in this.GetActividadesMesAnterior())
                 this.CuentaCorriente.AgregarDeuda("Deuda actividad " + rActividad.Actividad.Descripcion + " " + DateTime.Now.Month + "-" + DateTime.Now.Year, rActividad.Actividad.Costo);
         }
     }

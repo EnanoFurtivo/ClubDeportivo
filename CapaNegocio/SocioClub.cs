@@ -21,7 +21,7 @@ namespace CapaNegocio
         public override void GenerarDeuda()
         {
             this.CuentaCorriente.AgregarDeuda("Cuota mes "+DateTime.Now.Month+"-"+DateTime.Now.Year, this.Cuota); //agregar cuota
-            List<RegistroActividad> rActividades = this.GetActividades();
+            List<RegistroActividad> rActividades = this.GetActividadesMesAnterior();
             
             if (rActividades.Count > MaxActividades)
             {

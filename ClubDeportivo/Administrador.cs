@@ -44,41 +44,43 @@ namespace ClubDeportivo
 
         private void RefrescarLista(bool clear = false, bool clearActividades = false)
         {
-            listBox.DataSource = null;
-
             switch (Tipo)
             {
                 case "Modificar actividades":
+                    listBox.DataSource = null;
                     lista = Actividades.MostrarLista();
                     break;
 
                 case "Modificar profesores":
+                    listBox.DataSource = null;
                     lista = Usuarios.MostrarLista(typeof(Profesor));
                     break;
 
                 case "Modificar socios del club":
+                    listBox.DataSource = null;
                     lista = Usuarios.MostrarLista(typeof(SocioClub));
                     break;
 
                 case "Modificar socios de actividades":
+                    listBox.DataSource = null;
                     lista = Usuarios.MostrarLista(typeof(SocioActividades));
                     break;
 
                 case "Registrar pago":
+                    listBox.DataSource = null;
                     lista = Usuarios.MostrarLista(typeof(SocioActividades)).Concat(Usuarios.MostrarLista(typeof(SocioClub))).Cast<Usuario>().ToList();
                     break;
 
                 case "Asignar actividad":
-                    lista = Usuarios.MostrarLista(typeof(SocioActividades)).Concat(Usuarios.MostrarLista(typeof(SocioClub))).Cast<Usuario>().ToList();
                     Socio s = (Socio)listBox.SelectedItem;
-
+                    
+                    listBox.DataSource = null;
+                    lista = Usuarios.MostrarLista(typeof(SocioActividades)).Concat(Usuarios.MostrarLista(typeof(SocioClub))).Cast<Usuario>().ToList();
+                    
                     if (s != null)
                     {
                         listBoxActividadesSocio.DataSource = null;
-
-                        List<RegistroActividad> listaTmp = s.ActividadesSocio();
-                        this.listBoxActividadesSocio.DataSource = listaTmp;
-
+                        this.listBoxActividadesSocio.DataSource = s.ActividadesSocio();
 
                         if (clearActividades)
                             listBoxActividadesSocio.ClearSelected();
