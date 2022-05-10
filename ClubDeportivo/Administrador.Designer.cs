@@ -36,12 +36,12 @@
             this.listBox = new System.Windows.Forms.ListBox();
             this.groupBoxActividades = new System.Windows.Forms.GroupBox();
             this.listBoxActividadesSocio = new System.Windows.Forms.ListBox();
-            this.groupBoxModificarUsuario = new System.Windows.Forms.GroupBox();
-            this.buttonAgregar = new System.Windows.Forms.Button();
             this.groupBoxModificarActividad = new System.Windows.Forms.GroupBox();
             this.buttonEliminarActividadLista = new System.Windows.Forms.Button();
             this.buttonAgregarActividad = new System.Windows.Forms.Button();
             this.buttonModificarActividad = new System.Windows.Forms.Button();
+            this.groupBoxModificarUsuario = new System.Windows.Forms.GroupBox();
+            this.buttonAgregar = new System.Windows.Forms.Button();
             this.groupBoxAsignarActividad = new System.Windows.Forms.GroupBox();
             this.buttonEliminarActividad = new System.Windows.Forms.Button();
             this.comboBoxAsignarActividad = new System.Windows.Forms.ComboBox();
@@ -55,8 +55,8 @@
             this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripButtonGenerarDeuda = new System.Windows.Forms.ToolStripButton();
             this.groupBoxActividades.SuspendLayout();
-            this.groupBoxModificarUsuario.SuspendLayout();
             this.groupBoxModificarActividad.SuspendLayout();
+            this.groupBoxModificarUsuario.SuspendLayout();
             this.groupBoxAsignarActividad.SuspendLayout();
             this.groupBoxRegistrarPago.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -133,27 +133,6 @@
             this.listBoxActividadesSocio.TabIndex = 13;
             this.listBoxActividadesSocio.SelectedIndexChanged += new System.EventHandler(this.listBoxActividadesSocio_SelectedIndexChanged);
             // 
-            // groupBoxModificarUsuario
-            // 
-            this.groupBoxModificarUsuario.Controls.Add(this.buttonAgregar);
-            this.groupBoxModificarUsuario.Controls.Add(this.buttonModificar);
-            this.groupBoxModificarUsuario.Controls.Add(this.buttonEliminar);
-            this.groupBoxModificarUsuario.Location = new System.Drawing.Point(213, 95);
-            this.groupBoxModificarUsuario.Name = "groupBoxModificarUsuario";
-            this.groupBoxModificarUsuario.Size = new System.Drawing.Size(157, 108);
-            this.groupBoxModificarUsuario.TabIndex = 11;
-            this.groupBoxModificarUsuario.TabStop = false;
-            // 
-            // buttonAgregar
-            // 
-            this.buttonAgregar.Location = new System.Drawing.Point(6, 19);
-            this.buttonAgregar.Name = "buttonAgregar";
-            this.buttonAgregar.Size = new System.Drawing.Size(145, 23);
-            this.buttonAgregar.TabIndex = 3;
-            this.buttonAgregar.Text = "Agregar x";
-            this.buttonAgregar.UseVisualStyleBackColor = true;
-            this.buttonAgregar.Click += new System.EventHandler(this.buttonAgregar_Click);
-            // 
             // groupBoxModificarActividad
             // 
             this.groupBoxModificarActividad.Controls.Add(this.buttonEliminarActividadLista);
@@ -194,6 +173,27 @@
             this.buttonModificarActividad.Text = "Modificar Actividad";
             this.buttonModificarActividad.UseVisualStyleBackColor = true;
             this.buttonModificarActividad.Click += new System.EventHandler(this.buttonModificarActividad_Click);
+            // 
+            // groupBoxModificarUsuario
+            // 
+            this.groupBoxModificarUsuario.Controls.Add(this.buttonAgregar);
+            this.groupBoxModificarUsuario.Controls.Add(this.buttonModificar);
+            this.groupBoxModificarUsuario.Controls.Add(this.buttonEliminar);
+            this.groupBoxModificarUsuario.Location = new System.Drawing.Point(213, 95);
+            this.groupBoxModificarUsuario.Name = "groupBoxModificarUsuario";
+            this.groupBoxModificarUsuario.Size = new System.Drawing.Size(157, 108);
+            this.groupBoxModificarUsuario.TabIndex = 11;
+            this.groupBoxModificarUsuario.TabStop = false;
+            // 
+            // buttonAgregar
+            // 
+            this.buttonAgregar.Location = new System.Drawing.Point(6, 19);
+            this.buttonAgregar.Name = "buttonAgregar";
+            this.buttonAgregar.Size = new System.Drawing.Size(145, 23);
+            this.buttonAgregar.TabIndex = 3;
+            this.buttonAgregar.Text = "Agregar x";
+            this.buttonAgregar.UseVisualStyleBackColor = true;
+            this.buttonAgregar.Click += new System.EventHandler(this.buttonAgregar_Click);
             // 
             // groupBoxAsignarActividad
             // 
@@ -329,8 +329,8 @@
             this.Text = "Administrador";
             this.groupBoxActividades.ResumeLayout(false);
             this.groupBoxActividades.PerformLayout();
-            this.groupBoxModificarUsuario.ResumeLayout(false);
             this.groupBoxModificarActividad.ResumeLayout(false);
+            this.groupBoxModificarUsuario.ResumeLayout(false);
             this.groupBoxAsignarActividad.ResumeLayout(false);
             this.groupBoxRegistrarPago.ResumeLayout(false);
             this.groupBoxRegistrarPago.PerformLayout();

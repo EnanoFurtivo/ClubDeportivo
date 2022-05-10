@@ -38,6 +38,7 @@ namespace ClubDeportivo
 
             //Completar datos del formulario//
             labelBienvenida.Text = "Bienvenido/a de nuevo, " + usuario.Nombre;
+            RefrescarLista();
             toolStripComboBox1.SelectedIndex = 0;
             CambiarFormulario("Modificar actividades");
         }

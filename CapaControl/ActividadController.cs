@@ -38,7 +38,7 @@ namespace CapaControl
             actividad.CantMaxParticipantes = cantMaxParticipantes;
         }
 
-        public List<Actividad> MostrarLista()
+      /*  public List<Actividad> MostrarLista()
         {
             return ListActividad;
         }
@@ -53,6 +53,6 @@ namespace CapaControl
             if (dat == null)
                 dat = new ActividadController();
             return dat;
-        }
+        }*/
     }
 }
