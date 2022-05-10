@@ -15,14 +15,18 @@ namespace ClubDeportivo
     public partial class FormLogin : Form
     {
         private string clave;
-        UsuarioController Usuarios = new UsuarioController();
+        UsuarioController Usuarios;
         ActividadController Actividades = new ActividadController();
+        string LugarBase;
 
         public FormLogin()
         {
             InitializeComponent();
-            Usuarios = UsuarioController.Recuperar(); 
-            Actividades = ActividadController.Recuperar();
+            LugarBase = Application.StartupPath;
+            UsuarioController.PonerPathABaseAccess(LugarBase);
+            Usuarios = new UsuarioController();
+//          Usuarios = UsuarioController.Recuperar(); 
+//            Actividades = ActividadController.Recuperar();
 
             List<Usuario> lista = Usuarios.MostrarLista(typeof(Administrador));
 
@@ -87,12 +91,12 @@ namespace ClubDeportivo
                 MessageBox.Show("El dni o clave ingresada es incorrecta", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
-        private void FormLogin_FormClosed(object sender, FormClosedEventArgs e)
+      /*  private void FormLogin_FormClosed(object sender, FormClosedEventArgs e)
         {           
             if (Usuarios.Guardar()&& Actividades.guardar())
                 MessageBox.Show("GUARDADO OK");
             else
                 MessageBox.Show("ERROR AL GUARDAR");            
-        }
+        }*/
     }
 }

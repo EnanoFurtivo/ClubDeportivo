@@ -21,24 +21,76 @@ namespace CapaControl
     [Serializable]
     public class UsuarioController
     {
-        private List<Usuario> ListaUsuarios = new List<Usuario>();
+        private List<Usuario> ListaUsuarios;
+
+        public UsuarioController()
+        {
+            ListaUsuarios = new List<Usuario>();
+            this.RecuperarAdministrador();
+            this.RecuperarSocio();
+            this.RecuperarProfesor();
+        }
 
         //ADD//
-        public void AddSocioClub(int dni, string nombre, string clave, double cuota)
+        public bool AddSocioClub(int dni, string nombre, string clave, double cuota)
         {
-            ListaUsuarios.Add(new SocioClub(dni, nombre, clave, cuota));
+            SocioClub socio = new SocioClub(dni, nombre, clave, cuota);
+            bool todoBien = false;
+
+            if(socio != null)
+            {
+                todoBien = DatosBd.GuardarSocio(socio.PasarARelacional());
+                if(todoBien)
+                    this.ListaUsuarios.Add(socio);
+            }
+            return todoBien;
+            
+            //ListaUsuarios.Add(new SocioClub(dni, nombre, clave, cuota));
         }
-        public void AddSocioActividades(int dni, string nombre, string clave)
+        public bool AddSocioActividades(int dni, string nombre, string clave)
         {
-            ListaUsuarios.Add(new SocioActividades(dni, nombre, clave));
+            SocioActividades socio = new SocioActividades(dni, nombre, clave);
+            bool todoBien = false;
+
+            if (socio != null)
+            {
+                todoBien = DatosBd.GuardarSocio(socio.PasarARelacional());
+                if (todoBien)
+                    this.ListaUsuarios.Add(socio);
+            }
+            return todoBien;
+
+            //ListaUsuarios.Add(new SocioActividades(dni, nombre, clave));
         }
-        public void AddProfesor(int dni, string nombre, string clave)
+        public bool AddProfesor(int dni, string nombre, string clave)
         {
-            ListaUsuarios.Add(new Profesor(dni, nombre, clave));
+            Profesor profesor = new Profesor(dni, nombre, clave);
+            bool todoBien = false;
+
+            if (profesor != null)
+            {
+                todoBien = DatosBd.GuardarProfesor(profesor.PasarARelacional());
+                if (todoBien)
+                    this.ListaUsuarios.Add(profesor);
+            }
+            return todoBien;
+
+            //ListaUsuarios.Add(new Profesor(dni, nombre, clave));
         }
-        public void AddAdministrador(int dni, string nombre, string clave)
+        public bool AddAdministrador(int dni, string nombre, string clave)
         {
-            ListaUsuarios.Add(new Administrador(dni, nombre, clave));
+            Administrador admin = new Administrador(dni, nombre, clave);
+            bool todoBien = false;
+
+            if (admin != null)
+            {
+                todoBien = DatosBd.GuardarAdministrador(admin.PasarARelacional());
+                if (todoBien)
+                    this.ListaUsuarios.Add(admin);
+            }
+            return todoBien;
+
+            //ListaUsuarios.Add(new Administrador(dni, nombre, clave));
         }
 
         //GET, REMOVE//
@@ -48,6 +100,16 @@ namespace CapaControl
         }
         public void RemoveUsuario(int dni)
         {
+            object value = GetUsuario(dni);
+            Type usuario = value.GetType();
+
+            if (usuario.Equals(typeof(SocioActividades)))
+                DatosBd.EliminarSocio(dni);
+            else if (usuario.Equals(typeof(SocioClub)))
+                DatosBd.EliminarSocio(dni);
+            else if (usuario.Equals(typeof(Profesor)))
+                DatosBd.EliminarProfesor(dni);
+
             ListaUsuarios.Remove(GetUsuario(dni));
         }
 
@@ -88,7 +150,7 @@ namespace CapaControl
         }
 
         //SERIALIZAR
-        public bool Guardar()
+       /* public bool Guardar()
         {
             return DatosUsuarios.Guardar(this);
         }
@@ -101,7 +163,70 @@ namespace CapaControl
                 dat = new UsuarioController();
 
             return dat;
+        }*/
+
+        //BASE DE DATOS ACCESS
+
+        public static void PonerPathABaseAccess(string l)
+        {
+            DatosBd.PonerPathBaseAccess(l);
         }
 
+        public void RecuperarSocio()
+        {
+            int dni;
+            string nombre;
+            string clave;
+            double cuota;
+            ArrayList datosSocios = DatosBd.RecuperarSocios();
+
+            for (int i = 0; i <= datosSocios.Count - 4; i = i + 4)
+            {
+                dni = int.Parse(datosSocios[i].ToString());
+                nombre = datosSocios[i + 1].ToString();
+                clave = datosSocios[i + 2].ToString();
+                cuota = double.Parse(datosSocios[i + 3].ToString());
+
+                if(cuota > 0)
+                    ListaUsuarios.Add(new SocioClub(dni, nombre, clave, cuota));
+                else
+                    ListaUsuarios.Add(new SocioActividades(dni, nombre, clave));
+
+            }
+        }
+
+        public void RecuperarAdministrador()
+        {
+            int dni;
+            string nombre;
+            string clave;
+            ArrayList datosAdministradores = DatosBd.RecuperarAdministrador();
+
+            for (int i = 0; i <= datosAdministradores.Count - 3; i = i + 3)
+            {
+                dni = int.Parse(datosAdministradores[i].ToString());
+                nombre = datosAdministradores[i + 1].ToString();
+                clave = datosAdministradores[i + 2].ToString();
+
+                ListaUsuarios.Add(new Administrador(dni, nombre, clave));
+            }
+        }
+
+        public void RecuperarProfesor()
+        {
+            int dni;
+            string nombre;
+            string clave;
+            ArrayList datosProfesores = DatosBd.RecuperarProfesor();
+
+            for (int i = 0; i <= datosProfesores.Count - 3; i = i + 3)
+            {
+                dni = int.Parse(datosProfesores[i].ToString());
+                nombre = datosProfesores[i + 1].ToString();
+                clave = datosProfesores[i + 2].ToString();
+
+                ListaUsuarios.Add(new Profesor(dni, nombre, clave));
+            }
+        }
     }
 }
