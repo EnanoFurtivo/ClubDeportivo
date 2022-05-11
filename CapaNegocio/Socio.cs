@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
+using CapaDatos;
 
 namespace CapaNegocio
 {
-    [Serializable]
     public abstract class Socio : Usuario
     {
         protected bool Estado;
@@ -100,5 +101,24 @@ namespace CapaNegocio
         {
             this.RegistroActividades.Remove(registroActividad);
         }
+
+        //BASE DE DATOS
+      /*  public void RecuperarRegistroActividades()
+        {
+            int idActividad;
+            Actividad actividad;
+            DateTime fecha;
+
+            ArrayList datosActividad = DatosBd.RecuperarRegistroActividades();
+
+            for (int i = 0; i <= datosActividad.Count - 4; i = i + 4)
+            {
+                idActividad = int.Parse(datosActividad[i].ToString());
+                actividad =
+                fecha = (DateTime)datosActividad[i + 3].ToString();
+
+                RegistroActividades.Add(new RegistroActividad(fecha, actividad));
+            }
+        } */
     }
 }

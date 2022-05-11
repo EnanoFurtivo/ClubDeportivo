@@ -18,7 +18,6 @@ namespace CapaControl
         SocioActividades = 3
     }
 
-    [Serializable]
     public class UsuarioController
     {
         private List<Usuario> ListaUsuarios;
@@ -43,9 +42,7 @@ namespace CapaControl
                 if(todoBien)
                     this.ListaUsuarios.Add(socio);
             }
-            return todoBien;
-            
-            //ListaUsuarios.Add(new SocioClub(dni, nombre, clave, cuota));
+            return todoBien;           
         }
         public bool AddSocioActividades(int dni, string nombre, string clave)
         {
@@ -59,8 +56,6 @@ namespace CapaControl
                     this.ListaUsuarios.Add(socio);
             }
             return todoBien;
-
-            //ListaUsuarios.Add(new SocioActividades(dni, nombre, clave));
         }
         public bool AddProfesor(int dni, string nombre, string clave)
         {
@@ -74,8 +69,6 @@ namespace CapaControl
                     this.ListaUsuarios.Add(profesor);
             }
             return todoBien;
-
-            //ListaUsuarios.Add(new Profesor(dni, nombre, clave));
         }
         public bool AddAdministrador(int dni, string nombre, string clave)
         {
@@ -89,8 +82,6 @@ namespace CapaControl
                     this.ListaUsuarios.Add(admin);
             }
             return todoBien;
-
-            //ListaUsuarios.Add(new Administrador(dni, nombre, clave));
         }
 
         //GET, REMOVE//
@@ -148,22 +139,6 @@ namespace CapaControl
             foreach (Socio socio in this.MostrarLista(typeof(Socio)))
                 socio.GenerarDeuda();
         }
-
-        //SERIALIZAR
-       /* public bool Guardar()
-        {
-            return DatosUsuarios.Guardar(this);
-        }
-
-        public static UsuarioController Recuperar()
-        {
-            UsuarioController dat = (UsuarioController)DatosUsuarios.Recuperar();
-
-            if (dat == null)
-                dat = new UsuarioController();
-
-            return dat;
-        }*/
 
         //BASE DE DATOS ACCESS
 
