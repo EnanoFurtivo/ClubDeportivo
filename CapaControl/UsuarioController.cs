@@ -127,10 +127,14 @@ namespace CapaControl
         {
             List<Usuario> result = new List<Usuario>();
 
-            foreach (var u in ListaUsuarios)
-                if (u.GetType() == filterType)
-                    result.Add(u);
-
+            if (filterType == typeof(Socio))
+                result = MostrarLista(typeof(SocioActividades)).Concat(MostrarLista(typeof(SocioClub))).Cast<Usuario>().ToList();          
+            else
+            {
+                foreach (var u in ListaUsuarios)
+                    if (u.GetType() == filterType)
+                        result.Add(u);
+            }
             return result;
         }
 
@@ -146,7 +150,23 @@ namespace CapaControl
         {
             DatosBd.PonerPathBaseAccess(l);
         }
+        public void RecuperarRegistroActividades(ActividadController actividadController)
+        {
+            foreach (Socio socio in MostrarLista(typeof(Socio)))
+            {
+                int idActividad;
+                DateTime fecha;
+                ArrayList datosSocios = DatosBd.RecuperarRegistroActividades(socio.Dni);
 
+                for (int i = 0; i <= datosSocios.Count - 2; i = i + 2)
+                {
+                    idActividad = int.Parse(datosSocios[i].ToString());
+                    fecha = DateTime.Parse(datosSocios[i + 1].ToString());
+
+                    socio.AsignarActividad(actividadController.GetActividad(idActividad), fecha);
+                }
+            }
+        }
         public void RecuperarSocio()
         {
             int dni;

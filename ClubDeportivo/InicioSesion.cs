@@ -26,6 +26,7 @@ namespace ClubDeportivo
             UsuarioController.PonerPathABaseAccess(LugarBase);
             Usuarios = new UsuarioController();
             Actividades = new ActividadController(Usuarios);
+            Usuarios.RecuperarRegistroActividades(Actividades);
 
             List<Usuario> lista = Usuarios.MostrarLista(typeof(Administrador));
 
