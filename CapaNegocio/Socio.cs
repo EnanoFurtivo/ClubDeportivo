@@ -88,9 +88,32 @@ namespace CapaNegocio
         /// <summary>
         /// Le asigna una actividad al socio
         /// </summary>
-        public void AsignarActividad(Actividad actividad)
+        public bool AsignarActividad(Actividad actividad)
         {
             RegistroActividad ra = new RegistroActividad(DateTime.Now, actividad);
+
+            ArrayList datos = new ArrayList();
+            datos.Add(this.Dni);
+            datos.Add(actividad.Id);
+            datos.Add(DateTime.Now);
+
+            bool todoBien = false;
+
+            if (actividad != null)
+            {
+                todoBien = DatosBd.GuardarRegistroActividad(datos);
+                if (todoBien)
+                    this.RegistroActividades.Add(ra);
+            }
+            return todoBien;
+        }
+
+        /// <summary>
+        /// Le asigna una actividad al socio
+        /// </summary>
+        public void AsignarActividad(Actividad actividad, DateTime fecha)
+        {
+            RegistroActividad ra = new RegistroActividad(fecha, actividad);
             this.RegistroActividades.Add(ra);
         }
 
@@ -100,25 +123,7 @@ namespace CapaNegocio
         public void DesvincularActividad(RegistroActividad registroActividad)
         {
             this.RegistroActividades.Remove(registroActividad);
+            DatosBd.EliminarRegistroActividad(this.Dni, registroActividad.Actividad.Id, registroActividad.Fecha);
         }
-
-        //BASE DE DATOS
-      /*  public void RecuperarRegistroActividades()
-        {
-            int idActividad;
-            Actividad actividad;
-            DateTime fecha;
-
-            ArrayList datosActividad = DatosBd.RecuperarRegistroActividades();
-
-            for (int i = 0; i <= datosActividad.Count - 4; i = i + 4)
-            {
-                idActividad = int.Parse(datosActividad[i].ToString());
-                actividad =
-                fecha = (DateTime)datosActividad[i + 3].ToString();
-
-                RegistroActividades.Add(new RegistroActividad(fecha, actividad));
-            }
-        } */
     }
 }

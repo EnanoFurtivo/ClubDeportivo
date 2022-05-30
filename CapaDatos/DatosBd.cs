@@ -394,7 +394,36 @@ namespace CapaDatos
             }
 
         }
-        public static ArrayList RecuperarRegistroActividades()
+        public static bool GuardarRegistroActividad(ArrayList datos)
+        {
+            bool todoBien = false;
+            if (datos != null && datos.Count == 3)
+            {
+                try
+                {
+                    int dniSocio = int.Parse(datos[0].ToString());
+                    int idActividad = int.Parse(datos[1].ToString());
+                    DateTime fecha = DateTime.Parse(datos[2].ToString());
+                    string fechaStr = fecha.Month.ToString() + "/" + fecha.Day.ToString() + "/" + fecha.Year.ToString();
+                    string strCmd = "INSERT INTO registroActividad(dniSocio, idActividad, fecha) VALUES ('" + dniSocio + "','" + idActividad + "',#" + fechaStr + "#)";
+                    Con = new OleDbConnection(Str);
+                    Con.Open();
+                    Cmd = new OleDbCommand(strCmd, Con);
+                    Cmd.ExecuteNonQuery();
+                    Con.Close();
+                    Cmd.Dispose();
+                    todoBien = true;
+                }
+                catch (Exception ex)
+                {
+                    string error = ex.Message;
+
+                }
+            }
+            return todoBien;
+
+        }
+        public static ArrayList RecuperarRegistroActividades(int dni)
         {
 
             ArrayList datos = new ArrayList();
@@ -402,7 +431,7 @@ namespace CapaDatos
             try
             {
 
-                string strCmd = "SELECT * FROM registroActividad ORDER BY id";
+                string strCmd = "SELECT * FROM registroActividad WHERE dniSocio=" + dni;
                 Con = new OleDbConnection(Str);
                 Con.Open();
                 Da = new OleDbDataAdapter(strCmd, Con);
@@ -424,6 +453,27 @@ namespace CapaDatos
                 string error = ex.Message;
             }
             return datos;
+        }
+        public static void EliminarRegistroActividad(int dniSocio, int idActividad, DateTime fecha)
+        {
+            try
+            {
+                string fechaStr = fecha.Month.ToString()+"/"+fecha.Day.ToString() +"/"+fecha.Year.ToString();
+                string strCmd = "DELETE FROM registroActividad WHERE dniSocio = " + dniSocio + " AND idActividad = " + idActividad + " AND fecha =#" + fechaStr + "#";
+                Con = new OleDbConnection(Str);
+                Con.Open();
+                Cmd = new OleDbCommand(strCmd, Con);
+                Cmd.ExecuteNonQuery();
+                Con.Close();
+                Cmd.Dispose();
+
+            }
+            catch (Exception ex)
+            {
+                string error = ex.Message;
+
+            }
+
         }
     }
 }
