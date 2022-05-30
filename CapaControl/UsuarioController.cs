@@ -191,7 +191,7 @@ namespace CapaControl
 
                 ListaUsuarios.Add(s);
 
-                ArrayList datosCC = DatosBd.RecuperarCuentaCorriente();
+                ArrayList datosCC = DatosBd.RecuperarCuentaCorriente(dni);
                 double saldo = 0;
                 for (int j = 0; j <= datosCC.Count - 5; j += 5)
                     saldo += double.Parse(datosSocios[i + 4].ToString());
