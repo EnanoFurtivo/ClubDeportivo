@@ -475,5 +475,69 @@ namespace CapaDatos
             }
 
         }
+
+        public static bool GuardarCuentaCorriente(ArrayList datos)
+        {
+            bool todoBien = false;
+            if (datos != null && datos.Count == 4)
+            {
+                try
+                {
+                    int dniSocio = int.Parse(datos[0].ToString());
+                    DateTime fecha = DateTime.Parse(datos[2].ToString());
+                    string fechaStr = fecha.Month.ToString() + "/" + fecha.Day.ToString() + "/" + fecha.Year.ToString();
+                    double monto = double.Parse(datos[3].ToString());
+                    string descripcion = datos[4].ToString();
+                    string strCmd = "INSERT INTO cuentaCorriente(dniSocio, fehca, monto, descripcion) VALUES ('" + dniSocio + "',#" + fechaStr + "#,'" + monto + "','" + descripcion + "')";
+                    Con.Open();
+                    Cmd = new OleDbCommand(strCmd, Con);
+                    Cmd.ExecuteNonQuery();
+                    Con.Close();
+                    Cmd.Dispose();
+                    todoBien = true;
+                }
+                catch (Exception ex)
+                {
+                    string error = ex.Message;
+
+                }
+            }
+            return todoBien;
+
+        }
+        public static ArrayList RecuperarCuentaCorriente(int dni)
+        {
+
+            ArrayList datos = new ArrayList();
+
+            try
+            {
+
+                string strCmd = "SELECT * FROM cuentaCorriente WHERE dniSocio=" + dni;
+                Con = new OleDbConnection(Str);
+                Con.Open();
+                Da = new OleDbDataAdapter(strCmd, Con);
+                Ds = new DataSet();
+                Da.Fill(Ds);
+
+                for (int i = 0; i < Ds.Tables[0].Rows.Count; i++)
+                {
+                    datos.Add(Ds.Tables[0].Rows[i].ItemArray[0].ToString());
+                    datos.Add(Ds.Tables[0].Rows[i].ItemArray[1].ToString());
+                    datos.Add(Ds.Tables[0].Rows[i].ItemArray[2].ToString());
+                    datos.Add(Ds.Tables[0].Rows[i].ItemArray[3].ToString());
+                    datos.Add(Ds.Tables[0].Rows[i].ItemArray[4].ToString());
+                }
+
+                Con.Close();
+                Ds.Dispose();
+                Da.Dispose();
+            }
+            catch (Exception ex)
+            {
+                string error = ex.Message;
+            }
+            return datos;
+        }
     }
 }
