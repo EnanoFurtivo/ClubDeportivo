@@ -18,7 +18,11 @@ namespace CapaNegocio
         {
             this.Estado = true;
             this.RegistroActividades = new List<RegistroActividad>();
-            this.CuentaCorriente = new CuentaCorriente(this);
+        }
+
+        public void SetCuentaCorriente(CuentaCorriente cc)
+        {
+            this.CuentaCorriente = cc;
         }
 
         /// <summary>

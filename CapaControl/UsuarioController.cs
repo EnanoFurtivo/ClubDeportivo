@@ -181,12 +181,21 @@ namespace CapaControl
                 nombre = datosSocios[i + 1].ToString();
                 clave = datosSocios[i + 2].ToString();
                 cuota = double.Parse(datosSocios[i + 3].ToString());
+                
+                Socio s;
 
                 if(cuota > 0)
-                    ListaUsuarios.Add(new SocioClub(dni, nombre, clave, cuota));
+                    s = new SocioClub(dni, nombre, clave, cuota);
                 else
-                    ListaUsuarios.Add(new SocioActividades(dni, nombre, clave));
+                    s = new SocioActividades(dni, nombre, clave);
 
+                ListaUsuarios.Add(s);
+
+                ArrayList datosCC = DatosBd.RecuperarCuentaCorriente();
+                double saldo = 0;
+                for (int j = 0; j <= datosCC.Count - 5; j += 5)
+                    saldo += double.Parse(datosSocios[i + 4].ToString());
+                s.SetCuentaCorriente(new CuentaCorriente(s, saldo));
             }
         }
 

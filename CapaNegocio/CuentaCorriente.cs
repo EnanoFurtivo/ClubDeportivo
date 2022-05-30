@@ -9,13 +9,13 @@ namespace CapaNegocio
     [Serializable]
     public class CuentaCorriente
     {
-        private int Id;
         private Socio Socio;
         private double Saldo;
 
-        public CuentaCorriente(Socio socio)
+        public CuentaCorriente(Socio socio, double saldo)
         {
             this.Socio = socio;
+            this.Saldo = saldo;
         }
 
         public double GetSaldo()
