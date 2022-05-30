@@ -18,7 +18,6 @@ namespace CapaControl
         SocioActividades = 3
     }
 
-    [Serializable]
     public class UsuarioController
     {
         private List<Usuario> ListaUsuarios;
@@ -43,9 +42,7 @@ namespace CapaControl
                 if(todoBien)
                     this.ListaUsuarios.Add(socio);
             }
-            return todoBien;
-            
-            //ListaUsuarios.Add(new SocioClub(dni, nombre, clave, cuota));
+            return todoBien;           
         }
         public bool AddSocioActividades(int dni, string nombre, string clave)
         {
@@ -59,8 +56,6 @@ namespace CapaControl
                     this.ListaUsuarios.Add(socio);
             }
             return todoBien;
-
-            //ListaUsuarios.Add(new SocioActividades(dni, nombre, clave));
         }
         public bool AddProfesor(int dni, string nombre, string clave)
         {
@@ -74,8 +69,6 @@ namespace CapaControl
                     this.ListaUsuarios.Add(profesor);
             }
             return todoBien;
-
-            //ListaUsuarios.Add(new Profesor(dni, nombre, clave));
         }
         public bool AddAdministrador(int dni, string nombre, string clave)
         {
@@ -89,8 +82,6 @@ namespace CapaControl
                     this.ListaUsuarios.Add(admin);
             }
             return todoBien;
-
-            //ListaUsuarios.Add(new Administrador(dni, nombre, clave));
         }
 
         //GET, REMOVE//
@@ -136,10 +127,14 @@ namespace CapaControl
         {
             List<Usuario> result = new List<Usuario>();
 
-            foreach (var u in ListaUsuarios)
-                if (u.GetType() == filterType)
-                    result.Add(u);
-
+            if (filterType == typeof(Socio))
+                result = MostrarLista(typeof(SocioActividades)).Concat(MostrarLista(typeof(SocioClub))).Cast<Usuario>().ToList();          
+            else
+            {
+                foreach (var u in ListaUsuarios)
+                    if (u.GetType() == filterType)
+                        result.Add(u);
+            }
             return result;
         }
 
@@ -149,29 +144,29 @@ namespace CapaControl
                 socio.GenerarDeuda();
         }
 
-        //SERIALIZAR
-       /* public bool Guardar()
-        {
-            return DatosUsuarios.Guardar(this);
-        }
-
-        public static UsuarioController Recuperar()
-        {
-            UsuarioController dat = (UsuarioController)DatosUsuarios.Recuperar();
-
-            if (dat == null)
-                dat = new UsuarioController();
-
-            return dat;
-        }*/
-
         //BASE DE DATOS ACCESS
 
         public static void PonerPathABaseAccess(string l)
         {
             DatosBd.PonerPathBaseAccess(l);
         }
+        public void RecuperarRegistroActividades(ActividadController actividadController)
+        {
+            foreach (Socio socio in MostrarLista(typeof(Socio)))
+            {
+                int idActividad;
+                DateTime fecha;
+                ArrayList datosSocios = DatosBd.RecuperarRegistroActividades(socio.Dni);
 
+                for (int i = 0; i <= datosSocios.Count - 2; i = i + 2)
+                {
+                    idActividad = int.Parse(datosSocios[i].ToString());
+                    fecha = DateTime.Parse(datosSocios[i + 1].ToString());
+
+                    socio.AsignarActividad(actividadController.GetActividad(idActividad), fecha);
+                }
+            }
+        }
         public void RecuperarSocio()
         {
             int dni;

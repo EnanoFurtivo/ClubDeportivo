@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace CapaNegocio
 {
-    [Serializable]
     public class Actividad
     {
         public int Id;
@@ -29,6 +29,19 @@ namespace CapaNegocio
         public override string ToString()
         {
             return this.Descripcion + " - $" + this.Costo + " - " + this.Horario;
+        }
+
+        public ArrayList PasarARelacional()
+        {
+            ArrayList datos = new ArrayList();
+            datos.Add(this.Id);
+            datos.Add(this.Descripcion);
+            datos.Add(this.Costo);
+            datos.Add(this.CantMaxParticipantes);
+            datos.Add(this.Horario);
+            datos.Add(this.Profesor.Dni);
+
+            return datos;
         }
     }
 }
