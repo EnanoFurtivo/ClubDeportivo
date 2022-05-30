@@ -484,11 +484,11 @@ namespace CapaDatos
                 try
                 {
                     int dniSocio = int.Parse(datos[0].ToString());
-                    DateTime fecha = DateTime.Parse(datos[2].ToString());
+                    DateTime fecha = DateTime.Parse(datos[1].ToString());
                     string fechaStr = fecha.Month.ToString() + "/" + fecha.Day.ToString() + "/" + fecha.Year.ToString();
-                    double monto = double.Parse(datos[3].ToString());
-                    string descripcion = datos[4].ToString();
-                    string strCmd = "INSERT INTO cuentaCorriente(dniSocio, fehca, monto, descripcion) VALUES ('" + dniSocio + "',#" + fechaStr + "#,'" + monto + "','" + descripcion + "')";
+                    double monto = double.Parse(datos[2].ToString());
+                    string descripcion = datos[3].ToString();
+                    string strCmd = "INSERT INTO cuentaCorriente(dniSocio, fecha, monto, descripcion) VALUES (" + dniSocio + ",#" + fechaStr + "#," + monto + ",'" + descripcion + "')";
                     Con.Open();
                     Cmd = new OleDbCommand(strCmd, Con);
                     Cmd.ExecuteNonQuery();

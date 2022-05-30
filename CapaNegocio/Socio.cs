@@ -52,7 +52,7 @@ namespace CapaNegocio
         public List<RegistroActividad> GetActividadesMesAnterior()
         {
             if (this.RegistroActividades.Count < 1)
-                return null;
+                return new List<RegistroActividad>();
 
             List<RegistroActividad> resultList = new List<RegistroActividad>();
 

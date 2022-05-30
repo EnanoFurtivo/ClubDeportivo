@@ -32,14 +32,14 @@ namespace CapaNegocio
             
             if (rActividades.Count > MaxActividades)
             {
-                int i = 1;
+                int i = rActividades.Count;
                 foreach (var rActividad in rActividades)
                 {
                     if (i > MaxActividades)
                     {
                         this.CuentaCorriente.AgregarDeuda("Deuda actividad " + rActividad.Actividad.Descripcion + " " + DateTime.Now.Month + "-" + DateTime.Now.Year, rActividad.Actividad.Costo*DescuentoExcedente/100);
                     }
-                    i++;
+                    i--;
                 }
             }
         }

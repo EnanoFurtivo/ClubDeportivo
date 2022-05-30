@@ -207,10 +207,16 @@ namespace ClubDeportivo
         private void buttonRegistrarPago_Click(object sender, EventArgs e)
         {
             double monto;
-            if (double.TryParse(textBoxMonto.ToString(), out monto))
+            if (double.TryParse(textBoxMonto.Text, out monto))
             {
                 Socio s = (Socio)listBox.SelectedItem;
-                s.RegistrarPago("una desc", monto);
+                s.RegistrarPago("Ingreso de un pago", monto);
+                
+                double saldo = double.Parse(s.GetSaldo().ToString());
+                string saldoStr = (saldo < 0) ? "Deuda: " : "Saldo a favor: ";
+                saldo = System.Math.Abs(saldo);
+
+                label1.Text = saldoStr + "$" + saldo.ToString();
             }
         }
 
@@ -246,12 +252,11 @@ namespace ClubDeportivo
 
         private void listBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(Tipo == "Asignar actividad")
+            if (Tipo == "Asignar actividad")
             {
-
                 Socio s = (Socio)listBox.SelectedItem;
 
-                if(s != null)
+                if (s != null)
                 {
                     listBoxActividadesSocio.DataSource = null;
 
@@ -260,6 +265,20 @@ namespace ClubDeportivo
 
                     
                     listBoxActividadesSocio.ClearSelected();
+                }
+            }
+            else if(Tipo == "Registrar pago")
+            {
+                Socio s = (Socio)listBox.SelectedItem;
+
+                if (s != null)
+                {
+                    double saldo = double.Parse(s.GetSaldo().ToString());
+                    string saldoStr = (saldo < 0) ? "Deuda: " : "Saldo a favor: ";
+                    saldo = System.Math.Abs(saldo);
+
+
+                    label1.Text = saldoStr + "$" + saldo.ToString();
                 }
             }
         }

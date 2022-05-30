@@ -54,6 +54,7 @@
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripButtonGenerarDeuda = new System.Windows.Forms.ToolStripButton();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBoxActividades.SuspendLayout();
             this.groupBoxModificarActividad.SuspendLayout();
             this.groupBoxModificarUsuario.SuspendLayout();
@@ -114,6 +115,8 @@
             // 
             // groupBoxActividades
             // 
+            this.groupBoxActividades.Controls.Add(this.groupBoxAsignarActividad);
+            this.groupBoxActividades.Controls.Add(this.groupBoxModificarUsuario);
             this.groupBoxActividades.Controls.Add(this.listBoxActividadesSocio);
             this.groupBoxActividades.Controls.Add(this.listBox);
             this.groupBoxActividades.Controls.Add(this.groupBoxModificarActividad);
@@ -179,7 +182,7 @@
             this.groupBoxModificarUsuario.Controls.Add(this.buttonAgregar);
             this.groupBoxModificarUsuario.Controls.Add(this.buttonModificar);
             this.groupBoxModificarUsuario.Controls.Add(this.buttonEliminar);
-            this.groupBoxModificarUsuario.Location = new System.Drawing.Point(213, 95);
+            this.groupBoxModificarUsuario.Location = new System.Drawing.Point(197, 40);
             this.groupBoxModificarUsuario.Name = "groupBoxModificarUsuario";
             this.groupBoxModificarUsuario.Size = new System.Drawing.Size(157, 108);
             this.groupBoxModificarUsuario.TabIndex = 11;
@@ -200,7 +203,7 @@
             this.groupBoxAsignarActividad.Controls.Add(this.buttonEliminarActividad);
             this.groupBoxAsignarActividad.Controls.Add(this.comboBoxAsignarActividad);
             this.groupBoxAsignarActividad.Controls.Add(this.buttonAsignarActividad);
-            this.groupBoxAsignarActividad.Location = new System.Drawing.Point(213, 95);
+            this.groupBoxAsignarActividad.Location = new System.Drawing.Point(197, 42);
             this.groupBoxAsignarActividad.Name = "groupBoxAsignarActividad";
             this.groupBoxAsignarActividad.Size = new System.Drawing.Size(157, 78);
             this.groupBoxAsignarActividad.TabIndex = 11;
@@ -236,12 +239,13 @@
             // 
             // groupBoxRegistrarPago
             // 
+            this.groupBoxRegistrarPago.Controls.Add(this.label1);
             this.groupBoxRegistrarPago.Controls.Add(this.buttonRegistrarPago);
             this.groupBoxRegistrarPago.Controls.Add(this.label2);
             this.groupBoxRegistrarPago.Controls.Add(this.textBoxMonto);
             this.groupBoxRegistrarPago.Location = new System.Drawing.Point(213, 95);
             this.groupBoxRegistrarPago.Name = "groupBoxRegistrarPago";
-            this.groupBoxRegistrarPago.Size = new System.Drawing.Size(157, 78);
+            this.groupBoxRegistrarPago.Size = new System.Drawing.Size(157, 108);
             this.groupBoxRegistrarPago.TabIndex = 10;
             this.groupBoxRegistrarPago.TabStop = false;
             // 
@@ -313,14 +317,22 @@
             this.toolStripButtonGenerarDeuda.Text = "GenerarDeuda";
             this.toolStripButtonGenerarDeuda.Click += new System.EventHandler(this.toolStripButtonGenerarDeuda_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Transparent;
+            this.label1.Location = new System.Drawing.Point(6, 87);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(34, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Saldo";
+            // 
             // FormAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(398, 396);
-            this.Controls.Add(this.groupBoxModificarUsuario);
-            this.Controls.Add(this.groupBoxAsignarActividad);
             this.Controls.Add(this.groupBoxRegistrarPago);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.labelBienvenida);
@@ -368,5 +380,6 @@
         private System.Windows.Forms.GroupBox groupBoxModificarUsuario;
         private System.Windows.Forms.GroupBox groupBoxModificarActividad;
         private System.Windows.Forms.ToolStripButton toolStripButtonGenerarDeuda;
+        private System.Windows.Forms.Label label1;
     }
 }

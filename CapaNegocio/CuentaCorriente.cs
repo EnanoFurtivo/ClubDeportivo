@@ -39,7 +39,7 @@ namespace CapaNegocio
         public double AgregarDeuda(string unaRazon, double unMonto)
         {
             this.Saldo -= unMonto;
-            agregarEnDB(unaRazon, unMonto);
+            agregarEnDB(unaRazon, unMonto*-1);
             return this.Saldo;
         }
 
