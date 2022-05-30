@@ -1,4 +1,6 @@
+using CapaDatos;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,15 +25,27 @@ namespace CapaNegocio
             return this.Saldo;
         }
 
+        private void agregarEnDB(string unaRazon, double unMonto)
+        {
+            ArrayList lista = new ArrayList()
+            {
+                this.Socio.Dni,
+                DateTime.Now,
+                unMonto,
+                unaRazon
+            };
+            DatosBd.GuardarCuentaCorriente(lista);
+        }
         public double AgregarDeuda(string unaRazon, double unMonto)
         {
-            string razon = unaRazon;
-
-            return this.Saldo -= unMonto;
+            this.Saldo -= unMonto;
+            agregarEnDB(unaRazon, unMonto);
+            return this.Saldo;
         }
 
         internal void RegistrarPago(string descripcion, double monto)
         {
+            agregarEnDB(descripcion, monto);
             this.Saldo += monto;
         }
     }
