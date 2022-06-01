@@ -2,7 +2,6 @@
 
 namespace CapaNegocio
 {
-    [Serializable]
     public class RegistroActividad
     {
         public DateTime Fecha { get; internal set; }

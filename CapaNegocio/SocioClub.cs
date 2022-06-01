@@ -7,7 +7,6 @@ using System.Collections;
 
 namespace CapaNegocio
 {
-    [Serializable]
     public class SocioClub : Socio
     {
         private static int DescuentoExcedente = 50;

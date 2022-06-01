@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace CapaNegocio
 {
-    [Serializable]
     public class CuentaCorriente
     {
         private Socio Socio;

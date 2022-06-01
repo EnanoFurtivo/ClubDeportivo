@@ -7,7 +7,6 @@ using System.Collections;
 
 namespace CapaNegocio
 {
-    [Serializable]
     public class SocioActividades : Socio
     {
         private int Dni;
