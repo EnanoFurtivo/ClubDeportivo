@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaControl", "CapaControl\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaDatos", "CapaDatos\CapaDatos.csproj", "{49489534-AFA6-4041-8CAC-4E1E2B785754}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIWeb", "UIWeb\UIWeb.csproj", "{19C9EBF8-B4AC-48CF-8AE5-73964C468609}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{49489534-AFA6-4041-8CAC-4E1E2B785754}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49489534-AFA6-4041-8CAC-4E1E2B785754}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49489534-AFA6-4041-8CAC-4E1E2B785754}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19C9EBF8-B4AC-48CF-8AE5-73964C468609}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19C9EBF8-B4AC-48CF-8AE5-73964C468609}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19C9EBF8-B4AC-48CF-8AE5-73964C468609}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19C9EBF8-B4AC-48CF-8AE5-73964C468609}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
