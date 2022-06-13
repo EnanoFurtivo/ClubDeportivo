@@ -64,17 +64,19 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AltaPersona.aspx" />
-    <Content Include="Inicio.aspx" />
+    <Content Include="InicioSesion.aspx" />
+    <Content Include="Inicio.aspx">
+      <BrowseToURL>/Inicio.aspx</BrowseToURL>
+    </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AltaPersona.aspx.cs">
-      <DependentUpon>AltaPersona.aspx</DependentUpon>
+    <Compile Include="InicioSesion.aspx.cs">
+      <DependentUpon>InicioSesion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AltaPersona.aspx.designer.cs">
-      <DependentUpon>AltaPersona.aspx</DependentUpon>
+    <Compile Include="InicioSesion.aspx.designer.cs">
+      <DependentUpon>InicioSesion.aspx</DependentUpon>
     </Compile>
     <Compile Include="Inicio.aspx.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>

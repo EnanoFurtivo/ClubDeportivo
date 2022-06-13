@@ -1,103 +1,170 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using RN;
 using CapaControl;
+using CapaNegocio;
 
 namespace UIWeb
 {
     public partial class Inicio : System.Web.UI.Page
     {
-        Administradora admin;
-        string lugarBase;//solo para usar Access u otra base que no corra en el Servidor SQL
+        UsuarioController Usuarios;
+        ActividadController Actividades;
+        Socio socioLogueado = null;
+        string LugarBase;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                //Recuperar datos                
-                //Leer usuario y clave de la sesion
-                //Mostrar/ocultar lista inscriptas, botones y label deuda
-                //Llenar listas y completar deuda
+                //Recuperar datos
+                string pathAux = Server.MapPath("/Inicio.aspx");
+                string[] path = pathAux.Split('\\');
+                path[path.Length - 1] = "bin";
+                path[path.Length - 2] = "ClubDeportivo";
 
+                string pathFinal = "";
+                foreach (string s in path)
+                    pathFinal += s + "\\";
 
-                admin = new Administradora();
-                Session["administra"] = admin;
-                refrescarLista();
-                lugarBase = Server.MapPath; //solo para usar Access u otra base que no corra en el Servidor SQL
+                pathFinal += "Debug" + "\\";
+
+                LugarBase = pathFinal;
+
+                //C:\Users\Bruno\source\repos\EnanoFurtivo\ClubDeportivo\UIWeb\Inicio.aspx
+
+                UsuarioController.PonerPathABaseAccess(LugarBase);
+                Usuarios = new UsuarioController();
+                Actividades = new ActividadController(Usuarios);
+                Usuarios.RecuperarRegistroActividades(Actividades);
+                Session["ucontrol"] = Usuarios;
+                Session["acontrol"] = Actividades;
             }
-        }
-        public void recuperarAdmin()
-        {
-            admin = (Administradora)Session["administra"];
-        }
-        public void refrescarLista()
-        {
+            else
+                recuperar();
 
-            //if(ListBox1.Items.Count>0)
-            ListBox1.Items.Clear();// Saco todo para que no se repitan
-            recuperarAdmin();
-            List<Persona> l= admin.darLista();
-            for(int i=0;i<l.Count; i++)
-            ListBox1.Items.Add(l[i].ToString());
-
-        }
-
-        protected void Button3_Click(object sender, EventArgs e)// Salir
-        {
-            Session.Clear();
-            Session.Abandon();
-            Response.Redirect("http:\\www.unimoron.edu.ar");
-           
-        }
-        
-        protected void Button1_Click(object sender, EventArgs e)//Crear
-        {
-            recuperarAdmin();        
-            Persona per = null;
-            try
+            //Leer usuario y clave de la sesion
+            if (Session["socio"] != null)
             {
-                int d = int.Parse(TextBox1.Text.Trim());
-                string n = TextBox2.Text.Trim();
-                per = new Persona(d, n);
-                if (admin.ponerPersona(per))
-                {
-                    refrescarLista();
-                    TextBox1.Text = string.Empty;
-                    TextBox2.Text = string.Empty;
-                    Label1.Text = string.Empty;
-                }
-                else
-                    Label1.Text = "Error al crear la persona. Verifique que el numero de DNI no esté repetido. ";
+              //  int dni;
+
+               // string dniStr = Session["dni"].ToString();
+                socioLogueado = (Socio)Session["socio"];
+
+              //  LabelError.Text = "hola" +" "+ dniStr + " " + clave;
+
+
+               // if (!ValidarDni(dniStr, out dni))
+                //    return;
+
+               // if (!ValidarClave(clave))
+                  //  return;
+
+               // if (Usuarios.ValidarCredenciales(dni, clave) == true)
+                  //  socioLogueado = (Socio)Usuarios.GetUsuario(dni);
+                
             }
-            catch (Exception ex)
+
+            //Mostrar/ocultar lista inscriptas, botones y label deuda
+            //Llenar listas y completar deuda
+
+            refrescarLista(Actividades.MostrarLista(), ListBoxActividades);
+
+            if (socioLogueado != null)
             {
-              Label1.Text="Error al crear la persona: " + ex.Message;
+                ListBoxInscriptas.Visible = true;
+                ButDesasignar.Visible = true;
+                ButInscribir.Visible = true;
+                Label1.Visible = true;
+
+                refrescarLista(socioLogueado.GetActividades(), ListBoxInscriptas);
+                double saldo = double.Parse(socioLogueado.GetSaldo().ToString());
+                string saldoStr = (saldo < 0) ? "    Deuda: " : "    Saldo a favor: ";
+                saldo = System.Math.Abs(saldo);
+
+
+                Label1.Text = saldoStr + "$" + saldo.ToString();
             }
         }
-
-        protected void Button2_Click(object sender, EventArgs e)//Eliminar Persona
+        public void recuperar()
         {
-            recuperarAdmin();
-            if (ListBox1.SelectedItem != null)
-            {
-                string textoPersona = ListBox1.SelectedValue;
-                int lugarGuion = textoPersona.IndexOf("-");
-                int dni = int.Parse(textoPersona.Substring(0, lugarGuion-1));
-                admin.eliminarPersona(dni);
-                ListBox1.ClearSelection();
-                Label1.Text = "Baja Realizada";
-                Response.Redirect("Inicio.aspx");
-            }
-            
+            Usuarios = (UsuarioController)Session["ucontrol"];
+            Actividades = (ActividadController)Session["acontrol"];
         }
-
-        protected void Button4_Click(object sender, EventArgs e)
+        private bool ValidarDni(string dniStr, out int dni)
         {
-            Response.Redirect("AltaPersona.aspx");
-            refrescarLista();
+            if (dniStr == "")
+            {
+                LabelError.Text = "    Se esperaba un dni";
+                dni = -1;
+                return false;
+            }
+
+            if (!int.TryParse(dniStr, out dni))
+            {
+                LabelError.Text = "    El dni debe ser numerico";
+                dni = -1;
+                return false;
+            }
+
+            return true;
+        }
+        private bool ValidarClave(string clave)
+        {
+            if (clave == "")
+            {
+                LabelError.Text = "    Se esperaba una clave";
+                return false;
+            }
+
+            return true;
+        }
+        public void refrescarLista(List<Actividad> actividades, ListBox listBox)
+        {
+            listBox.Items.Clear();
+            for(int i=0;i<actividades.Count; i++)
+                listBox.Items.Add(actividades[i].ToString());
+        }
+        public void refrescarLista(List<RegistroActividad> actividades, ListBox listBox)
+        {
+            listBox.Items.Clear();
+            for (int i = 0; i < actividades.Count; i++)
+                listBox.Items.Add(actividades[i].ToString());
+        }
+        protected void ButtonIngresar_Click(object sender, EventArgs e)
+        {
+           // recuperar();
+            string dniStr = this.TextBoxDni.Text;
+            int dni;
+            if (!ValidarDni(dniStr, out dni))
+                return;
+
+            string clave = TextBoxClave.Text;
+            if (!ValidarClave(clave))
+                return;
+
+            if (Usuarios.ValidarCredenciales(dni, clave) == true)
+            {
+                //Session["dni"] = dniStr;
+                Session["socio"] = Usuarios.GetUsuario(dni);
+                Response.Redirect(Request.RawUrl);
+            }
+            else
+                LabelError.Text = "    El dni o clave ingresada es incorrecta" + dni.ToString() +" "+ clave;
+        }
+        protected void ButtonInscribirse_Click(object sender, EventArgs e)
+        {
+
+        }
+        protected void ButtonDesasignar_Click(object sender, EventArgs e)
+        {
+            //RegistroActividad ra = (RegistroActividad)listBoxInscriptas.SelectedItem;
+            //s.DesvincularActividad(ra);
+            //RefrescarLista(false, true);
         }
     }
 }
