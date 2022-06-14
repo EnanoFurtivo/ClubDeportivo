@@ -14,7 +14,6 @@ namespace UIWeb
     {
         UsuarioController Usuarios;
         ActividadController Actividades;
-        //Socio socioLogueado;
         static string LugarBase;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -42,16 +41,13 @@ namespace UIWeb
 
                     UsuarioController.PonerPathABaseAccess(LugarBase);
 
-                  //  if (Usuarios == null && Actividades == null)
-                   // {
-                        Usuarios = new UsuarioController();
+                    Usuarios = new UsuarioController();
 
-                        Actividades = new ActividadController(Usuarios);
-                        Usuarios.RecuperarRegistroActividades(Actividades);
+                    Actividades = new ActividadController(Usuarios);
+                    Usuarios.RecuperarRegistroActividades(Actividades);
 
-                        Session["ucontrol"] = Usuarios;
-                        Session["acontrol"] = Actividades;
-                   // }
+                    Session["ucontrol"] = Usuarios;
+                    Session["acontrol"] = Actividades;
                 }
             }
         }
