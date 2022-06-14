@@ -11,7 +11,7 @@ namespace UIWeb
 {
 
 
-    public partial class Inicio
+    public partial class InicioSesion
     {
 
         /// <summary>
@@ -24,31 +24,31 @@ namespace UIWeb
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control LabelIniciarSesion.
+        /// Control LabelInicioSesion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelIniciarSesion;
+        protected global::System.Web.UI.WebControls.Label LabelInicioSesion;
 
         /// <summary>
-        /// Control TextBoxDni.
+        /// Control TxtBoxDni.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxDni;
+        protected global::System.Web.UI.WebControls.TextBox TxtBoxDni;
 
         /// <summary>
-        /// Control TextBoxClave.
+        /// Control TxtBoxClave.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxClave;
+        protected global::System.Web.UI.WebControls.TextBox TxtBoxClave;
 
         /// <summary>
         /// Control ButIngresar.
@@ -60,12 +60,12 @@ namespace UIWeb
         protected global::System.Web.UI.WebControls.Button ButIngresar;
 
         /// <summary>
-        /// Control LabelError.
+        /// Control LabelDeError.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelError;
+        protected global::System.Web.UI.WebControls.Label LabelDeError;
     }
 }

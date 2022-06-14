@@ -10,9 +10,10 @@ using CapaNegocio;
 
 namespace UIWeb
 {
-    public partial class InicioSesion : System.Web.UI.Page
+    public partial class InicioSesion: System.Web.UI.Page
     {
         UsuarioController Usuarios;
+        ActividadController Actividades;
         Socio socioLogueado = null;
         string LugarBase;
 
@@ -21,7 +22,7 @@ namespace UIWeb
             if (!IsPostBack)
             {
                 //Recuperar datos
-                string pathAux = Server.MapPath("/Inicio.aspx");
+                string pathAux = Server.MapPath("/InicioSesion.aspx");
                 string[] path = pathAux.Split('\\');
                 path[path.Length - 1] = "bin";
                 path[path.Length - 2] = "ClubDeportivo";
@@ -49,58 +50,42 @@ namespace UIWeb
             //Leer usuario y clave de la sesion
             if (Session["socio"] != null)
             {
-              //  int dni;
+                //  int dni;
 
-               // string dniStr = Session["dni"].ToString();
+                // string dniStr = Session["dni"].ToString();
                 socioLogueado = (Socio)Session["socio"];
 
-              //  LabelError.Text = "hola" +" "+ dniStr + " " + clave;
+                //  LabelError.Text = "hola" +" "+ dniStr + " " + clave;
 
 
-               // if (!ValidarDni(dniStr, out dni))
+                // if (!ValidarDni(dniStr, out dni))
                 //    return;
 
-               // if (!ValidarClave(clave))
-                  //  return;
+                // if (!ValidarClave(clave))
+                //  return;
 
-               // if (Usuarios.ValidarCredenciales(dni, clave) == true)
-                  //  socioLogueado = (Socio)Usuarios.GetUsuario(dni);
-                
+                // if (Usuarios.ValidarCredenciales(dni, clave) == true)
+                //  socioLogueado = (Socio)Usuarios.GetUsuario(dni);
+
             }
-
-            //Mostrar/ocultar lista inscriptas, botones y label deuda
-            //Llenar listas y completar deuda
-
-            refrescarLista(Actividades.MostrarLista(), ListBoxActividades);
-
-            if (socioLogueado != null)
-            {
-                ListBoxInscriptas.Visible = true;
-                ButDesasignar.Visible = true;
-                ButInscribir.Visible = true;
-                Label1.Visible = true;
-
-                refrescarLista(socioLogueado.GetActividades(), ListBoxInscriptas);
-                double saldo = double.Parse(socioLogueado.GetSaldo().ToString());
-                string saldoStr = (saldo < 0) ? "    Deuda: " : "    Saldo a favor: ";
-                saldo = System.Math.Abs(saldo);
-
-
-                Label1.Text = saldoStr + "$" + saldo.ToString();
-            }
+        }
+        public void recuperar()
+        {
+            Usuarios = (UsuarioController)Session["ucontrol"];
+            Actividades = (ActividadController)Session["acontrol"];
         }
         private bool ValidarDni(string dniStr, out int dni)
         {
             if (dniStr == "")
             {
-                LabelError.Text = "    Se esperaba un dni";
+                LabelDeError.Text = "    Se esperaba un dni";
                 dni = -1;
                 return false;
             }
 
             if (!int.TryParse(dniStr, out dni))
             {
-                LabelError.Text = "    El dni debe ser numerico";
+                LabelDeError.Text = "    El dni debe ser numerico";
                 dni = -1;
                 return false;
             }
@@ -111,7 +96,7 @@ namespace UIWeb
         {
             if (clave == "")
             {
-                LabelError.Text = "    Se esperaba una clave";
+                LabelDeError.Text = "    Se esperaba una clave";
                 return false;
             }
 
@@ -120,12 +105,12 @@ namespace UIWeb
         protected void ButtonIngresar_Click(object sender, EventArgs e)
         {
            // recuperar();
-            string dniStr = this.TextBoxDni.Text;
+            string dniStr = this.TxtBoxDni.Text;
             int dni;
             if (!ValidarDni(dniStr, out dni))
                 return;
 
-            string clave = TextBoxClave.Text;
+            string clave = this.TxtBoxClave.Text;
             if (!ValidarClave(clave))
                 return;
 
@@ -133,10 +118,12 @@ namespace UIWeb
             {
                 //Session["dni"] = dniStr;
                 Session["socio"] = Usuarios.GetUsuario(dni);
-                Response.Redirect(Request.RawUrl);
+                TxtBoxDni.Text = string.Empty;
+                TxtBoxClave.Text = string.Empty;
+                Response.Redirect("Inicio.aspx");
             }
             else
-                LabelError.Text = "    El dni o clave ingresada es incorrecta" + dni.ToString() +" "+ clave;
+                this.LabelDeError.Text = "    El dni o clave ingresada es incorrecta" + " " + dni.ToString() +" "+ clave;
         }
     }
 }

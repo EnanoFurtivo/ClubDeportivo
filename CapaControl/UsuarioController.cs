@@ -167,6 +167,25 @@ namespace CapaControl
                 }
             }
         }
+        public RegistroActividad RecuperarRegistroActividad(Actividad actividad, Socio socio)
+        {
+            RegistroActividad ra = null;
+
+            int idActividad;
+            DateTime fecha;
+            ArrayList datosSocios = DatosBd.RecuperarRegistroActividades(socio.Dni);
+
+            for (int i = 0; i <= datosSocios.Count - 2; i = i + 2)
+            {
+                idActividad = int.Parse(datosSocios[i].ToString());
+                fecha = DateTime.Parse(datosSocios[i + 1].ToString());
+
+                if(actividad.Id == idActividad)
+                    ra = new RegistroActividad(fecha, actividad);
+
+            }
+            return ra;
+        }
         public void RecuperarSocio()
         {
             int dni;

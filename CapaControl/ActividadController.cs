@@ -45,7 +45,10 @@ namespace CapaControl
         {
             return ListActividad.Find(u => u.Id == idActividad);
         }
-
+        public Actividad GetActividad(string nombre)
+        {
+            return ListActividad.Find(u => u.Descripcion == nombre);
+        }
         public bool ModificarActividad(int idActividad, int cantMaxParticipantes, string descripcion, double costo, Profesor profesor, string horario)
         {
             Actividad actividad = this.GetActividad(idActividad);
