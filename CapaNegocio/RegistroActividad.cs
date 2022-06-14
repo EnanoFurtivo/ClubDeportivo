@@ -14,7 +14,7 @@ namespace CapaNegocio
         }
         public override string ToString()
         {
-            return this.Actividad.Descripcion + " - " + this.Fecha.ToString();
+            return this.Actividad.Descripcion + " - " + this.Fecha.Date.ToString("dd-MM-yyyy");
         }
     }
 }

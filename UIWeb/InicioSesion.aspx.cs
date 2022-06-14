@@ -14,59 +14,45 @@ namespace UIWeb
     {
         UsuarioController Usuarios;
         ActividadController Actividades;
-        Socio socioLogueado = null;
-        string LugarBase;
+        //Socio socioLogueado;
+        static string LugarBase;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                //Recuperar datos
-                string pathAux = Server.MapPath("/InicioSesion.aspx");
-                string[] path = pathAux.Split('\\');
-                path[path.Length - 1] = "bin";
-                path[path.Length - 2] = "ClubDeportivo";
-
-                string pathFinal = "";
-                foreach (string s in path)
-                    pathFinal += s + "\\";
-
-                pathFinal += "Debug" + "\\";
-
-                LugarBase = pathFinal;
-
-                //C:\Users\Bruno\source\repos\EnanoFurtivo\ClubDeportivo\UIWeb\Inicio.aspx
-
-                UsuarioController.PonerPathABaseAccess(LugarBase);
-                Usuarios = new UsuarioController();
-                Actividades = new ActividadController(Usuarios);
-                Usuarios.RecuperarRegistroActividades(Actividades);
-                Session["ucontrol"] = Usuarios;
-                Session["acontrol"] = Actividades;
-            }
-            else
                 recuperar();
 
-            //Leer usuario y clave de la sesion
-            if (Session["socio"] != null)
-            {
-                //  int dni;
+                if(LugarBase == null)
+                {
+                    string pathAux = Server.MapPath("/InicioSesion.aspx");
+                    string[] path = pathAux.Split('\\');
+                    path[path.Length - 1] = "bin";
+                    path[path.Length - 2] = "ClubDeportivo";
 
-                // string dniStr = Session["dni"].ToString();
-                socioLogueado = (Socio)Session["socio"];
+                    string pathFinal = "";
+                    foreach (string s in path)
+                        pathFinal += s + "\\";
 
-                //  LabelError.Text = "hola" +" "+ dniStr + " " + clave;
+                    pathFinal += "Debug" + "\\";
 
+                    LugarBase = pathFinal;
 
-                // if (!ValidarDni(dniStr, out dni))
-                //    return;
+                    recuperar();
 
-                // if (!ValidarClave(clave))
-                //  return;
+                    UsuarioController.PonerPathABaseAccess(LugarBase);
 
-                // if (Usuarios.ValidarCredenciales(dni, clave) == true)
-                //  socioLogueado = (Socio)Usuarios.GetUsuario(dni);
+                  //  if (Usuarios == null && Actividades == null)
+                   // {
+                        Usuarios = new UsuarioController();
 
+                        Actividades = new ActividadController(Usuarios);
+                        Usuarios.RecuperarRegistroActividades(Actividades);
+
+                        Session["ucontrol"] = Usuarios;
+                        Session["acontrol"] = Actividades;
+                   // }
+                }
             }
         }
         public void recuperar()
@@ -104,7 +90,8 @@ namespace UIWeb
         }
         protected void ButtonIngresar_Click(object sender, EventArgs e)
         {
-           // recuperar();
+            recuperar();
+
             string dniStr = this.TxtBoxDni.Text;
             int dni;
             if (!ValidarDni(dniStr, out dni))
@@ -116,14 +103,17 @@ namespace UIWeb
 
             if (Usuarios.ValidarCredenciales(dni, clave) == true)
             {
-                //Session["dni"] = dniStr;
                 Session["socio"] = Usuarios.GetUsuario(dni);
                 TxtBoxDni.Text = string.Empty;
                 TxtBoxClave.Text = string.Empty;
                 Response.Redirect("Inicio.aspx");
             }
             else
-                this.LabelDeError.Text = "    El dni o clave ingresada es incorrecta" + " " + dni.ToString() +" "+ clave;
+            {
+                this.LabelDeError.Text = "    El dni o clave ingresada es incorrecta";
+                TxtBoxDni.Text = string.Empty;
+                TxtBoxClave.Text = string.Empty;
+            }
         }
     }
 }

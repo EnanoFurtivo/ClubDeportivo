@@ -38,6 +38,8 @@ namespace UIWeb
 
                     Label1.Text = saldoStr + "$" + saldo.ToString();
                 }
+
+                this.LabelBienvenida.Text = "Bienvenido/a de nuevo " + ((Usuario)socioLogueado).Nombre;
             }
         }
         public void recuperar()
@@ -57,32 +59,53 @@ namespace UIWeb
         {
             listBox.Items.Clear();
             recuperar();
-            for (int i = 0; i < actividades.Count; i++)
-                listBox.Items.Add(actividades[i].ToString());
+            if (actividades != null)
+            {
+                for (int i = 0; i < actividades.Count; i++)
+                    listBox.Items.Add(actividades[i].ToString());
+            }
         }
         protected void ButtonInscribirse_Click(object sender, EventArgs e)
         {
+            recuperar();
+
+            if(ListBoxActividades.SelectedIndex > -1 && !socioLogueado.ActividadRepetida(Actividades.GetActividadPorIndex(ListBoxActividades.SelectedIndex)))
+            {
+                socioLogueado.AsignarActividad(Actividades.GetActividadPorIndex(ListBoxActividades.SelectedIndex));
+
+                ListBoxActividades.ClearSelection();
+                refrescarLista(socioLogueado.GetActividades(), ListBoxInscriptas);
+                Label2.Text = "    Inscripcion realizada";
+            }
+            else
+            {
+                ListBoxInscriptas.ClearSelection();
+                refrescarLista(socioLogueado.GetActividades(), ListBoxInscriptas);
+                Label2.Text = "    Ya estas inscripto en esta actividad";
+            }
 
         }
         protected void ButtonDesasignar_Click(object sender, EventArgs e)
         {
             recuperar();
 
-            if (ListBoxInscriptas.SelectedItem != null)
+            if (ListBoxInscriptas.SelectedIndex > -1)
             {
-                string textoRegistroActividad = ListBoxInscriptas.SelectedValue;
-                int lugarGuion = textoRegistroActividad.IndexOf("-");
-                string nombre = textoRegistroActividad.Substring(0, lugarGuion-1);
-                Actividad act = Actividades.GetActividad(nombre);
-                if (act != null)
-                {
-                    RegistroActividad ra = Usuarios.RecuperarRegistroActividad(act, socioLogueado);
-                    socioLogueado.DesvincularActividad(ra);
-                }
+                socioLogueado.DesvincularActividad(socioLogueado.GetRegistroActividadPorIndex(ListBoxInscriptas.SelectedIndex));
+
                 ListBoxInscriptas.ClearSelection();
+                refrescarLista(socioLogueado.GetActividades(), ListBoxInscriptas);
                 Label2.Text = "    Baja de actividad realizada";
-                Response.Redirect("Inicio.aspx");
+
             }
+        }
+
+        protected void ButCerrarSesion_Click(object sender, EventArgs e)
+        {
+            // Session.Clear();
+            // Session.Abandon();
+           // recuperar();
+            Response.Redirect("InicioSesion.aspx");
         }
     }
 }

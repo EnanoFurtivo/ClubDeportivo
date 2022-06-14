@@ -129,5 +129,21 @@ namespace CapaNegocio
             this.RegistroActividades.Remove(registroActividad);
             DatosBd.EliminarRegistroActividad(this.Dni, registroActividad.Actividad.Id, registroActividad.Fecha);
         }
+        public RegistroActividad GetRegistroActividadPorIndex(int i)
+        {
+            return RegistroActividades[i];
+        }
+
+        public bool ActividadRepetida(Actividad actividad)
+        {
+            string desc = actividad.Descripcion;
+            bool estado = false;
+
+            foreach (RegistroActividad rActividad in this.RegistroActividades)
+                if (rActividad.Actividad.Descripcion == desc)
+                    estado = true;
+            
+            return estado;
+        }
     }
 }
