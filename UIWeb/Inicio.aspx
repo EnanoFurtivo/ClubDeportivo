@@ -29,17 +29,17 @@
             <br />
 &nbsp;&nbsp;
             <asp:ListBox ID="ListBoxActividades" runat="server" Height="249px" Width="195px" style="overflow-x:auto;"></asp:ListBox>
-            <asp:ListBox ID="ListBoxInscriptas" runat="server" Height="249px" Width="208px" style="margin-left: 66px; overflow-x:auto;" Visible="False"></asp:ListBox>
+            <asp:ListBox ID="ListBoxInscriptas" runat="server" Height="249px" Width="208px" style="margin-left: 66px; overflow-x:auto;"></asp:ListBox>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Label ID="Label1" runat="server" Visible="False"></asp:Label>
+            <asp:Label ID="Label1" runat="server"></asp:Label>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Label ID="Label2" runat="server"></asp:Label>
             &nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;
             <br />
             <div>
-            <asp:Button ID="ButInscribir" runat="server" Text="Inscribirse" OnClick="ButtonInscribirse_Click" style="margin-left: 282px; margin-top: 12px" Visible="False" />
-            <asp:Button ID="ButDesasignar" runat="server" OnClick="ButtonDesasignar_Click" Text="Desasignar" style="margin-left: 14px" Visible="False" />
+            <asp:Button ID="ButInscribir" runat="server" Text="Inscribirse" OnClick="ButtonInscribirse_Click" style="margin-left: 282px; margin-top: 12px" />
+            <asp:Button ID="ButDesasignar" runat="server" OnClick="ButtonDesasignar_Click" Text="Desasignar" style="margin-left: 14px" />
                 <div>
                     <asp:Button ID="ButCerrarSesion" runat="server" CssClass="auto-style1" OnClick="ButCerrarSesion_Click" Text="Cerrar Sesión" />
                 </div>

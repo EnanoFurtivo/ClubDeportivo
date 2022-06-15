@@ -25,11 +25,6 @@ namespace UIWeb
 
                 if (socioLogueado != null)
                 {
-                    ListBoxInscriptas.Visible = true;
-                    ButDesasignar.Visible = true;
-                    ButInscribir.Visible = true;
-                    Label1.Visible = true;
-
                     refrescarLista(socioLogueado.GetActividades(), ListBoxInscriptas);
                     double saldo = double.Parse(socioLogueado.GetSaldo().ToString());
                     string saldoStr = (saldo < 0) ? "    Deuda: " : "    Saldo a favor: ";
@@ -102,9 +97,6 @@ namespace UIWeb
 
         protected void ButCerrarSesion_Click(object sender, EventArgs e)
         {
-            // Session.Clear();
-            // Session.Abandon();
-           // recuperar();
             Response.Redirect("InicioSesion.aspx");
         }
     }

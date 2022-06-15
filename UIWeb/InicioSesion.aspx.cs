@@ -37,8 +37,6 @@ namespace UIWeb
 
                     LugarBase = pathFinal;
 
-                    recuperar();
-
                     UsuarioController.PonerPathABaseAccess(LugarBase);
 
                     Usuarios = new UsuarioController();
